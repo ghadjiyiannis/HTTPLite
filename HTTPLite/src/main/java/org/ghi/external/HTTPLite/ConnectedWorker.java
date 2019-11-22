@@ -15,7 +15,6 @@ import rawhttp.core.RawHttp;
 import rawhttp.core.RawHttpRequest;
 import rawhttp.core.RawHttpResponse;
 import rawhttp.core.body.FileBody;
-import rawhttp.core.body.StringBody;
 
 /**
  * The ConnectedWorker is responsible for serving all the requests that come from
