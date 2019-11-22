@@ -28,71 +28,71 @@ public class FileUtilTest {
 	}
 	
 	@Test(expected = ApplicationException.class)
-	public void testThrowsWhenDocumentRootNull() throws ApplicationException {
+	public void test_ThrowsWhen_DocumentRootNull() throws ApplicationException {
 		new FileUtil(null);
 	}
 
 	@Test
-	public void testGetHTMLFileFromPath() {
+	public void test_GetOK_HTMLFileFromPath() {
 		File file = fileUtil.getFileFromPath("/index.html");
 		// check that we got the right file
 		assertEquals(20611, fileUtil.getContentLength(file));
 	}
 	
 	@Test
-	public void testGetDeepHTMLFileFromPath() {
+	public void test_GetOK_DeepHTMLFileFromPath() {
 		File file = fileUtil.getFileFromPath("/blog/its_a_start/index.html");
 		// check that we got the right file
 		assertEquals(18358, fileUtil.getContentLength(file));
 	}
 	
 	@Test
-	public void testGetImplicitHTMLFileFromPath() {
+	public void test_GetOK_ImplicitHTMLFileFromPath() {
 		File file = fileUtil.getFileFromPath("/blog/its_a_start");
 		// check that we got the right file
 		assertEquals(18358, fileUtil.getContentLength(file));
 	}
 
 	@Test
-	public void testExistsReturnsTrue() {
+	public void test_ReturnsTrue_Exists() {
 		File file = fileUtil.getFileFromPath("/index.html");
 		assertTrue(fileUtil.exists(file));
 	}
 
 	@Test
-	public void testExistsReturnsFalse() {
+	public void test_ReturnsFalse_Exists() {
 		File file = fileUtil.getFileFromPath("/no_such_file");
 		assertFalse(fileUtil.exists(file));
 	}
 
 	@Test
-	public void testReadableReturnsTrue() {
+	public void test_ReturnsTrue_Readable() {
 		File file = fileUtil.getFileFromPath("/index.html");
 		assertTrue(fileUtil.isReadable(file));
 	}
 
 	@Test
-	public void testReadableReturnsFalse() {
+	public void test_ReturnsFalse_Readable() {
 		File file = fileUtil.getFileFromPath("/not_readable.html");
 		assertFalse(fileUtil.isReadable(file));
 	}
 
 	@Test
-	public void testContentLength() {
+	public void test_ContentLength() {
 		File file = fileUtil.getFileFromPath("/index.html");
 		// check that we got the right length
 		assertEquals(20611, fileUtil.getContentLength(file));
 	}
 
 	@Test
-	public void testContentTypeHTML() throws ApplicationException {
+	public void test_HTML_ContentType() throws ApplicationException {
 		File file = fileUtil.getFileFromPath("/index.html");
 		// check that we got the right length
 		assertEquals("text/html", fileUtil.getContentType(file));
 	}
 
 	@Test
-	public void testContentTypeCSS() throws ApplicationException {
+	public void test_CSS_ContentType() throws ApplicationException {
 		File file = fileUtil.getFileFromPath("/css/main.min.css");
 		// check that we got the right length
 		assertEquals("text/css", fileUtil.getContentType(file));
@@ -103,21 +103,21 @@ public class FileUtilTest {
 	 */
 	@Ignore
 	@Test
-	public void testContentTypeJS() throws ApplicationException {
+	public void test_JS_ContentType() throws ApplicationException {
 		File file = fileUtil.getFileFromPath("/js/main.js");
 		// check that we got the right length
 		assertEquals("text/javascript", fileUtil.getContentType(file));
 	}
 
 	@Test
-	public void testContentTypeJPEG() throws ApplicationException {
+	public void test_JPEG_ContentType() throws ApplicationException {
 		File file = fileUtil.getFileFromPath("/img/main/logo.jpg");
 		// check that we got the right length
 		assertEquals("image/jpeg", fileUtil.getContentType(file));
 	}
 
 	@Test
-	public void testLastModifiedDate() {
+	public void test_LastModifiedDate() {
 		File file = fileUtil.getFileFromPath("/index.html");
 		// set the modifed date to something predictable so that we can check
 		Date now = new Date();
