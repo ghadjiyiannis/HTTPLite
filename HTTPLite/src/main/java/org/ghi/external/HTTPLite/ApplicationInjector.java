@@ -22,13 +22,11 @@ public class ApplicationInjector implements IApplicationInjector {
 	}
 
 	public Runnable getServerListener(Logger logger, int port, int poolSize) throws ApplicationException {
-		// TODO Auto-generated method stub
-		return null;
+		return new ServerListener(this, logger, port, poolSize);
 	}
 
-	public Runnable getWorker(Logger logger, Socket socket) throws ApplicationException {
-		// TODO Auto-generated method stub
-		return null;
+	public Runnable getWorker(Logger logger, Socket clientSocket) throws ApplicationException {
+		return new ConnectedWorker(this, logger, clientSocket);
 	}
 
 	public IFileUtil getFileUtil() throws ApplicationException {
