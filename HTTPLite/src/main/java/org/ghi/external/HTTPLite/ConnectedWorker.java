@@ -3,12 +3,19 @@ package org.ghi.external.HTTPLite;
 import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.Optional;
+import static java.time.format.DateTimeFormatter.RFC_1123_DATE_TIME;
 
 import org.apache.logging.log4j.Logger;
 
 import rawhttp.core.RawHttp;
 import rawhttp.core.RawHttpRequest;
+import rawhttp.core.RawHttpResponse;
+import rawhttp.core.body.FileBody;
+import rawhttp.core.body.StringBody;
 
 /**
  * 
@@ -72,7 +79,7 @@ public class ConnectedWorker implements Runnable {
 			logger.error("Internal server error while processing request: ", e);
 			
 			// respond with 500 Internal Server Error
-			respondInternalServerError(http);
+			respondInternalServerError(http, e.getMessage());
 			
 		} finally {
 			logger.debug("Exiting connection...");
@@ -145,39 +152,116 @@ public class ConnectedWorker implements Runnable {
 	}
 
 	// respond with 200 OK (plus content)
-	private void respondOKWithContent(RawHttp http, File file) {
-		// TODO Auto-generated method stub
+	private void respondOKWithContent(RawHttp http, File file) throws ApplicationException {
+		// get the content type from the file itself
+		String contentType = fileUtil.getContentType(file);
+		// get the last modified date
+		Date lastModifiedDate = fileUtil.getLastModifiedDate(file);
 		
+		// create the response
+		Optional<Date> lastModified = Optional.of(lastModifiedDate);
+		RawHttpResponse<?> response =  createBasicResponse(http, 200, "OK", contentType, lastModified);
+		response.withBody(new FileBody(file));
+		// send it
+		try {
+			response.writeTo(clientSocket.getOutputStream());
+		} catch (IOException e) {
+			throw new ApplicationException("Error sending response: ", e);
+		}
 	}
 
 	// respond with 200 OK (without content)
-	private void respondOKWithoutContent(RawHttp http, File file) {
-		// TODO Auto-generated method stub
+	private void respondOKWithoutContent(RawHttp http, File file) throws ApplicationException  {
+		// get the content type from the file itself
+		String contentType = fileUtil.getContentType(file);
+		// get the last modified date
+		Date lastModifiedDate = fileUtil.getLastModifiedDate(file);
 		
+		// create the response
+		Optional<Date> lastModified = Optional.of(lastModifiedDate);
+		RawHttpResponse<?> response =  createBasicResponse(http, 200, "OK", contentType, lastModified);
+		// send it
+		try {
+			response.writeTo(clientSocket.getOutputStream());
+		} catch (IOException e) {
+			throw new ApplicationException("Error sending response: ", e);
+		}
 	}
 	
 	// respond with 403 Forbidden
-	private void respondForbidden(RawHttp http) {
-		// TODO Auto-generated method stub
-		
+	private void respondForbidden(RawHttp http) throws ApplicationException {
+		// create the response
+		Optional<Date> lastModified = Optional.empty();
+		RawHttpResponse<?> response =  createBasicResponse(http, 403, "Forbidden", "plain/text", lastModified);
+		// send it
+		try {
+			response.writeTo(clientSocket.getOutputStream());
+		} catch (IOException e) {
+			throw new ApplicationException("Error sending response: ", e);
+		}
 	}
 
 	// respond with 404 Not Found
-	private void respondNotFound(RawHttp http) {
-		// TODO Auto-generated method stub
-		
+	private void respondNotFound(RawHttp http) throws ApplicationException {
+		// create the response
+		Optional<Date> lastModified = Optional.empty();
+		RawHttpResponse<?> response =  createBasicResponse(http, 404, "Not Found", "plain/text", lastModified);
+		// send it
+		try {
+			response.writeTo(clientSocket.getOutputStream());
+		} catch (IOException e) {
+			throw new ApplicationException("Error sending response: ", e);
+		}
 	}
 
 	// respond with 405 Method Not Allowed
-	private void respondMethodNotAllowed(RawHttp http) {
-		// TODO Auto-generated method stub
-		
+	private void respondMethodNotAllowed(RawHttp http) throws ApplicationException {
+		// create the response
+		Optional<Date> lastModified = Optional.empty();
+		RawHttpResponse<?> response =  createBasicResponse(http, 405, "Method Not Allowed", "plain/text", lastModified);
+		// send it
+		try {
+			response.writeTo(clientSocket.getOutputStream());
+		} catch (IOException e) {
+			throw new ApplicationException("Error sending response: ", e);
+		}
 	}
 	
 	// respond with 500 Internal Server Error
-	private void respondInternalServerError(RawHttp http) {
-		// TODO Auto-generated method stub
+	private void respondInternalServerError(RawHttp http, String msg) {
+		// the message can be null - fix it
+		msg = (null == msg)?"":msg;
 		
+		// create the response
+		Optional<Date> lastModified = Optional.empty();
+		RawHttpResponse<?> response =  createBasicResponse(http, 500, "Internal Server Error", "plain/text", lastModified);
+		response.withBody(new StringBody(msg));
+		// send it
+		try {
+			response.writeTo(clientSocket.getOutputStream());
+		} catch (IOException e) {
+			logger.error("Unknown error while trying to responde with 500: ",  e);
+			// consume the exception - we were already sending a 500 and exiting...
+		}
 	}
 
+	private RawHttpResponse<?> createBasicResponse(RawHttp http, int status, String statusText,  String contentType, Optional<Date> lastModified) {
+		// get the date and time of the response
+		String dateString = RFC_1123_DATE_TIME.format(ZonedDateTime.now(ZoneOffset.UTC));
+		
+		// if keep-alive is set we need to insert the header in the response
+		String connectionHeader = keepalive?"Connection: keep-alive\r\n":"";
+		
+		// if we have a Last Modified date we need to insert it
+		String lastModifiedHeader = lastModified.isPresent()?"Last-Modified: " + lastModified.get().toString() + "\r\n":"";
+		
+		// construct the response
+		return http.parseResponse(
+			    "HTTP/1.1 " + status + " "+ statusText + "\r\n" +
+			    "Content-Type: " + contentType + "\r\n" +
+			    "Server: RawHTTP\r\n" +
+			    "Date: " + dateString + "\r\n" +
+			    connectionHeader +
+			    lastModifiedHeader);
+	}
 }
