@@ -50,8 +50,12 @@ public class FileUtil implements IFileUtil {
 	/*
 	 * This uses the detectors already installed on the system 
 	 */
-	public String getContentType(File file) throws IOException {
-		return Files.probeContentType(file.toPath());
+	public String getContentType(File file) throws ApplicationException {
+		try {
+			return Files.probeContentType(file.toPath());
+		} catch (IOException e) {
+			throw new ApplicationException("Error getting content type: ", e);
+		}
 	}
 
 	public Date getLastModifiedDate(File file) {

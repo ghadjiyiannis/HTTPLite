@@ -3,7 +3,6 @@ package org.ghi.external.HTTPLite;
 import static org.junit.Assert.*;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
 
@@ -86,14 +85,14 @@ public class FileUtilTest {
 	}
 
 	@Test
-	public void testContentTypeHTML() throws IOException {
+	public void testContentTypeHTML() throws ApplicationException {
 		File file = fileUtil.getFileFromPath("/index.html");
 		// check that we got the right length
 		assertEquals("text/html", fileUtil.getContentType(file));
 	}
 
 	@Test
-	public void testContentTypeCSS() throws IOException {
+	public void testContentTypeCSS() throws ApplicationException {
 		File file = fileUtil.getFileFromPath("/css/main.min.css");
 		// check that we got the right length
 		assertEquals("text/css", fileUtil.getContentType(file));
@@ -104,14 +103,14 @@ public class FileUtilTest {
 	 */
 	@Ignore
 	@Test
-	public void testContentTypeJS() throws IOException {
+	public void testContentTypeJS() throws ApplicationException {
 		File file = fileUtil.getFileFromPath("/js/main.js");
 		// check that we got the right length
 		assertEquals("text/javascript", fileUtil.getContentType(file));
 	}
 
 	@Test
-	public void testContentTypeJPEG() throws IOException {
+	public void testContentTypeJPEG() throws ApplicationException {
 		File file = fileUtil.getFileFromPath("/img/main/logo.jpg");
 		// check that we got the right length
 		assertEquals("image/jpeg", fileUtil.getContentType(file));

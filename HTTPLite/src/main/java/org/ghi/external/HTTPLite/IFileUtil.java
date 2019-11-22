@@ -24,7 +24,7 @@ public interface IFileUtil {
 	
 	public long getContentLength(File file);
 	
-	public String getContentType(File file) throws IOException;
+	public String getContentType(File file) throws ApplicationException;
 	
 	public Date getLastModifiedDate(File file);
 }
