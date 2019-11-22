@@ -19,7 +19,7 @@ public class FileUtilTest {
 	private static FileUtil fileUtil;
 	
 	@BeforeClass
-	public static void beforeClass() throws ApplicationException, IOException {
+	public static void beforeClass() throws ApplicationException {
 		// lets use the same config as the application
 		Properties properties = HTTPLite.getConfigPropertiesFromClasspath();
 		// extract Document Root
