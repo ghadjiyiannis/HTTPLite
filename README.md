@@ -17,7 +17,7 @@ An implementation of a simple web server to serve files from the local filesyste
 11. The tests demonstrate the use of mocking to increase coverage (especially of error conditions)
 12. There is an application log containing error, warning, info, and debug messages
 13. The server is not currently locaization intenationalization ready. This can be done at a later time. 
-14. The current implementation does not implement an access lof. This can be implmented later.
+14. The current implementation does not implement an access log. This can be implemented later.
 
 ## Known Issues
 
