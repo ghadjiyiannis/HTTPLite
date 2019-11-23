@@ -46,6 +46,6 @@ Also, I chose to hand-craft the mock objects for simplicity and clarity, but on 
 1. Clone this repository.
 2. The project is maven based - you should be able to build it using maven.
 3. Adjust the config.properties file (in HTTPLite/src/main/resources) to point to the sample document root. The sample document root is the directory named httpd in the repository.
-4. Make the file "httpd/not_readable.html" not readable. How to do this will depend on your system. If this file is readable then the correspnding FileUtilTest will fail, as well as the test for a 403 Forbdden response.
+4. Make the file "httpd/not_readable.html" not readable. How to do this will depend on your system. If this file is readable then the corresopnding FileUtilTest will fail, as well as the test for a 403 Forbdden response.
 5. Run the AllTests Junit test suite (either through maven or by invoking a different runner)
 6. Bring up the root page in a browser and navigate around.
