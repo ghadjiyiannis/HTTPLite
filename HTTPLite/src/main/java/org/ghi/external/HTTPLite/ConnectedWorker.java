@@ -162,6 +162,14 @@ public class ConnectedWorker implements Runnable {
 		return connectionHeader.get().equals("keep-alive");
 	}
 
+	/*
+	 * Style note on respond methods: From a strict, best practice perspective, this would appear
+	 * to have a high percentage of replicated code. However, while debugging I found that it is easier
+	 * to read what the response would look like when all of it is expanded like this, rather than 
+	 * packing it all into one or two methods with lots of conditionals. I have opted for readability
+	 * above compactness. The behavior is not expected to change, since it is defined in the protocol.
+	 */
+	
 	// respond with 200 OK (plus content)
 	private void respondOKWithContent(RawHttp http, File file) throws ApplicationException {
 		// get the content type from the file itself
