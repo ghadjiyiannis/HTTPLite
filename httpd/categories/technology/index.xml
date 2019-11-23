@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Technology on George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/categories/technology/</link>
+    <description>Recent content in Technology on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 11 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Choosing Technologies</title>
+      <link>https://ghadjiyiannis.github.io/blog/choosing_technologies/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/choosing_technologies/</guid>
+      <description>Despite growing up in a country where football (soccer, for my American readers) is the universal passion, I never understood the appeal, and I never shared it. However, I suspect it to be similar to the passion that a discussion on technology choices evokes among software engineers and architects: despite being otherwise excessively rational beings (at least according to everyone in a different profession), we favor technologies by faith instead of reason, and we get emotionally attached to them.</description>
+    </item>
+    
+  </channel>
+</rss>

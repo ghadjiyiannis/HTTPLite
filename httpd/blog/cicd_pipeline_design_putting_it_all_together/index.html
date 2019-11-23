@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+<title>CI/CD Pipeline Design: Putting it all together - George Hadjiyiannis</title>
+<meta name="description" content="How the full set of pipelines is composed from the basic building blocks, and some further optimizations.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <meta name="generator" content="Hugo 0.57.2" />
+  <meta itemprop="name" content="CI/CD Pipeline Design: Putting it all together">
+<meta itemprop="description" content="How the full set of pipelines is composed from the basic building blocks, and some further optimizations.">
+
+
+<meta itemprop="datePublished" content="2019-08-07T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-08-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="4199">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <meta property="og:title" content="CI/CD Pipeline Design: Putting it all together" />
+<meta property="og:description" content="How the full set of pipelines is composed from the basic building blocks, and some further optimizations." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_putting_it_all_together/" />
+<meta property="article:published_time" content="2019-08-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-08-07T00:00:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CI/CD Pipeline Design: Putting it all together"/>
+<meta name="twitter:description" content="How the full set of pipelines is composed from the basic building blocks, and some further optimizations."/>
+
+  
+
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
+  
+    
+      <link rel="stylesheet" href="/css/normalize.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+      <link rel="stylesheet" href="/css/main.min.css">
+      <link rel="stylesheet" href="/css/add-on.css">
+    
+  
+  
+  
+  
+  
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/">
+        
+          
+            Blog
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        <a href="/" class="link"><i class="fas fa-home">&nbsp;</i>Home</a>
+      
+        <a href="/about/" class="link"><i class="far fa-id-card">&nbsp;</i>About</a>
+      
+        <a href="/blog/" class="link"><i class="far fa-newspaper">&nbsp;</i>Blog</a>
+      
+        <a href="/categories/" class="link"><i class="fas fa-sitemap">&nbsp;</i>Categories</a>
+      
+        <a href="/contact/" class="link"><i class="far fa-envelope">&nbsp;</i>Contact</a>
+      
+      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    
+    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_putting_it_all_together%2f&amp;text=CI%2fCD%20Pipeline%20Design%3a%20Putting%20it%20all%20together&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_putting_it_all_together%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_putting_it_all_together%2f&amp;title=CI%2fCD%20Pipeline%20Design%3a%20Putting%20it%20all%20together" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_putting_it_all_together%2f&amp;title=CI%2fCD%20Pipeline%20Design%3a%20Putting%20it%20all%20together" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_putting_it_all_together%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro">
+  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="" alt="George Hadjiyiannis" /></a>
+  <header>
+    <h1>George Hadjiyiannis</h1>
+  </header>
+  <main>
+    <p>Software Executive, Entrepreneur, Software Architect</p>
+  </main>
+  
+    <footer>
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+        <h2><a href="/blog/cicd_pipeline_design_putting_it_all_together/">CI/CD Pipeline Design: Putting it all together</a></h2>
+    
+    
+        <p>How the full set of pipelines is composed from the basic building blocks, and some further optimizations.</p>
+    
+</div>
+  <div class="meta">
+    <time class="published" datetime="2019-08-07 00:00:00 &#43;0000 UTC">
+      August 7, 2019
+    </time>
+    <span class="author">George Hadjiyiannis</span>
+    
+        <p>20 minute read</p>
+    
+  </div>
+</header>
+
+  <section id="social-share">
+    
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_putting_it_all_together%2f&amp;text=CI%2fCD%20Pipeline%20Design%3a%20Putting%20it%20all%20together&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_putting_it_all_together%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_putting_it_all_together%2f&amp;title=CI%2fCD%20Pipeline%20Design%3a%20Putting%20it%20all%20together" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_putting_it_all_together%2f&amp;title=CI%2fCD%20Pipeline%20Design%3a%20Putting%20it%20all%20together" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_putting_it_all_together%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+<a href="/blog/cicd_pipeline_design_putting_it_all_together/" class="image featured">
+  <img src="/img/2019/08/mechanism.jpg" alt="Pipeline Structure">
+</a>
+
+
+  <div class="content">
+    
+
+<p>This is the last part in our series on designing CI/CD pipelines. The <a href="/blog/cicd_pipeline_design_environments/" title="CI/CD Pipeline Design: The Stages">first part</a> of the series
+defined the objectives of the pipelines, and defined the stages that go with them. The <a href="/blog/cicd_pipeline_design_build_deploy_test/" title="CI/CD Pipeline Design: Build-Deploy-Test">second part</a>
+covered in detail the core Build-Deploy-Test scripts, which together effectively implement all the
+necessary functionality. In this third and final part, we will cover how we put together all of the
+stages described in <a href="/blog/cicd_pipeline_design_environments/" title="CI/CD Pipeline Design: The Stages">Part 1</a>, by composing them using the blocks described in <a href="/blog/cicd_pipeline_design_build_deploy_test/" title="CI/CD Pipeline Design: Build-Deploy-Test">Part 2</a>.
+We will also cover a number of optimizations that can be made. If you have not read the first two parts,
+I recommend you do so now, as this part relies heavily on the concepts presented in those articles.</p>
+
+<p>Let&rsquo;s start with a short refresher. The stages are in most ways identical, differing primarily in three
+key variables:</p>
+
+<ol>
+<li>How/when the stage is triggered</li>
+<li>Which version of the software it builds and tests</li>
+<li>Which tests and checks it runs</li>
+</ol>
+
+<p>The table below shows the summary for all stages described in <a href="/blog/cicd_pipeline_design_environments/" title="CI/CD Pipeline Design: The Stages">Part 1</a>:</p>
+
+<table>
+    <tr>
+        <th width="10%">Stage</th>
+        <th width="20%">Version</th>
+        <th width="20%">Trigger</th>
+        <th width="50%">Tests / Checks</th>
+    </tr>
+    <tr>
+        <td>Local</td>
+        <td>Local changes</td>
+        <td>Manual</td>
+        <td>style checks, static code analysis, unit tests, smoke tests, specific tests by developer</td>
+    </tr>
+    <tr>
+        <td>Commit</td>
+        <td>Version in Commit</td>
+        <td>Commit</td>
+        <td>style checks, static code analysis, unit tests, smoke tests</td>
+    </tr>
+    <tr>
+        <td>Nightly</td>
+        <td>Snapshot at trigger time</td>
+        <td>External timer</td>
+        <td>style checks, static code analysis, unit tests, expensive code analysis, full regression</td>
+    </tr>
+    <tr>
+        <td>RC</td>
+        <td>Release candidate</td>
+        <td>Manual by the PO</td>
+        <td>style checks, static code analysis, unit tests, expensive code analysis, full regression</td>
+    </tr>
+    <tr>
+        <td>PLS</td>
+        <td>Release candidate</td>
+        <td>Manual by the PO</td>
+        <td>Performance, Load, and Stress tests</td>
+    </tr>
+    <tr>
+        <td>SEC</td>
+        <td>Release candidate</td>
+        <td>Manual by the PO</td>
+        <td>Security tests</td>
+    </tr>
+</table>
+
+<p>The key functionality is implemented by three main scripts, as described in <a href="/blog/cicd_pipeline_design_build_deploy_test/" title="CI/CD Pipeline Design: Build-Deploy-Test">Part 2</a>:</p>
+
+<ul>
+<li>The Build script takes as parameters the tag, representing a version of the software in the source
+code repository, and the label, representing the artifacts in the artifact repo. It clones the corresponding
+code from the source code repository, builds it into deployable artifacts (e.g., RPMs, docker images) and
+stores them in the artifact repo under the label. It also runs most of the local static analysis, plus the
+unit tests.</li>
+<li>The Deploy script takes as parameters the label, and the name of an environment. It spins up a raw copy
+of the environment (containing the OS, but none of the application artifacts), deploys the application
+artifacts corresponding to the label, and initializes the application. In our case, the tests are packaged
+as their own artifact under the same label, and can be run on the same environment (i.e., the test code
+is deployed on the environment along with the application artifacts).</li>
+<li>The Test script takes as parameters the location of an environment, and the name of a test suite, and
+executes the corresponding tests against the environment. Once the tests are complete, it persists the
+results as well as the application logs, saves a snapshot, and spins the environment down.</li>
+</ul>
+
+<h4 id="putting-it-all-together">Putting it all together</h4>
+
+<p>The following sections describe how each of the stages is put together.</p>
+
+<h5 id="local">Local</h5>
+
+<p>The Local stage in in a lot of respects the easiest stage to build up, despite the lack of CI/CD infrastructure.
+The &ldquo;pipeline&rdquo; is triggered manually by invoking the wrapper script, either from the command line, or by
+configuring the IDE in the right way. Written as pseudo-code, the Local &ldquo;pipeline&rdquo; looks like this:</p>
+
+<pre><code class="language-shell"># get the basic parameters for the stage
+$TAG=&quot;local&quot;
+$LABEL=&quot;local&quot; + getUUID()
+$TARGET_ENV=&quot;local_VM&quot;
+
+build $TAG $LABEL             # builds the local version of the code
+deploy $LABEL $TARGET_ENV     # deploy to local VM
+test $TARGET_ENV smoke_tests --no-spin-down
+</code></pre>
+
+<p>The tag that needs to be passed to the Build script is simply hardwired to the special tag &ldquo;local&rdquo;, which
+instructs the Build script to use the code in the machine&rsquo;s default workspace as is. Note that this allows
+Local the ability to build code that is not in the repository yet - this is essential to satisfying the
+requirement that a number of tests and checks are run <em>before</em> the changes are committed. Local is the only
+stage that can test changes before they make it into the code repository. The label is similarly trivial and
+is constructed as a UUID. The environment is also trivial, and is hardwired to a local VM, resident on the
+developer&rsquo;s laptop. Finally, the test suite is set to run the smoke tests, but with the caveat that the developer
+is expected to run additional tests specific to the modifications (s)he made. This is why the Test script is
+given the option <code>--no-spin-down</code>, which causes the environment to be left running after the tests are completed.
+Note that the Build script will also run all checks that do not take too long, as well as the appropriate unit
+tests.</p>
+
+<h5 id="commit">Commit</h5>
+
+<p>The Commit stage is in some respects the most complicated. The pseudo-code looks like:</p>
+
+<pre><code class="language-shell"># get the parameters for the stage
+$TAG=&quot;commit&quot; + getCommitSHA()
+# note that this tag needs to be created
+tag getCommitSHA() $TAG             # Create the tag for the commit         
+$LABEL=&quot;commit&quot; + getCommitSHA()
+$TARGET_ENV=&quot;commit_VM&quot;
+
+build $TAG $LABEL             # builds the version corresponding to the commit SHA
+deploy $LABEL $TARGET_ENV     # deploy to Commit environment
+test $TARGET_ENV smoke_tests  # smoke tests are enough
+</code></pre>
+
+<p>The Commit pipeline is triggered externally by an event generated by the code repository when a commit
+happens. The tag is non-trivial, and must be created automatically. The code first determines the unique
+identifier of the commit (in git, this would be the SHA corresponding to the commit), and then uses this
+to construct a tag identifier. It then creates the corresponding tag on the right version of the code. This
+allows the Build script to get the right version of the code once it starts executing. The label is similarly
+constructed. The environment is hardwired to an environment reserved for the Commit stage, and the test suite
+is once again smoke tests. Note that, as is the case in the Local stage, the Build script will run all static
+analysis checks that do not take too long, as well as all the appropriate unit tests. Unlike the case of the
+Local stage, however, the environment will be spun down once the tests complete.</p>
+
+<h5 id="nightly">Nightly</h5>
+
+<p>The Nightly stage is similar to the Commit stage. The pseudo-code looks like:</p>
+
+<pre><code class="language-shell"># get the basic parameters for the stage
+$TAG=&quot;nightly&quot; + getDateDDMMYYYY()
+# Note that this tag needs to be created
+tag HEAD $TAG
+$LABEL=&quot;nightly&quot; + getDateDDMMYYYYY()
+$TARGET_ENV=&quot;nightly_VM&quot;
+
+build $TAG $LABEL --run-slow-checks    # include all checks this time
+deploy $LABEL $TARGET_ENV              # deploy to Nightly environment
+test $TARGET_ENV regression            # run all tests
+</code></pre>
+
+<p>The Nightly stage is triggered by a timer in the CI/CD infrastructure. As in the case of the Commit pipeline,
+the tag is constructed automatically, and created when the pipeline runs. In the case of Nightly, however,
+it corresponds to the latest code available in the repository when the pipeline runs (i.e., the HEAD of the
+corresponding branch). Also note that this time, the slow checks are included in the build step, since the
+goal of Nightly is to prevent the code degradation that can happen when some checks and tests are skipped. The
+label is constructed in a similar fashion to the tag. As before, the environment is hardwired to an environment
+dedicated to Nightly. This pipeline runs full regression testing, and also spins the environment down once the
+tests complete.</p>
+
+<h5 id="rc">RC</h5>
+
+<p>The RC stage is almost identical to the Nightly stage, except for the code repository tag. The pseudo-code looks like:</p>
+
+<pre><code class="language-shell"># get the basic parameters for the stage
+$TAG=$ARGV[1]             # get the tag externally - it is already created
+$LABEL=&quot;rc_&quot; + $TAG
+$TARGET_ENV=&quot;rc_VM&quot;
+
+build $TAG $LABEL --run-slow-checks    # include all checks this time
+deploy $LABEL $TARGET_ENV              # deploy to RC environment
+test $TARGET_ENV regression            # run all tests
+</code></pre>
+
+<p>The RC pipeline is invoked manually using the UI of the CI/CD infrastructure. Before the pipeline is invoked, the PO
+will have arranged for the right code changes to be cherry-picked into a short-lived release branch, and would have tagged
+the right version of the code manually. The corresponding tag would then be passed in through the UI when the pipeline
+is invoked. Thus the tag for the RC stage is obtained externally. The rest of the process is identical to that of Nightly
+(except that the target environment is now a VM dedicated to RC testing). In particular, all code checks and full
+regression tests are run.</p>
+
+<h5 id="pls">PLS</h5>
+
+<p>The PLS stage is a bit different from the previous stages; in pseudo-code it looks like:</p>
+
+<pre><code class="language-shell"># get the basic parameters for the stage
+$TAG=$ARGV[1]             # get the tag externally - same as RC
+$LABEL=&quot;rc_&quot; + $TAG
+$TARGET_ENV=&quot;pls_VM&quot;
+
+# no build step
+deploy $LABEL $TARGET_ENV              # deploy to PLS environment
+test $TARGET_ENV pls                   # run performance, load, and stress tests
+</code></pre>
+
+<p>The pipeline can be invoked either manually using the same method as RC, or automatically once the build step of RC has
+finished. Either way, the most noteworthy difference to RC is that the PLS stage has no need for its own build step, since
+we only run PLS tests on release candidates, and the artifacts will have already been built by the RC pipeline. For the
+same reason, the PLS stage does not strictly speaking need the tag, but it is easier to take the tag as input and construct
+from it the right label, rather than ask the user to make sure (s)he passes in the right label. Also, the PLS stage runs
+the PLS tests instead of regression tests.</p>
+
+<h5 id="sec">SEC</h5>
+
+<p>The SEC stage is practically identical to the PLS stage; the pseudocode is as follows:</p>
+
+<pre><code class="language-shell"># get the basic parameters for the stage
+$TAG=$ARGV[1]             # get the tag externally - same as RC
+$LABEL=&quot;rc_&quot; + $TAG
+$TARGET_ENV=&quot;sec_VM&quot;
+
+# no build step
+deploy $LABEL $TARGET_ENV              # deploy to SEC environment
+test $TARGET_ENV security              # run security tests
+</code></pre>
+
+<p>The SEC stage is invoked the same way as the PLS stage, and operates in an almost identical fashion, except that it runs
+against an environment dedicated to SEC, and runs the security tests instead of the PLS tests.</p>
+
+<h5 id="production">Production</h5>
+
+<p>While we have not raised the possibility before, it is possible to deploy to production using exactly the same structure.
+In fact, this is the ideal scenario, as it ensures there are no differences between the test environments and the
+production environment. The pseudo-code for the production pipeline looks like:</p>
+
+<pre><code class="language-shell"># get the basic parameters for the stage
+$TAG=$ARGV[1]             # get the tag externally - same as RC
+$LABEL=&quot;rc_&quot; + $TAG
+$TARGET_ENV=&quot;production&quot;
+
+# no build step
+deploy $LABEL $TARGET_ENV                    # deploy to production environment
+test $TARGET_ENV smoke_tests --no-spin-down  # make sure release succeeded
+</code></pre>
+
+<p>Once again there is no need for a build step - we just use the artifacts created by the corresponding RC stage run. After
+deployment is complete, we run the smoke tests to make sure the release succeeded. If so, the environment we released to
+is ready to take traffic. In the context of <a href="https://martinfowler.com/bliki/BlueGreenDeployment.html" title="Blue-Green Deployment">Blue-Green deployment</a>, a successful smoke test would cause the
+switch to the new environment to happen, either automatically or manually. Note that this means the development team or
+their PO can cause a release even if they have no access to the production environments (for data protection and security
+reasons). This little detail means that development can own their release, making it possible to implement true DevOps
+(more on the topic of true DevOps in a future post).</p>
+
+<h4 id="optimizations">Optimizations</h4>
+
+<p>The pipelines as described so far will work correctly, but they are inefficient in their use of resources. The following
+are a set of optimizations that can be used to improve overall speed and resource utilization.</p>
+
+<h5 id="skipping-modules-that-have-no-modified-code">Skipping modules that have no modified code</h5>
+
+<p>Our application can be separated into number of different modules that are packaged independently. For example, our legacy
+monolith forms one module and is packaged in a single RPM, alongside the various microservices which are each a separate
+module packaged in a separate RPM. For most of the pipeline runs, especially on Local and Commit, there will only be changes
+to a single module, and occasionally to two. However, the Build script as currently described, will build all modules from
+scratch. While this will still produce the right outcome, it makes the builds take significantly longer than they need to.
+This is especially problematic on Local, where a developer might want to try a quick change in minutes, but a full re-build
+will take the better part of an hour.</p>
+
+<p>As an optimization, the build script can check for each module if a new build is needed, and if not, skip building the
+corresponding module. The Build script effectively iterates over each module and translates the corresponding source code
+into an artifact in the artifact repo. We said earlier that the artifact repo represents a narrow interface between Build
+and Deploy, and that as long as each label contains an artifact (of the right version) for each module, it is not important
+how that artifact was built. To check if we need to rebuild a module we could:</p>
+
+<ul>
+<li>check if there is a pre-existing tag in the source code repository that, for the particular module, happens to overlap.
+We say that a tag overlaps another for a module, if for every source file in the module, the two tags contain exactly the
+same version of the file.</li>
+<li>If we find such an overlapping tag, then there is no need to re-build the module.</li>
+<li>we locate the label that corresponds to the overlapping tag, and locate the corresponding version of the module artifact
+under that label. We then re-label the artifact with the label for our current run, and move on to the next module. Since
+the new label contains an artifact for the module with the correct version of the module software, the deployment will work
+correctly.</li>
+</ul>
+
+<p>Ideally, the artifact repository allows multiple tags on the same artifact. If so, we simply add the new label along-side
+the old one to the same copy of the artifact, thus avoiding wasting space on a copy. If not, we can have the same effect
+by creating a copy of the artifact and labeling it with the new label, while leaving the old copy as is. The main reason
+to waste space on a copy instead of simply overwriting the old label, is that we might still want to use the old label
+either in a different pipeline, or to redo an old run. Fortunately in our case, our artifact repo supports multiple
+labels per artifact.</p>
+
+<p>One slight complication worth noting: when we skip the actual build step, we also skip the checks and tests performed
+during the build step. In general that should be OK since all the checks and tests we run are valid when run on just the
+files in the module. This means that the results of the checks and tests from that previous overlapping tag are also
+valid for the new tag. If that property doesn&rsquo;t hold, then skipping the build means that we skip tests that need to be
+re-run. Fortunately, we have no such cases in our system. If you do, you should consider adding another stage
+&ldquo;Integration&rdquo; and running the tests there (along with other integration tests).</p>
+
+<h5 id="arbitrary-environments">Arbitrary environments</h5>
+
+<p>Most CI/CD systems assume that only one instance of each pipeline can run at any point in time because of possible
+conflicts on resources (e.g. the build workspace, or the target environment). For example, if a second commit comes in
+while the previous one is still working its way through the Commit stage, the CI/CD infrastructure will typically queue
+the second commit while the first one is being processed. In our case, since we use the same Build, Deploy, and Test
+scripts for all stages, we had to make sure they cannot conflict, except in the case of target environment which is anyway
+different for each stage. While the queuing process generally works well, it does mean that we occasionally have to
+wait for pipelines to complete, especially on the Commit and RC stages. The RC conflicts in particular tend to be
+painful, since they usually occur when we have to test a hot-fix soon after starting the test for the release candidate
+at the end of a sprint. Hot-fixes generally imply fixes for critical bugs, which have a certain urgency to them. Often
+this means that the hot-fix has to take precedence over the sprint release candidate, causing us to interrupt the sprint
+release candidate run.</p>
+
+<p>Given that the only conflicting resource at that point is the target environment, we can make a simple change to get
+around this issue: instead of dedicated target environments, we can provision them on command when the deploy script
+runs. Note that the deploy script already spins up the environment, and that it uses the Immutable Server pattern (as
+explain in <a href="/blog/cicd_pipeline_design_build_deploy_test/" title="CI/CD Pipeline Design: Build-Deploy-Test">Part 2</a>). This means that we can spin an arbitrary number of environments to use with each of the
+multiple instances of a given stage. In the hot-fix scenario described above, this would proceed roughly as follows:</p>
+
+<ul>
+<li>The PO starts the RC pipeline for the sprint release candidate (with tag and label &ldquo;Sprint12_RC1&rdquo; for example).
+After the Build script completes, the Deploy script provisions a raw OS machine on environment &ldquo;VM_001&rdquo;, and deploys
+the artifacts for label &ldquo;Sprint12_RC1&rdquo;).</li>
+<li>In the meantime, the PO starts another instance of the RC pipeline for the hot-fix (with tag and label
+&ldquo;hotfix1234_RC1&rdquo;). The deploy script provisions a raw OS machine on environment &ldquo;VM_002&rdquo; and deploys the artifacts
+for label &ldquo;hotfix1234_RC1&rdquo;.</li>
+<li>By now the first instance of the pipeline has finished deploying and calls the Test script with the target
+environment set to &ldquo;VM_001&rdquo;, and the test suite to &ldquo;regression&rdquo;.</li>
+<li>Similarly, soon afterwards, the second instance of the pipeline invokes the Test script with target environment
+&ldquo;VM_002&rdquo; and test suite &ldquo;regression&rdquo;.</li>
+</ul>
+
+<p>In this fashion, the two instances of the RC pipeline can proceed in parallel without interfering with each other,
+and without having to queue. The necessary modifications are surprisingly minor. The main change is that the deploy
+script has to provision an environment, or obtain one from a pool of pre-provisioned environments, instead of having
+the environment hard-wired. The Test script already takes in the target environment as a parameter, and spins it down
+after it is done. It should be obvious that this technique is applicable to all stages other than Local (where it
+would be difficult to run multiple VMs under a laptop).</p>
+
+<h5 id="repository-for-local-builds">Repository for local builds</h5>
+
+<p>Our expectation is that developers will generally run the Local stage very frequently, incrementally making changes
+that they have not committed yet. This means that a large number of artifacts are generated as a result of Local.
+While these could be stored in the central artifact repository, they would be wasteful in terms of space, and cause
+significant clutter in the label namespace in the repo. Furthermore this adds no value, since it is unlikely that someone
+else would want to deploy these artifacts from the central repository (primarily because they cannot obtain the corresponding
+source code, as it is not committed yet). For this reason, it makes sense to have a local artifact
+repository for Local, and to clean it up on a regular basis. All artifacts built as a result of Local would reside in,
+and be obtained from this local repository.</p>
+
+<p>Note that this optimization interacts with the previous optimization of skipping the build for modules that have not
+been modified. In particular, the overlapping tags, corresponding labels, and related artifacts are generally only found
+in the central repository. If both optimizations are implemented, then the Build script must copy to the local artifact
+repo the overlapping labels and artifacts from the central repo.</p>
+
+<h5 id="cleaning-up">Cleaning up</h5>
+
+<p>Even with Local using a local artifact repository, old artifacts and labels can quickly accumulate if you have a
+development organization with significant velocity. Even with disc space being cheap, the clutter (especially in the
+label namespace) will quickly drive you to think about retention policies and cleaning up. In general, most of the weight
+and noise will accumulate from the Commit stage. Remember that the purpose of the Commit stage is simply to make it easier
+for developers to not get in each other&rsquo;s way while working on the same code. This means that it does not make much sense
+to save a lot of history for Commit artifacts, as you are unlikely to try to reproduce those test runs. In general, it
+would not make sense to keep Commit artifacts and labels for longer than a sprint. The same applies for Nightly and its
+artifacts. For RC artifacts, you can keep them for significantly longer, especially if you have significant auditability
+requirements for anything that found its way to production. When it comes to RC artifacts, I would recommend that you
+abuse the low cost of disk space to the extend you can.</p>
+
+<p>Note that when you clean up artifacts and labels you need to maintain the artifact repo invariant we expressed earlier:
+even after deletion, each remaining label should have exactly one artifact of the right version for each module needed
+by the application. In short, don&rsquo;t delete an artifact while there is still a label that refers to it. This becomes a bit
+tricky if you have implemented the optimization of skipping the build for modules that have not changed by using multiple labels.
+Imagine that a module has not changed between labels A and K, and that label A has aged beyond the retention time. Because
+of the way the optimization above works, the artifact stored in the repo was probably built as part of the run that created
+label A, and therefore also has an age greater than the retention time, but cannot be deleted because it is still needed by
+label K. As a result, you cannot delete artifacts just based on their age. My recommendation would be to expire <em>labels</em>
+instead of artifacts, and delete artifacts only when there is no longer any label referring to them.</p>
+
+<h4 id="moving-to-docker-and-kubernetes">Moving to Docker and kubernetes</h4>
+
+<p>The original design was created while we were still heavily using our legacy packaging and deployment mechanism: RPMs.
+However, we were at the same time executing a transition from RPMs and bare metal, to Docker, kubernetes, and Cloud.
+We therefore made sure that the design would accommodate an easy transition to the new packaging and deployment mechanisms.</p>
+
+<p>Packaging is effectively the last step in assembling the artifacts, after the source code has been &ldquo;built&rdquo;. In the RPM
+domain, this involved installing the various binaries and scripts into the right directories, and adding scripts for
+setting up the prerequisites to the module (e.g., creating the necessary users and groups, and setting permissions). In
+the Docker domain, there is no installation necessary. The binaries and scripts are added to the overlay filesystem in the
+image with the right permissions, and the start command can do any setup that has not already been accomplished as part of
+building the image. This simply involves creating a Dockerfile that includes the right steps, and replacing the entire RPM
+packaging process with a <code>docker build</code> command. In fact, the microservices in our system always had the ability to deploy
+either as RPMs or as docker images. For the microservice modules, effectively this amounted to the simplification of removing
+the RPM step. Note that since the Dockerfiles now form part of the build process, they must also be maintained in source
+control, alongside the module they represent.</p>
+
+<p>The only other significant change was to the Deploy script. Here, instead of using <code>yum</code> or a similar RPM package manager
+to install the application, we simply use <code>kubectl apply -f</code> on a number of kubernetes specs to create the full deployment.
+Once again, since these kubernetes specs form part of the deployment process, they must be maintained in source control
+along with the modules they refer to.</p>
+
+<p>An additional change that is worth noting is that in a kubernetes-based system, the idea of separate target environments
+does not make sense. Kubernetes makes use of what is effectively a general purpose infrastructure where any application
+can be deployed. Instead of having multiple target environments, we used kubernetes namespaces. The Deploy script creates
+a namespace in kubernetes instead of provisioning a new target environment. The same kubernetes infrastructure can be used
+for all stages except Local, and even all instances of the same stage, and the Deploy script will simply put them in
+different namespaces. This allows us to amortize the cost of the kubernetes infrastructure (including set-up and maintenance
+cost) across all of our stages. To make sure the Test script instances can access the right system under test, the Deploy
+script can create uniquely named services or ingress controllers on different URLs, and pass the corresponding URLs as
+targets to the corresponding Test script instances.</p>
+
+<p>There are, of course, countless other refinements and tweaks that can be made, but the purpose of the posts was mainly to
+illustrate the concept of designing a CI/CD pipeline set to solve specific problems we were facing. I may revisit some other
+refinements in future posts.</p>
+
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/ci/cd">CI/CD</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/devops">DevOps</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/methodology">Methodology</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/best-practice">Best Practice</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/testing">Testing</a></li>
+          
+        </ul>
+      </li>
+    
+  
+  
+    <li class="tags">
+      <ul>
+        <li>None</li>
+      </ul>
+    </li>
+  
+</ul>
+
+  </footer>
+</article>
+<article class="post">
+  
+
+</article>
+<div class="pagination">
+  
+    <a href="/blog/cicd_pipeline_design_build_deploy_test/" class="button big previous"><i class="fas fa-angle-left"></i> CI/CD Pipeline Design: Build-Deploy-Test</a>
+  
+  
+    <a href="/blog/documentation_test_automation/" class="button big next">Test Automation as Documentation <i class="fas fa-angle-right"></i></a>
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  <section id="recent-posts">
+    <header>
+      <h1>Recent posts</h1>
+    </header>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/drive_by_coding_antipattern/" class="image featured">
+  <img src="/img/2019/10/drive_by.jpg" alt="Drive-by">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/drive_by_coding_antipattern/">The drive-by coding anti-pattern</a></h1>
+        <time class="published" datetime="">October 30, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/culture_eats_strategy_for_breakfast/" class="image featured">
+  <img src="/img/2019/10/THIS_IS_SPARTA.jpg" alt="This is Sparta">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/culture_eats_strategy_for_breakfast/">Culture eats Strategy for breakfast</a></h1>
+        <time class="published" datetime="">October 23, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/a_different_kind_of_company_growth/" class="image featured">
+  <img src="/img/2019/10/toy_tools.jpg" alt="Toy Tools">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/a_different_kind_of_company_growth/">A different kind of company growth</a></h1>
+        <time class="published" datetime="">October 8, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/how_to_really_build_customer_centric_products/" class="image featured">
+  <img src="/img/2019/10/buttler_sized.jpg" alt="Customer Servant">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/how_to_really_build_customer_centric_products/">How to (really) build customer centric products</a></h1>
+        <time class="published" datetime="">October 2, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/data_trumps_opinion/" class="image featured">
+  <img src="/img/2019/09/data_opinion.jpg" alt="Data versus Opinion">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/data_trumps_opinion/">Data Trumps Opinion (every time)</a></h1>
+        <time class="published" datetime="">September 24, 2019</time>
+      </header>
+    </article>
+    
+    
+      <a href="/blog/" class="button">See more</a>
+    
+  </section>
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/best-practice/">best-practice<span class="count">7</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/methodology/">methodology<span class="count">6</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/culture/">culture<span class="count">5</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/business/">business<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/general/">general<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/software-engineering/">software-engineering<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/testing/">testing<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/ci/cd/">ci/cd<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/devops/">devops<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/architecture/">architecture<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/cost/">cost<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/recruiting/">recruiting<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/agile/">agile<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/anti-patterns/">anti-patterns<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/collaboration/">collaboration<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/data/">data<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/engineers/">engineers<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/innovation/">innovation<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/lean/">lean<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/product-management/">product-management<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/requirements/">requirements<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/strategy/">strategy<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/teamwork/">teamwork<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/technology/">technology<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  <section id="mini-bio">
+    <header>
+      <h1>About</h1>
+    </header>
+    <p>A brief bio</p>
+    <footer>
+      <a href="/about" class="button">Learn More</a>
+    </footer>
+  </section>
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2019
+      
+        George Hadjiyiannis
+      
+    .
+    Powered by <a href="//gohugo.io" target="_blank" rel="noopener">Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/html.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/css.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/js.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/toml.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  <script src=/js/util.js></script>
+  <script src=/js/main.js></script>
+  <script src=/js/add-on.js></script>
+  
+
+
+
+    </div>
+  </body>
+</html>

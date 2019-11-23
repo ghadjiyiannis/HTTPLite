@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Business on George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/categories/business/</link>
+    <description>Recent content in Business on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 08 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/categories/business/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A different kind of company growth</title>
+      <link>https://ghadjiyiannis.github.io/blog/a_different_kind_of_company_growth/</link>
+      <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/a_different_kind_of_company_growth/</guid>
+      <description>These days I find myself in regular discussions about company growth, primarily with startups that are getting traction and now need to step up to the next level. The discussions typically cover all the usual scaling topics, but until recently pretty much ended there. About 2 weeks ago, however, I had once more such a discussion, but this one went beyond the scaling challenges, and moved on to a different kind of growth: maturity.</description>
+    </item>
+    
+    <item>
+      <title>How to (really) build customer centric products</title>
+      <link>https://ghadjiyiannis.github.io/blog/how_to_really_build_customer_centric_products/</link>
+      <pubDate>Wed, 02 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/how_to_really_build_customer_centric_products/</guid>
+      <description>Customer centricity is another one of those points that is constantly talked about but often rarely actually reasoned about. As a result, most of the discussion out there is usually trivial and essentially consists of the equivalent of &amp;ldquo;Go ask what the customer wants, then go build it&amp;rdquo;. I would respectfully offer the opinion that that is not customer centricity, but rather, customer servitude! There are three fundamental mistakes in the idea of &amp;ldquo;Go ask what the customer wants, then go build it&amp;rdquo;, and I want to examine all of them critically to dispel the trivial hype around the topic.</description>
+    </item>
+    
+    <item>
+      <title>Making near-shoring and off-shoring effective.</title>
+      <link>https://ghadjiyiannis.github.io/blog/effective_nearshoring_offshoring/</link>
+      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/effective_nearshoring_offshoring/</guid>
+      <description>It seems that everywhere you look, companies are looking to create near-shore and off-shore partnerships, to increase their software development capacity and reduce costs. Interestingly, this is not limited to large companies; more and more SMEs are joining in. At the same time, we now have over a decade of experience with this topic in the industry, and have learned some hard-earned lessons. It seems not that long ago that companies were pulling back from off-shoring due to a significant number of challenges in making the partnerships effective.</description>
+    </item>
+    
+    <item>
+      <title>Understanding the cost of software</title>
+      <link>https://ghadjiyiannis.github.io/blog/understanding_the_cost_of_software/</link>
+      <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/understanding_the_cost_of_software/</guid>
+      <description>The standard cliché in our industry is that software projects always take twice as long, and cost twice as much. Of the two factors, however, it&amp;rsquo;s the financial one that does the most damage. Usually, timing does little damage in itself, other than making a company run out of money.
+Without exaggeration, none of the companies I have worked with had a good understanding of how much a proposed software project would cost.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recruiting on George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/categories/recruiting/</link>
+    <description>Recent content in Recruiting on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 09 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/categories/recruiting/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Designing a Hiring Strategy</title>
+      <link>https://ghadjiyiannis.github.io/blog/designing_a_hiring_strategy/</link>
+      <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/designing_a_hiring_strategy/</guid>
+      <description>Let&amp;rsquo;s face it: most of the companies out there (including most of the ones I worked for) hire opportunistically. They wait until they have a specific need, then quickly put together a job description, and publish the opening in the various channels that are readily accessible, hoping that they get a fit. Most of the time they can&amp;rsquo;t find what they are looking for in a reasonable amount of time, and for the right salary.</description>
+    </item>
+    
+    <item>
+      <title>Developers write code, Software Engineers solve problems</title>
+      <link>https://ghadjiyiannis.github.io/blog/developer_vs_engineer/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/developer_vs_engineer/</guid>
+      <description>A long time ago, I was in Barcelona attending an API workshop with our teams there. On the second day of the workshop, the discussion got a bit sidetracked, but it was one of those sidetracks that leads to insights that are more valuable than the main theme of the workshop. I remember the group CTO at the time declaring &amp;ldquo;Developers write code, Software Engineers solve problems!&amp;rdquo;. For some reason it struck me as such a profound statement, that I still remember it to this day as the main idea of value I got that day.</description>
+    </item>
+    
+  </channel>
+</rss>

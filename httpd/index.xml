@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/</link>
+    <description>Recent content on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The drive-by coding anti-pattern</title>
+      <link>https://ghadjiyiannis.github.io/blog/drive_by_coding_antipattern/</link>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/drive_by_coding_antipattern/</guid>
+      <description>I am not sure why, but out of the set of all anti-patterns, drive-by coding is the one I am personally most disturbed by. Perhaps that&amp;rsquo;s because it&amp;rsquo;s so unnecessary. Perhaps because it&amp;rsquo;s indicative of laziness on behalf of the developer. Perhaps because it is, itself, a smell of much more serious cultural issues. For exactly this last reason, if not for any other, I feel very strongly that this particular anti-pattern should be uprooted mercilessly whenever noticed, before it becomes endemic and destroys both the health of the code-base, as well as the culture of the team.</description>
+    </item>
+    
+    <item>
+      <title>Culture eats Strategy for breakfast</title>
+      <link>https://ghadjiyiannis.github.io/blog/culture_eats_strategy_for_breakfast/</link>
+      <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/culture_eats_strategy_for_breakfast/</guid>
+      <description>We have all heard the saying, and I am willing to bet that most of us have even said it to others, or inserted it in a presentation. Yet I realized that, while everyone seems to understand this on an academic level, none of us seem to understand it intuitively. In particular, we are very bad at understanding the full effects of culture, or taking it into account when we are making decisions on a day to day basis.</description>
+    </item>
+    
+    <item>
+      <title>A different kind of company growth</title>
+      <link>https://ghadjiyiannis.github.io/blog/a_different_kind_of_company_growth/</link>
+      <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/a_different_kind_of_company_growth/</guid>
+      <description>These days I find myself in regular discussions about company growth, primarily with startups that are getting traction and now need to step up to the next level. The discussions typically cover all the usual scaling topics, but until recently pretty much ended there. About 2 weeks ago, however, I had once more such a discussion, but this one went beyond the scaling challenges, and moved on to a different kind of growth: maturity.</description>
+    </item>
+    
+    <item>
+      <title>How to (really) build customer centric products</title>
+      <link>https://ghadjiyiannis.github.io/blog/how_to_really_build_customer_centric_products/</link>
+      <pubDate>Wed, 02 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/how_to_really_build_customer_centric_products/</guid>
+      <description>Customer centricity is another one of those points that is constantly talked about but often rarely actually reasoned about. As a result, most of the discussion out there is usually trivial and essentially consists of the equivalent of &amp;ldquo;Go ask what the customer wants, then go build it&amp;rdquo;. I would respectfully offer the opinion that that is not customer centricity, but rather, customer servitude! There are three fundamental mistakes in the idea of &amp;ldquo;Go ask what the customer wants, then go build it&amp;rdquo;, and I want to examine all of them critically to dispel the trivial hype around the topic.</description>
+    </item>
+    
+    <item>
+      <title>Data Trumps Opinion (every time)</title>
+      <link>https://ghadjiyiannis.github.io/blog/data_trumps_opinion/</link>
+      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/data_trumps_opinion/</guid>
+      <description>Anyone who has worked for a successful B2C knows how much better and more precise decision making gets, once it is empowered by data. However, two of the companies I worked for turned this into an art, and one of the two is, in my eyes, the unquestioned champion. In fact, we had such detailed knowledge of our numbers (despite the many cyclicalities) that we would occasionally find software bugs through our revenue figures: someone would notice a small drop in revenue and track conversion through the user journey to eventually find a broken page.</description>
+    </item>
+    
+    <item>
+      <title>Making near-shoring and off-shoring effective.</title>
+      <link>https://ghadjiyiannis.github.io/blog/effective_nearshoring_offshoring/</link>
+      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/effective_nearshoring_offshoring/</guid>
+      <description>It seems that everywhere you look, companies are looking to create near-shore and off-shore partnerships, to increase their software development capacity and reduce costs. Interestingly, this is not limited to large companies; more and more SMEs are joining in. At the same time, we now have over a decade of experience with this topic in the industry, and have learned some hard-earned lessons. It seems not that long ago that companies were pulling back from off-shoring due to a significant number of challenges in making the partnerships effective.</description>
+    </item>
+    
+    <item>
+      <title>Choosing Technologies</title>
+      <link>https://ghadjiyiannis.github.io/blog/choosing_technologies/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/choosing_technologies/</guid>
+      <description>Despite growing up in a country where football (soccer, for my American readers) is the universal passion, I never understood the appeal, and I never shared it. However, I suspect it to be similar to the passion that a discussion on technology choices evokes among software engineers and architects: despite being otherwise excessively rational beings (at least according to everyone in a different profession), we favor technologies by faith instead of reason, and we get emotionally attached to them.</description>
+    </item>
+    
+    <item>
+      <title>The shortcomings of Agile</title>
+      <link>https://ghadjiyiannis.github.io/blog/shortcomings_of_agile/</link>
+      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/shortcomings_of_agile/</guid>
+      <description>In a previous post I promised to write an article about the shortcomings of Agile. I recently had an exchange with a former colleague that convinced me the time has come to have an honest discussion about what Agile does not do well. Through the years, Agile seems to have acquired a cult status, where people seem to think that it can, not only, do everything, but do it superlatively well.</description>
+    </item>
+    
+    <item>
+      <title>The case for explicit data schemas</title>
+      <link>https://ghadjiyiannis.github.io/blog/explicit_data_schemas/</link>
+      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/explicit_data_schemas/</guid>
+      <description>The software development Zeitgeist seems to be pointing away from the necessity of having explicit data schemas. Nowadays, designing a database schema, or even just an ER diagram, seems to be downright old-fashioned, and an activity that is viewed more as a burden or a restriction, rather than something of value. At the risk of being labeled a contrarian, I would like to make the case in favor of explicitly designing data schemas.</description>
+    </item>
+    
+    <item>
+      <title>Understanding the cost of software</title>
+      <link>https://ghadjiyiannis.github.io/blog/understanding_the_cost_of_software/</link>
+      <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/understanding_the_cost_of_software/</guid>
+      <description>The standard cliché in our industry is that software projects always take twice as long, and cost twice as much. Of the two factors, however, it&amp;rsquo;s the financial one that does the most damage. Usually, timing does little damage in itself, other than making a company run out of money.
+Without exaggeration, none of the companies I have worked with had a good understanding of how much a proposed software project would cost.</description>
+    </item>
+    
+    <item>
+      <title>Test Automation as Documentation</title>
+      <link>https://ghadjiyiannis.github.io/blog/documentation_test_automation/</link>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/documentation_test_automation/</guid>
+      <description>How do you document units, modules, libraries, and APIs in your system, so that people know how to use them? Note that for the purposes of this discussion we are not referring to code comments, which are mainly directed at the team constructing and maintaining the module, but rather to client documentation for those who will use it.
+While there is general agreement in the field that modules, APIs, and systems should be documented, there is much less agreement on what form the documentation should take, and what level of documentation is enough.</description>
+    </item>
+    
+    <item>
+      <title>CI/CD Pipeline Design: Putting it all together</title>
+      <link>https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_putting_it_all_together/</link>
+      <pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_putting_it_all_together/</guid>
+      <description>This is the last part in our series on designing CI/CD pipelines. The first part of the series defined the objectives of the pipelines, and defined the stages that go with them. The second part covered in detail the core Build-Deploy-Test scripts, which together effectively implement all the necessary functionality. In this third and final part, we will cover how we put together all of the stages described in Part 1, by composing them using the blocks described in Part 2.</description>
+    </item>
+    
+    <item>
+      <title>CI/CD Pipeline Design: Build-Deploy-Test</title>
+      <link>https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_build_deploy_test/</link>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_build_deploy_test/</guid>
+      <description>The first part of the series defined the objectives of the pipelines, and defined the stages that go with them. In this second part, I will focus on the core Build-Deploy-Test loop, which forms the core of each pipeline, and the design objectives and design decisions we made. If you have not read Part 1, I would recommend that you do so first, since this part will assume some context that is provided in the previous article.</description>
+    </item>
+    
+    <item>
+      <title>CI/CD Pipeline Design: The Stages</title>
+      <link>https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_environments/</link>
+      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_environments/</guid>
+      <description>Building CI/CD pipelines seems to be one of those topics that every team seems to struggle with. There are many effects that contribute to this:
+ CI pipelines are almost always legacy infrastructure, built at a time when both the software and the team were fundamentally smaller and simpler. Being tooling infrastructure, they are never a priority. As a result they are never maintained or adjusted to new needs. For the same reason (not a priority), people almost never invest any significant amount of design in them.</description>
+    </item>
+    
+    <item>
+      <title>Designing a Hiring Strategy</title>
+      <link>https://ghadjiyiannis.github.io/blog/designing_a_hiring_strategy/</link>
+      <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/designing_a_hiring_strategy/</guid>
+      <description>Let&amp;rsquo;s face it: most of the companies out there (including most of the ones I worked for) hire opportunistically. They wait until they have a specific need, then quickly put together a job description, and publish the opening in the various channels that are readily accessible, hoping that they get a fit. Most of the time they can&amp;rsquo;t find what they are looking for in a reasonable amount of time, and for the right salary.</description>
+    </item>
+    
+    <item>
+      <title>Software is hard - Part 2: Implicit Requirements</title>
+      <link>https://ghadjiyiannis.github.io/blog/software_is_hard_implicit_requirements/</link>
+      <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/software_is_hard_implicit_requirements/</guid>
+      <description>Every professional in the software industry knows that building software is a highly unpredictable business. This is why we don&amp;rsquo;t like the question of &amp;ldquo;How long is it going to take?&amp;rdquo;. The thing that always puzzled me, however, is that that unpredictability always seems to point in the wrong direction: software seems to almost always take longer to build than expected. With practically any other process, one would expect something similar to a normal (binomial) distribution around the expected estimate.</description>
+    </item>
+    
+    <item>
+      <title>The role of execution in innovation</title>
+      <link>https://ghadjiyiannis.github.io/blog/execution_in_innovation/</link>
+      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/execution_in_innovation/</guid>
+      <description>We are by now used to the idea of a light bulb being the universal icon for innovation. This is, of course, a tribute to Thomas Edison&amp;rsquo;s most well-known invention, but not by any means the only one. Edison was one of the most prolific inventors in history, with a list of over 1000 patents bearing his name. The light bulb icon is still used to represent the act of generating ideas, and by extension the act of innovation.</description>
+    </item>
+    
+    <item>
+      <title>Evolving Team Culture</title>
+      <link>https://ghadjiyiannis.github.io/blog/seeding_team_culture/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/seeding_team_culture/</guid>
+      <description>Team culture is one of those things that gets talked about a lot when it is not quite right, but rarely worked on effectively. Yet so much of the outcome in the end depends on team culture. I bet that the majority of the people reading this article have experienced teams working in their own silos. Think about the influence it has on the ability of the company to drive successful outcomes.</description>
+    </item>
+    
+    <item>
+      <title>Software is hard - Part 1: Scaling</title>
+      <link>https://ghadjiyiannis.github.io/blog/software_is_hard_scaling/</link>
+      <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/software_is_hard_scaling/</guid>
+      <description>A long time ago, when I was still in college, I was fortunate enough to take a Software Engineering class by Prof. John Guttag. I remember him starting one of the lectures with the question:
+&amp;ldquo;Can anyone here write a 10,000 LOC program in a year?&amp;rdquo;
+A large portion of the class raised their hands (this is MIT, after all). He then proceeded to ask:
+&amp;ldquo;Can anyone here write a 100,000 LOC program in ten years?</description>
+    </item>
+    
+    <item>
+      <title>When Lean works against you</title>
+      <link>https://ghadjiyiannis.github.io/blog/when_lean_works_against_you/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/when_lean_works_against_you/</guid>
+      <description>There is an unfortunate pattern in business where, once an idea becomes successful, people try to copy it into all sort of other scenarios. I always felt like the following picture summed up nicely how everyone feels about this phenomenon, as it relates to the outcome of the Agile Manifesto:
+The main problem with this pattern is that, sooner or later, people end up applying said idea to scenarios where it is not really applicable.</description>
+    </item>
+    
+    <item>
+      <title>Developers write code, Software Engineers solve problems</title>
+      <link>https://ghadjiyiannis.github.io/blog/developer_vs_engineer/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/developer_vs_engineer/</guid>
+      <description>A long time ago, I was in Barcelona attending an API workshop with our teams there. On the second day of the workshop, the discussion got a bit sidetracked, but it was one of those sidetracks that leads to insights that are more valuable than the main theme of the workshop. I remember the group CTO at the time declaring &amp;ldquo;Developers write code, Software Engineers solve problems!&amp;rdquo;. For some reason it struck me as such a profound statement, that I still remember it to this day as the main idea of value I got that day.</description>
+    </item>
+    
+    <item>
+      <title>It&#39;s a start!</title>
+      <link>https://ghadjiyiannis.github.io/blog/its_a_start/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/its_a_start/</guid>
+      <description>Well, here we go!
+As is normal for a software engineer, I have often had discussions with colleagues about the best way of doing things in the field. Sometimes these were opinionated discussions of little substance, but sometimes we would reach some conclusions interesting enough to warrant capturing somewhere. While I often joked about writing a book on the topic, I have been thinking of putting together a blog for quite a while.</description>
+    </item>
+    
+  </channel>
+</rss>

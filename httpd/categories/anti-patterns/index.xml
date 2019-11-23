@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anti-patterns on George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/categories/anti-patterns/</link>
+    <description>Recent content in Anti-patterns on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/categories/anti-patterns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The drive-by coding anti-pattern</title>
+      <link>https://ghadjiyiannis.github.io/blog/drive_by_coding_antipattern/</link>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/drive_by_coding_antipattern/</guid>
+      <description>I am not sure why, but out of the set of all anti-patterns, drive-by coding is the one I am personally most disturbed by. Perhaps that&amp;rsquo;s because it&amp;rsquo;s so unnecessary. Perhaps because it&amp;rsquo;s indicative of laziness on behalf of the developer. Perhaps because it is, itself, a smell of much more serious cultural issues. For exactly this last reason, if not for any other, I feel very strongly that this particular anti-pattern should be uprooted mercilessly whenever noticed, before it becomes endemic and destroys both the health of the code-base, as well as the culture of the team.</description>
+    </item>
+    
+  </channel>
+</rss>

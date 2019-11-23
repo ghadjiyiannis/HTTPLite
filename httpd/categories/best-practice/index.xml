@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Best Practice on George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/categories/best-practice/</link>
+    <description>Recent content in Best Practice on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/categories/best-practice/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The drive-by coding anti-pattern</title>
+      <link>https://ghadjiyiannis.github.io/blog/drive_by_coding_antipattern/</link>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/drive_by_coding_antipattern/</guid>
+      <description>I am not sure why, but out of the set of all anti-patterns, drive-by coding is the one I am personally most disturbed by. Perhaps that&amp;rsquo;s because it&amp;rsquo;s so unnecessary. Perhaps because it&amp;rsquo;s indicative of laziness on behalf of the developer. Perhaps because it is, itself, a smell of much more serious cultural issues. For exactly this last reason, if not for any other, I feel very strongly that this particular anti-pattern should be uprooted mercilessly whenever noticed, before it becomes endemic and destroys both the health of the code-base, as well as the culture of the team.</description>
+    </item>
+    
+    <item>
+      <title>The shortcomings of Agile</title>
+      <link>https://ghadjiyiannis.github.io/blog/shortcomings_of_agile/</link>
+      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/shortcomings_of_agile/</guid>
+      <description>In a previous post I promised to write an article about the shortcomings of Agile. I recently had an exchange with a former colleague that convinced me the time has come to have an honest discussion about what Agile does not do well. Through the years, Agile seems to have acquired a cult status, where people seem to think that it can, not only, do everything, but do it superlatively well.</description>
+    </item>
+    
+    <item>
+      <title>Test Automation as Documentation</title>
+      <link>https://ghadjiyiannis.github.io/blog/documentation_test_automation/</link>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/documentation_test_automation/</guid>
+      <description>How do you document units, modules, libraries, and APIs in your system, so that people know how to use them? Note that for the purposes of this discussion we are not referring to code comments, which are mainly directed at the team constructing and maintaining the module, but rather to client documentation for those who will use it.
+While there is general agreement in the field that modules, APIs, and systems should be documented, there is much less agreement on what form the documentation should take, and what level of documentation is enough.</description>
+    </item>
+    
+    <item>
+      <title>CI/CD Pipeline Design: Putting it all together</title>
+      <link>https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_putting_it_all_together/</link>
+      <pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_putting_it_all_together/</guid>
+      <description>This is the last part in our series on designing CI/CD pipelines. The first part of the series defined the objectives of the pipelines, and defined the stages that go with them. The second part covered in detail the core Build-Deploy-Test scripts, which together effectively implement all the necessary functionality. In this third and final part, we will cover how we put together all of the stages described in Part 1, by composing them using the blocks described in Part 2.</description>
+    </item>
+    
+    <item>
+      <title>CI/CD Pipeline Design: Build-Deploy-Test</title>
+      <link>https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_build_deploy_test/</link>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_build_deploy_test/</guid>
+      <description>The first part of the series defined the objectives of the pipelines, and defined the stages that go with them. In this second part, I will focus on the core Build-Deploy-Test loop, which forms the core of each pipeline, and the design objectives and design decisions we made. If you have not read Part 1, I would recommend that you do so first, since this part will assume some context that is provided in the previous article.</description>
+    </item>
+    
+    <item>
+      <title>CI/CD Pipeline Design: The Stages</title>
+      <link>https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_environments/</link>
+      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_environments/</guid>
+      <description>Building CI/CD pipelines seems to be one of those topics that every team seems to struggle with. There are many effects that contribute to this:
+ CI pipelines are almost always legacy infrastructure, built at a time when both the software and the team were fundamentally smaller and simpler. Being tooling infrastructure, they are never a priority. As a result they are never maintained or adjusted to new needs. For the same reason (not a priority), people almost never invest any significant amount of design in them.</description>
+    </item>
+    
+    <item>
+      <title>When Lean works against you</title>
+      <link>https://ghadjiyiannis.github.io/blog/when_lean_works_against_you/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/when_lean_works_against_you/</guid>
+      <description>There is an unfortunate pattern in business where, once an idea becomes successful, people try to copy it into all sort of other scenarios. I always felt like the following picture summed up nicely how everyone feels about this phenomenon, as it relates to the outcome of the Agile Manifesto:
+The main problem with this pattern is that, sooner or later, people end up applying said idea to scenarios where it is not really applicable.</description>
+    </item>
+    
+  </channel>
+</rss>

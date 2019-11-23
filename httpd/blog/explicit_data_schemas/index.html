@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+<title>The case for explicit data schemas - George Hadjiyiannis</title>
+<meta name="description" content="The data schema is important to more than just your current notion of your application. It may be worth designing the schema explicitly.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <meta name="generator" content="Hugo 0.57.2" />
+  <meta itemprop="name" content="The case for explicit data schemas">
+<meta itemprop="description" content="The data schema is important to more than just your current notion of your application. It may be worth designing the schema explicitly.">
+
+
+<meta itemprop="datePublished" content="2019-08-28T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-08-28T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1872">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <meta property="og:title" content="The case for explicit data schemas" />
+<meta property="og:description" content="The data schema is important to more than just your current notion of your application. It may be worth designing the schema explicitly." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ghadjiyiannis.github.io/blog/explicit_data_schemas/" />
+<meta property="article:published_time" content="2019-08-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-08-28T00:00:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The case for explicit data schemas"/>
+<meta name="twitter:description" content="The data schema is important to more than just your current notion of your application. It may be worth designing the schema explicitly."/>
+
+  
+
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
+  
+    
+      <link rel="stylesheet" href="/css/normalize.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+      <link rel="stylesheet" href="/css/main.min.css">
+      <link rel="stylesheet" href="/css/add-on.css">
+    
+  
+  
+  
+  
+  
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/">
+        
+          
+            Blog
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        <a href="/" class="link"><i class="fas fa-home">&nbsp;</i>Home</a>
+      
+        <a href="/about/" class="link"><i class="far fa-id-card">&nbsp;</i>About</a>
+      
+        <a href="/blog/" class="link"><i class="far fa-newspaper">&nbsp;</i>Blog</a>
+      
+        <a href="/categories/" class="link"><i class="fas fa-sitemap">&nbsp;</i>Categories</a>
+      
+        <a href="/contact/" class="link"><i class="far fa-envelope">&nbsp;</i>Contact</a>
+      
+      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    
+    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fexplicit_data_schemas%2f&amp;text=The%20case%20for%20explicit%20data%20schemas&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fexplicit_data_schemas%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fexplicit_data_schemas%2f&amp;title=The%20case%20for%20explicit%20data%20schemas" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fexplicit_data_schemas%2f&amp;title=The%20case%20for%20explicit%20data%20schemas" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fexplicit_data_schemas%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro">
+  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="" alt="George Hadjiyiannis" /></a>
+  <header>
+    <h1>George Hadjiyiannis</h1>
+  </header>
+  <main>
+    <p>Software Executive, Entrepreneur, Software Architect</p>
+  </main>
+  
+    <footer>
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+        <h2><a href="/blog/explicit_data_schemas/">The case for explicit data schemas</a></h2>
+    
+    
+        <p>The data schema is important to more than just your current notion of your application. It may be worth designing the schema explicitly.</p>
+    
+</div>
+  <div class="meta">
+    <time class="published" datetime="2019-08-28 00:00:00 &#43;0000 UTC">
+      August 28, 2019
+    </time>
+    <span class="author">George Hadjiyiannis</span>
+    
+        <p>9 minute read</p>
+    
+  </div>
+</header>
+
+  <section id="social-share">
+    
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fexplicit_data_schemas%2f&amp;text=The%20case%20for%20explicit%20data%20schemas&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fexplicit_data_schemas%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fexplicit_data_schemas%2f&amp;title=The%20case%20for%20explicit%20data%20schemas" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fexplicit_data_schemas%2f&amp;title=The%20case%20for%20explicit%20data%20schemas" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fexplicit_data_schemas%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+<a href="/blog/explicit_data_schemas/" class="image featured">
+  <img src="/img/2019/08/shapeless_building.jpg" alt="Shapeless Design">
+</a>
+
+
+  <div class="content">
+    <p>The software development Zeitgeist seems to be pointing away from the necessity of having explicit data schemas. Nowadays,
+designing a database schema, or even just an ER diagram, seems to be downright old-fashioned, and an activity that
+is viewed more as a burden or a restriction, rather than something of value. At the risk of being labeled a
+contrarian, I would like to make the case in favor of explicitly designing data schemas.</p>
+
+<p>The move away from designing data schemas was slow and somewhat subtle. As far as I can tell, it started with the arrival
+of frameworks that had the well-intentioned purpose of replacing what they perceived as unnecessary manual work
+with automation. The most prominent of these frameworks is probably <a href="https://hibernate.org/" title="Hibernate Persistence Framework">Hibernate</a> (and the associated JPA). That being said,
+I personally believe that <a href="https://spring.io/" title="Spring Framework">Spring</a>, with its philosophy of developing implicitly by convention and naming, rather than by explicit design,
+normalized the idea that one should not have to design one&rsquo;s data schema. After all, once you have defined your entities as
+POJOs (and maybe even added some annotations about constraints and mappings), there is no need to explicitly define a schema.
+The framework will simply create the entire database and table structure for you. Doing it yourself is simply wasted effort.
+At this point I would like to clarify one thing: this is not an argument against frameworks such as Hibernate and Spring. I
+am actually quite a fan of both, and use them both heavily. However, I am not willing to relinquish complete control of my data
+schema to them.</p>
+
+<p>While the persistence frameworks relegated explicit schemas to the pile of tasks you had to undertake back when tools where too
+dumb to do it for you, it was not the nail in the coffin. As far as persistence frameworks were concerned, explicit data
+schemas were not evil, merely pointless. A second transition happened as part of the arrival of NoSQL, and the associated
+rush to &ldquo;schema-less&rdquo;<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>. With the advent of schema-less, an explicit data schema was now an undesired restriction. One could
+not adapt the schema easily, so it became a commitment with significant future consequences. Unfortunately, while there are
+use cases that require that arbitrary documents can be stored or processed, these are few and very specific. They certainly
+do not warrant the approach of making <em>everything</em> schema-less. Nonetheless, with the advent of schema-less, explicit data
+schemas were no longer just a waste of effort, they were considered downright evil.</p>
+
+<p>The comedian Steven Wright once said:</p>
+
+<blockquote>
+<p>Experience is something you don&rsquo;t get until just after you need it.</p>
+</blockquote>
+
+<p>The reason why I am generally reluctant to relinquish control of the data schema is simple: the pain of experience. This
+particular experience dates back to the days when I was a consultant, on a project with 3 consulting companies and an
+8-digit price tag, for a very large state agency in Massachusetts. As part of this project we had to either ETL
+(Extract, Transform, and Load) the data from roughly 140 data sources, or integrate the data sources themselves. The most
+interesting fact about those data sources, however, is that the application code corresponding to the vast majority of them
+was long gone! In particular, we had 3 variations:</p>
+
+<ol>
+<li>In the simplest case, the original application was no longer needed or used, but the data was valuable, either for
+analytics purposes, or as historical OLTP data  for other applications.</li>
+<li>Somewhat more complicated was the variation where the original application was re-written (some of them ran on
+mainframes), but the new application had to keep the original data schema in order to be able to use the existing data
+records.</li>
+<li>The most complicated one was the case of data sources that were integrated into multiple other systems, effectively
+becoming an indirect ESB. The application itself was no longer useful, but its ability to connect and transfer data
+between other useful systems was still valuable. Thankfully, these cases were fairly rare.</li>
+</ol>
+
+<p>Let&rsquo;s analyze the above scenarios with regards to implicit data schemas or schema-less databases, starting with scenario
+1. In this scenario, the code for the application is probably not available, but the database and data are still alive and
+serving other uses. In the case of a schema-less database, we now have a number of significant issues:</p>
+
+<ul>
+<li>Without either a schema or the application code, understanding what data is present and what it means is an exercise in frustration.
+Effectively, the meaning of the data can only be reverse-engineered by examination of the contents. Note that in a schema-less
+database, the explicit intent is that the  schema can and will change between records. This means that you cannot reverse
+engineer the meaning on the basis of a &ldquo;representative sample&rdquo; of records. Instead you must examine <em>all</em> records.</li>
+<li>The second challenge is that the data in such a scenario is often needed in a context where a schema is necessary (typically for use in
+an OLAP data warehouse, or for use in another application that needs access to specific fields). The usual approach to
+solving this challenge is to use an ETL process to transform to the target schema, but this generates a lot of complexity to
+deal with all the possible variations of schemas, and the occasional absence of needed fields in some records.</li>
+<li>The third challenge is one of data quality. The very restrictions that the schema-less approach wishes to shed are exactly the
+restrictions that provide specific guarantees about the quality of the data: constraints to guarantee that specific fields are
+always available, that they have a specific format, or that referential integrity is maintained across all data. Avoiding unnecessary
+restrictions is easy if you explicitly design a schema. Recovering data quality from data that was created without such
+guard-rails is essentially impossible.</li>
+</ul>
+
+<p>If the database has a schema, albeit an implicit one, the situation is much easier to handle. Essentially the only challenge is
+a reduced version of the data quality challenge. Referential integrity is possibly at risk, and the type of the data may be more
+permissive than it would have been with explicit design, but in general the schema is understandable, and has essential constraints
+in place.</p>
+
+<p>In the case of the scenario of new code for an existing database, the challenges can become more significant. In the schema-less design, all of the challenges
+of scenario 1 exist, and we now have an additional one: the new application code may be incompatible with some of the
+existing data records. Since the only properties we can guarantee about the data are the properties that were maintained by the
+application code, backwards compatibility with this data has to be explicitly designed in the new application code. This can either
+be done by examining all records again to derive the necessary properties, or determined by examination of the original application
+code. While this latter approach sounds simpler, it can actually prove more complicated in practice: during its life-cycle the
+original application was probably updated multiple times, and each version probably generated a fraction of the records in
+the database. This means that there are multiple versions of the original application that need to be considered. In practice,
+it is probably easier to work backwards: determine which properties are important for the correct functioning of the new application,
+and then verify that the existing data records satisfy it (or discover why not; you may simply be missing a use-case).</p>
+
+<p>In this scenario, implicit schemas can also have significant challenges. To begin with, the legacy database makes it impractical
+to use an implicit schema in the new application code. In theory it is possible by having the new application generate its implicit
+schema, and designing an ETL to transfer the data from the legacy database to the new schema. In practice, however, this will most
+likely prove to be an iterative process. The first auto-generated schema is unlikely to be compatible with the legacy data,
+requiring that the new application data model be re-written, and the whole process repeated. In addition, the effort of creating the
+ETL will probably be higher than designing and configuring the new application around the existing schema.</p>
+
+<p>Note that the implicit schema scenario will also have a reduced version of the data properties challenge, since not all relevant
+data properties will be maintained in constraints, and some may have to be recovered from application code. Consider, for example,
+the the case of a field A, which is allowed to be <code>NULL</code> only if the status of the record (stored in field B) has a specific value. In general,
+any property that would normally be encoded as a trigger in the database would probably have to be derived. In an implicit schema
+scenario, however, the degrees of freedom in variation between records is drastically reduced (this is, after all, the very point
+of having  a schema), making deriving such properties significantly easier.</p>
+
+<p>For completeness, I don&rsquo;t believe the third scenario is worth considering in this context: my feeling is that it will prove to
+always be easier to replace the data source-as-ESB scenario with an explicit system integration implementation. I will, therefore,
+not cover it here.</p>
+
+<p>To switch to the big picture, there are two fundamental principles at play<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>, that essentially make databases different than any
+other part of the application:</p>
+
+<ul>
+<li><em>Data has a much longer lifetime</em> than application code (often multiple decades).</li>
+<li>People always discover <em>additional uses</em> for the application data, <em>other than the application itself</em>. You need to
+be aware that uses cases will surface beyond those of your current application.</li>
+</ul>
+
+<p>In this light, the question of explicit data schemas becomes yet another one of those quintessential &ldquo;pay now or pay later&rdquo; trade-offs
+that define software architecture. That being said, the effort of designing an explicit data schema is often fairly
+small, since essentially all the discovery work - what entities exist, with what fields, and what data types - has already been
+performed as part of the domain analysis. Conversely, the cost of recovering from the lack of a well-designed data schema if you
+opt for &ldquo;later&rdquo;, ranges from serious to prohibitive. And if you will allow me a personal plea: having had to perform the task myself,
+I would ask you to be kind to the consultants of the future, that will get called upon to deal with your design later.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Note that there is little tying schema-less to NoSQL, other than historical necessity. One can easily mix schema-less into an otherwise SQL environment, by mixing in unstructured fields and letting the applications define how to interpret the content. In the trivial case, you could limit the table to an ID and a text or BLOB field containing JSON, which gets serialized and de-serialized into whatever structure the application decides. This mixed mode even has the advantage of using the best features of both worlds.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">To be clear, these two principles are <strong>not limited</strong> to the scenarios above; they are indeed fundamental. They are, in fact, so fundamental that they are applicable across all different implementation technologies, and have been at play since the very first days of computers. They have far-reaching consequences, beyond the topics discussed in this article.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/data">Data</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/architecture">Architecture</a></li>
+          
+        </ul>
+      </li>
+    
+  
+  
+    <li class="tags">
+      <ul>
+        <li>None</li>
+      </ul>
+    </li>
+  
+</ul>
+
+  </footer>
+</article>
+<article class="post">
+  
+
+</article>
+<div class="pagination">
+  
+    <a href="/blog/understanding_the_cost_of_software/" class="button big previous"><i class="fas fa-angle-left"></i> Understanding the cost of software</a>
+  
+  
+    <a href="/blog/shortcomings_of_agile/" class="button big next">The shortcomings of Agile <i class="fas fa-angle-right"></i></a>
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  <section id="recent-posts">
+    <header>
+      <h1>Recent posts</h1>
+    </header>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/drive_by_coding_antipattern/" class="image featured">
+  <img src="/img/2019/10/drive_by.jpg" alt="Drive-by">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/drive_by_coding_antipattern/">The drive-by coding anti-pattern</a></h1>
+        <time class="published" datetime="">October 30, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/culture_eats_strategy_for_breakfast/" class="image featured">
+  <img src="/img/2019/10/THIS_IS_SPARTA.jpg" alt="This is Sparta">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/culture_eats_strategy_for_breakfast/">Culture eats Strategy for breakfast</a></h1>
+        <time class="published" datetime="">October 23, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/a_different_kind_of_company_growth/" class="image featured">
+  <img src="/img/2019/10/toy_tools.jpg" alt="Toy Tools">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/a_different_kind_of_company_growth/">A different kind of company growth</a></h1>
+        <time class="published" datetime="">October 8, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/how_to_really_build_customer_centric_products/" class="image featured">
+  <img src="/img/2019/10/buttler_sized.jpg" alt="Customer Servant">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/how_to_really_build_customer_centric_products/">How to (really) build customer centric products</a></h1>
+        <time class="published" datetime="">October 2, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/data_trumps_opinion/" class="image featured">
+  <img src="/img/2019/09/data_opinion.jpg" alt="Data versus Opinion">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/data_trumps_opinion/">Data Trumps Opinion (every time)</a></h1>
+        <time class="published" datetime="">September 24, 2019</time>
+      </header>
+    </article>
+    
+    
+      <a href="/blog/" class="button">See more</a>
+    
+  </section>
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/best-practice/">best-practice<span class="count">7</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/methodology/">methodology<span class="count">6</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/culture/">culture<span class="count">5</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/business/">business<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/general/">general<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/software-engineering/">software-engineering<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/testing/">testing<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/ci/cd/">ci/cd<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/devops/">devops<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/architecture/">architecture<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/cost/">cost<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/recruiting/">recruiting<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/agile/">agile<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/anti-patterns/">anti-patterns<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/collaboration/">collaboration<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/data/">data<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/engineers/">engineers<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/innovation/">innovation<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/lean/">lean<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/product-management/">product-management<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/requirements/">requirements<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/strategy/">strategy<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/teamwork/">teamwork<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/technology/">technology<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  <section id="mini-bio">
+    <header>
+      <h1>About</h1>
+    </header>
+    <p>A brief bio</p>
+    <footer>
+      <a href="/about" class="button">Learn More</a>
+    </footer>
+  </section>
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2019
+      
+        George Hadjiyiannis
+      
+    .
+    Powered by <a href="//gohugo.io" target="_blank" rel="noopener">Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/html.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/css.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/js.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/toml.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  <script src=/js/util.js></script>
+  <script src=/js/main.js></script>
+  <script src=/js/add-on.js></script>
+  
+
+
+
+    </div>
+  </body>
+</html>

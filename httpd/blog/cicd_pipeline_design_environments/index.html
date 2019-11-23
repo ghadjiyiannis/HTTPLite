@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+<title>CI/CD Pipeline Design: The Stages - George Hadjiyiannis</title>
+<meta name="description" content="The objectives and design of the test stages in a regular, distributed team environment.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <meta name="generator" content="Hugo 0.57.2" />
+  <meta itemprop="name" content="CI/CD Pipeline Design: The Stages">
+<meta itemprop="description" content="The objectives and design of the test stages in a regular, distributed team environment.">
+
+
+<meta itemprop="datePublished" content="2019-07-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-07-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1993">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <meta property="og:title" content="CI/CD Pipeline Design: The Stages" />
+<meta property="og:description" content="The objectives and design of the test stages in a regular, distributed team environment." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ghadjiyiannis.github.io/blog/cicd_pipeline_design_environments/" />
+<meta property="article:published_time" content="2019-07-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-16T00:00:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CI/CD Pipeline Design: The Stages"/>
+<meta name="twitter:description" content="The objectives and design of the test stages in a regular, distributed team environment."/>
+
+  
+
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
+  
+    
+      <link rel="stylesheet" href="/css/normalize.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+      <link rel="stylesheet" href="/css/main.min.css">
+      <link rel="stylesheet" href="/css/add-on.css">
+    
+  
+  
+  
+  
+  
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/">
+        
+          
+            Blog
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        <a href="/" class="link"><i class="fas fa-home">&nbsp;</i>Home</a>
+      
+        <a href="/about/" class="link"><i class="far fa-id-card">&nbsp;</i>About</a>
+      
+        <a href="/blog/" class="link"><i class="far fa-newspaper">&nbsp;</i>Blog</a>
+      
+        <a href="/categories/" class="link"><i class="fas fa-sitemap">&nbsp;</i>Categories</a>
+      
+        <a href="/contact/" class="link"><i class="far fa-envelope">&nbsp;</i>Contact</a>
+      
+      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    
+    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_environments%2f&amp;text=CI%2fCD%20Pipeline%20Design%3a%20The%20Stages&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_environments%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_environments%2f&amp;title=CI%2fCD%20Pipeline%20Design%3a%20The%20Stages" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_environments%2f&amp;title=CI%2fCD%20Pipeline%20Design%3a%20The%20Stages" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_environments%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro">
+  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="" alt="George Hadjiyiannis" /></a>
+  <header>
+    <h1>George Hadjiyiannis</h1>
+  </header>
+  <main>
+    <p>Software Executive, Entrepreneur, Software Architect</p>
+  </main>
+  
+    <footer>
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+        <h2><a href="/blog/cicd_pipeline_design_environments/">CI/CD Pipeline Design: The Stages</a></h2>
+    
+    
+        <p>The objectives and design of the test stages in a regular, distributed team environment.</p>
+    
+</div>
+  <div class="meta">
+    <time class="published" datetime="2019-07-16 00:00:00 &#43;0000 UTC">
+      July 16, 2019
+    </time>
+    <span class="author">George Hadjiyiannis</span>
+    
+        <p>10 minute read</p>
+    
+  </div>
+</header>
+
+  <section id="social-share">
+    
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_environments%2f&amp;text=CI%2fCD%20Pipeline%20Design%3a%20The%20Stages&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_environments%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_environments%2f&amp;title=CI%2fCD%20Pipeline%20Design%3a%20The%20Stages" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_environments%2f&amp;title=CI%2fCD%20Pipeline%20Design%3a%20The%20Stages" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fcicd_pipeline_design_environments%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+<a href="/blog/cicd_pipeline_design_environments/" class="image featured">
+  <img src="/img/2019/07/health_check.jpg" alt="Health Check">
+</a>
+
+
+  <div class="content">
+    <p>Building CI/CD pipelines seems to be one of those topics that every team seems to struggle with. There are
+many effects that contribute to this:</p>
+
+<ul>
+<li>CI pipelines are almost always legacy infrastructure, built at a time when both the software and the team
+were fundamentally smaller and simpler.</li>
+<li>Being tooling infrastructure, they are never a priority. As a result they are never maintained or adjusted
+to new needs.</li>
+<li>For the same reason (not a priority), people almost never invest any significant amount of design in them.
+As a result they are almost always stitched together in a &ldquo;quick-and-dirty&rdquo; fashion.</li>
+<li>Often they are handed down from team to team, with the result that the end users almost never know how
+they really work and are afraid to modify them.</li>
+<li>It is generally easy to work <em>around</em> issues with the pipelines instead of fixing them, so people generally
+do. Unfortunately, it is also very wasteful.</li>
+</ul>
+
+<p>A while back, some of my teams run into major problems working with the existing pipelines as they
+were, so we decided to take our fate into our own hands and re-design them to serve our needs. In this 3-part
+series, I will explain the design, and why it is the way it is. Note that the message is not that other teams
+should use this design - we designed our pipelines our way, to solve specific problems that we had. The more
+useful idea would be to explicitly design your pipelines to solve specific problems you have. That being said,
+some of the problems we were trying to solve are fairly common, and you may find that our solutions work
+for you as well.</p>
+
+<p>In this first part, I will focus on defining the objectives of the pipelines, and on defining the stages
+we decided to go with. In the <a href="/blog/cicd_pipeline_design_build_deploy_test/" title="CI/CD Pipeline Design: Build-Deploy-Test">second part</a>, I will focus on the main Build-Deploy-Test loop, and the design
+decisions we made in each part of the loop. In the <a href="/blog/cicd_pipeline_design_putting_it_all_together/" title="CI/CD Pipeline Design: Putting it all together">third part</a>, I will show how we put everything together,
+and additional optimizations one could implement.</p>
+
+<p>Let&rsquo;s begin by providing a simple definition of what the objective is:</p>
+
+<blockquote>
+<p>The objective of a CI pipeline is to automatically ensure that quality and other health targets are
+maintained as the code is modified on a daily basis, in order to guarantee that the software is kept in a
+releasable, as well as maintainable state. The objective of the CD part, is to automate the release
+process if the software is in a releasable state.</p>
+</blockquote>
+
+<p>There are a few things worth noting. First and foremost, CI/CD is not just about quality; it&rsquo;s about
+<em>software health</em>. The value is not just in fewer bugs in production; it is also about faster and more
+reliable development and release processes. Correspondingly, the focus is not simply on functional testing;
+other types of tests, including non-functional requirements (performance and security in particular),
+as well as code health checks (style checks, complexity, test coverage, static code analysis, etc.) need to
+be included. Second, and equally important, is the fact that CI/CD is not about running through a particular
+process, but about ensuring that the software is in a particular state. This means that the automation is
+not just a labor saving measure, but a guardian of the health of the software. It is important that
+developers are not working around the pipelines.</p>
+
+<p>It is probably also important to make the distinction between tests and checks. For the purposes of this
+discussion, we will define them as follows:</p>
+
+<ul>
+<li>A <strong>test</strong> is a way of exercising a piece of functionality, and verifying that the behavior of the
+software is as desired. The best examples are unit tests, and UI tests (e.g., Selenium tests).</li>
+<li>A <strong>check</strong> is a way of inspecting the software (usually in source form), and verifying that the
+structure of the code meets certain criteria. The classic examples are style checkers, and static code
+analyzers.</li>
+</ul>
+
+<p>With those definitions in place, the basic idea is simple: As each developer makes changes to the software,
+the software is built, and a certain set of checks and tests are run to assess the health of the code. The outcomes
+are communicated to the team, and may trigger additional actions (such as further checks). For the CD part,
+if the software is given a clean bill of health, it is deployed to production. Fundamentally, everything
+in a CI/CD pipeline could be described in those simple terms above. To make the process practical,
+however, the idea needs to be refined a bit further. In particular, not every test and check imaginable
+will run every time a modification is made. In reality this means that there are  multiple pipelines, run
+at different times, each performing a different set of tests and checks. Commonly these are referred to as
+<strong>Stages</strong>, probably stemming from a design pattern where they are arranged as a series of sequential steps,
+and successfully meeting the criteria (in terms of checks and tests) of the previous step (stage)
+automatically triggers the next stage. While I am not a fan of the design pattern, I will also use the
+term &ldquo;stage&rdquo; as I have no better alternative. (My teams used to call these &ldquo;environments&rdquo;, but this was
+due to an even less appealing design pattern, where there was an environment dedicated to each set of tests).</p>
+
+<p>The easiest place to start is with the most obvious stage: the one for release candidates. We call this the
+<strong>RC</strong> stage. The idea is that, once a Product Owner has decided to push an increment to production, (s)he
+would trigger this stage, with the purpose of ensuring that the software meets all the quality criteria
+(except performance and security) to go to production. As a result, this stage will usually run all unit tests,
+API tests, and regression tests, as well as all code health checks. Note that in the strict interpretation of
+&ldquo;Continuous Deployment&rdquo;, every commit is a release candidate, so this stage would run on every commit. We,
+however, were not ready for fully automated deployment yet, so our RC stage only ran once the Product Owner
+had defined what he wanted to put in the next release (usually at the end of each sprint).</p>
+
+<p>Next to the RC stage, we put two other, closely related stages: <strong>PLS</strong> (Performance, Load, and Stress
+test), and <strong>SEC</strong> (security testing). Once again, these are the types of tests that are required to ensure
+that the software is ready to go to production. We chose not to run them as part of the RC stage, however,
+since each of these tests has the potential to render the system under test unusable, and would interfere
+with the smooth execution of the other tests and checks running under RC.</p>
+
+<p>The next easiest stage to describe is <strong>Commit</strong>. This runs every time a developer commits a modification
+to the code repository. The purpose is to run sufficient tests and checks to ensure that the commit is unlikely
+to break the software in such a way that it interferes with other developers (e.g., committing a change
+that breaks the build, or prevents the application from initializing properly). Note that the focus
+of Commit is not preventing bugs in production, but allowing efficient development (i.e., enabling
+developers to work on the same application without interfering with each other&rsquo;s work). Since it runs on
+every commit, the Commit stage cannot run a lot of heavyweight tests and checks. From the functionality
+perspective, it only runs smoke tests, to ensure that the application can still initialize properly, and
+that in broad strokes, one can still exercise most functional areas of the application. This is sufficient
+to make it unlikely that the changes submitted have broken functionality that some other developer will
+need in order to test his/her changes (e.g., login functionality). Additionally, all code health checks and unit tests
+will need to be run on the specific code that has changed. In the minimal scenario, this will
+include style checks, static code analyzers, and unit tests for the units that have changed. Checks that
+are global in nature and take a long time to run (in our case, Fortify was the most important one) will
+not be run in the Commit stage (but will be run in RC).</p>
+
+<p>With only the stages described above, we were left with a small challenge. The Commit stage would run on
+each commit but would not run all the tests and checks. As a result, the probability that there was a
+change that undetectably degraded the health of the code went up with each commit, up until the next
+release candidate was tested on RC. Then the probability dropped back to 0 (since all tests were run
+on RC), and slowly started inching up again until the next RC run.</p>
+
+<figure>
+    <img src="/img/2019/07/code_health_degradation.jpg" width="100%"/> <figcaption>
+            <h4>Health Degradation between RC runs</h4>
+        </figcaption>
+</figure>
+
+
+<p>While that can be an acceptable amount of health degradation for some teams, we decided to reduce
+it even further by the addition of another stage: <strong>Nightly</strong>. As implied by the name, the Nightly stage
+runs every night, and runs full regression testing, all unit tests, and all static code scans on a snapshot of the code
+that is in the code repository at the time. This includes the Fortify scan which takes too long to run
+during the Commit stage. The Nightly stage has the effect of correcting the degradation back to 0 every night,
+preventing it from climbing too high.</p>
+
+<figure>
+    <img src="/img/2019/07/code_health_nightly.jpg" width="100%"/> <figcaption>
+            <h4>Effect of Nightly on health</h4>
+        </figcaption>
+</figure>
+
+
+<p>Finally, there is one last stage that is easily forgotten: <strong>Local</strong>. This represents the checks and
+tests performed on the development machine itself. The main reason for declaring the developer machine a stage
+was our belief that the best place to catch all those little errors that degrade code health
+was before the code was committed to the repository in the first place. This means that the corresponding
+checks have to be done before commit, on the local machine of the developer. Our expectation is that
+developers clean their own code on their own machines, and only expose other developers to clean code.
+We embodied this expectation in the principle that it was not OK for anything to fail in Commit, Nightly,
+or RC. As a result, developers were expected to not only test that their modifications worked, but also
+run all the tests that would run on Commit, and make sure that Commit would not fail. Note that it did
+not mean that this set of tests runs within a Jenkins pipeline - it did not make sense to us to add the burden
+of a CI/CD infrastructure on developer laptops. However the tests had to be run with a process that was
+guaranteed to be equivalent to what the Commit stage would use (I will explain the solution in <a href="/blog/cicd_pipeline_design_build_deploy_test/" title="CI/CD Pipeline Design: Build-Deploy-Test">Part 2</a>
+of the series).</p>
+
+<p>Stepping back to see the big picture, it is worth pointing out the following: as designed,
+the various stages are very similar to each other, and, with minor exceptions, only differ in three
+specific attributes:</p>
+
+<ol>
+<li>How/when they are triggered</li>
+<li>Which version of the software they build and test</li>
+<li>Which tests and checks they run</li>
+</ol>
+
+<p>This proved very important when it came to designing the Build-Deploy-Test loop (which will be
+described in <a href="/blog/cicd_pipeline_design_build_deploy_test/" title="CI/CD Pipeline Design: Build-Deploy-Test">Part 2</a> of the series). The table below shows a summary of the environments and the three attributes.</p>
+
+<table>
+    <tr>
+        <th width="10%">Stage</th>
+        <th width="20%">Version</th>
+        <th width="20%">Trigger</th>
+        <th width="50%">Tests / Checks</th>
+    </tr>
+    <tr>
+        <td>Local</td>
+        <td>Local changes</td>
+        <td>Manual</td>
+        <td>style checks, static code analysis, unit tests, smoke tests, specific tests by developer</td>
+    </tr>
+    <tr>
+        <td>Commit</td>
+        <td>Version in Commit</td>
+        <td>Commit</td>
+        <td>style checks, static code analysis, unit tests, smoke tests</td>
+    </tr>
+    <tr>
+        <td>Nightly</td>
+        <td>Snapshot at trigger time</td>
+        <td>External timer</td>
+        <td>style checks, static code analysis, unit tests, expensive code analysis, full regression</td>
+    </tr>
+    <tr>
+        <td>RC</td>
+        <td>Release candidate</td>
+        <td>Manual by the PO</td>
+        <td>style checks, static code analysis, unit tests, expensive code analysis, full regression</td>
+    </tr>
+    <tr>
+        <td>PLS</td>
+        <td>Release candidate</td>
+        <td>Manual by the PO</td>
+        <td>Performance, Load, and Stress tests</td>
+    </tr>
+    <tr>
+        <td>SEC</td>
+        <td>Release candidate</td>
+        <td>Manual by the PO</td>
+        <td>Security tests</td>
+    </tr>
+</table>
+
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/ci/cd">CI/CD</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/devops">DevOps</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/methodology">Methodology</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/best-practice">Best Practice</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/testing">Testing</a></li>
+          
+        </ul>
+      </li>
+    
+  
+  
+    <li class="tags">
+      <ul>
+        <li>None</li>
+      </ul>
+    </li>
+  
+</ul>
+
+  </footer>
+</article>
+<article class="post">
+  
+
+</article>
+<div class="pagination">
+  
+    <a href="/blog/designing_a_hiring_strategy/" class="button big previous"><i class="fas fa-angle-left"></i> Designing a Hiring Strategy</a>
+  
+  
+    <a href="/blog/cicd_pipeline_design_build_deploy_test/" class="button big next">CI/CD Pipeline Design: Build-Deploy-Test <i class="fas fa-angle-right"></i></a>
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  <section id="recent-posts">
+    <header>
+      <h1>Recent posts</h1>
+    </header>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/drive_by_coding_antipattern/" class="image featured">
+  <img src="/img/2019/10/drive_by.jpg" alt="Drive-by">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/drive_by_coding_antipattern/">The drive-by coding anti-pattern</a></h1>
+        <time class="published" datetime="">October 30, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/culture_eats_strategy_for_breakfast/" class="image featured">
+  <img src="/img/2019/10/THIS_IS_SPARTA.jpg" alt="This is Sparta">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/culture_eats_strategy_for_breakfast/">Culture eats Strategy for breakfast</a></h1>
+        <time class="published" datetime="">October 23, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/a_different_kind_of_company_growth/" class="image featured">
+  <img src="/img/2019/10/toy_tools.jpg" alt="Toy Tools">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/a_different_kind_of_company_growth/">A different kind of company growth</a></h1>
+        <time class="published" datetime="">October 8, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/how_to_really_build_customer_centric_products/" class="image featured">
+  <img src="/img/2019/10/buttler_sized.jpg" alt="Customer Servant">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/how_to_really_build_customer_centric_products/">How to (really) build customer centric products</a></h1>
+        <time class="published" datetime="">October 2, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/data_trumps_opinion/" class="image featured">
+  <img src="/img/2019/09/data_opinion.jpg" alt="Data versus Opinion">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/data_trumps_opinion/">Data Trumps Opinion (every time)</a></h1>
+        <time class="published" datetime="">September 24, 2019</time>
+      </header>
+    </article>
+    
+    
+      <a href="/blog/" class="button">See more</a>
+    
+  </section>
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/best-practice/">best-practice<span class="count">7</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/methodology/">methodology<span class="count">6</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/culture/">culture<span class="count">5</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/business/">business<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/general/">general<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/software-engineering/">software-engineering<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/testing/">testing<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/ci/cd/">ci/cd<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/devops/">devops<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/architecture/">architecture<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/cost/">cost<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/recruiting/">recruiting<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/agile/">agile<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/anti-patterns/">anti-patterns<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/collaboration/">collaboration<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/data/">data<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/engineers/">engineers<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/innovation/">innovation<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/lean/">lean<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/product-management/">product-management<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/requirements/">requirements<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/strategy/">strategy<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/teamwork/">teamwork<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/technology/">technology<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  <section id="mini-bio">
+    <header>
+      <h1>About</h1>
+    </header>
+    <p>A brief bio</p>
+    <footer>
+      <a href="/about" class="button">Learn More</a>
+    </footer>
+  </section>
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2019
+      
+        George Hadjiyiannis
+      
+    .
+    Powered by <a href="//gohugo.io" target="_blank" rel="noopener">Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/html.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/css.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/js.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/toml.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  <script src=/js/util.js></script>
+  <script src=/js/main.js></script>
+  <script src=/js/add-on.js></script>
+  
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Culture on George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/categories/culture/</link>
+    <description>Recent content in Culture on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 23 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/categories/culture/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Culture eats Strategy for breakfast</title>
+      <link>https://ghadjiyiannis.github.io/blog/culture_eats_strategy_for_breakfast/</link>
+      <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/culture_eats_strategy_for_breakfast/</guid>
+      <description>We have all heard the saying, and I am willing to bet that most of us have even said it to others, or inserted it in a presentation. Yet I realized that, while everyone seems to understand this on an academic level, none of us seem to understand it intuitively. In particular, we are very bad at understanding the full effects of culture, or taking it into account when we are making decisions on a day to day basis.</description>
+    </item>
+    
+    <item>
+      <title>A different kind of company growth</title>
+      <link>https://ghadjiyiannis.github.io/blog/a_different_kind_of_company_growth/</link>
+      <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/a_different_kind_of_company_growth/</guid>
+      <description>These days I find myself in regular discussions about company growth, primarily with startups that are getting traction and now need to step up to the next level. The discussions typically cover all the usual scaling topics, but until recently pretty much ended there. About 2 weeks ago, however, I had once more such a discussion, but this one went beyond the scaling challenges, and moved on to a different kind of growth: maturity.</description>
+    </item>
+    
+    <item>
+      <title>Data Trumps Opinion (every time)</title>
+      <link>https://ghadjiyiannis.github.io/blog/data_trumps_opinion/</link>
+      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/data_trumps_opinion/</guid>
+      <description>Anyone who has worked for a successful B2C knows how much better and more precise decision making gets, once it is empowered by data. However, two of the companies I worked for turned this into an art, and one of the two is, in my eyes, the unquestioned champion. In fact, we had such detailed knowledge of our numbers (despite the many cyclicalities) that we would occasionally find software bugs through our revenue figures: someone would notice a small drop in revenue and track conversion through the user journey to eventually find a broken page.</description>
+    </item>
+    
+    <item>
+      <title>Designing a Hiring Strategy</title>
+      <link>https://ghadjiyiannis.github.io/blog/designing_a_hiring_strategy/</link>
+      <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/designing_a_hiring_strategy/</guid>
+      <description>Let&amp;rsquo;s face it: most of the companies out there (including most of the ones I worked for) hire opportunistically. They wait until they have a specific need, then quickly put together a job description, and publish the opening in the various channels that are readily accessible, hoping that they get a fit. Most of the time they can&amp;rsquo;t find what they are looking for in a reasonable amount of time, and for the right salary.</description>
+    </item>
+    
+    <item>
+      <title>Evolving Team Culture</title>
+      <link>https://ghadjiyiannis.github.io/blog/seeding_team_culture/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/seeding_team_culture/</guid>
+      <description>Team culture is one of those things that gets talked about a lot when it is not quite right, but rarely worked on effectively. Yet so much of the outcome in the end depends on team culture. I bet that the majority of the people reading this article have experienced teams working in their own silos. Think about the influence it has on the ability of the company to drive successful outcomes.</description>
+    </item>
+    
+  </channel>
+</rss>

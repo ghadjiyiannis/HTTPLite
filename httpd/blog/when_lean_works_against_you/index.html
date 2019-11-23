@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+<title>When Lean works against you - George Hadjiyiannis</title>
+<meta name="description" content="Make sure you are not applying a methodology to a scenario that it was never intended for.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <meta name="generator" content="Hugo 0.57.2" />
+  <meta itemprop="name" content="When Lean works against you">
+<meta itemprop="description" content="Make sure you are not applying a methodology to a scenario that it was never intended for.">
+
+
+<meta itemprop="datePublished" content="2019-06-06T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-06-06T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1512">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <meta property="og:title" content="When Lean works against you" />
+<meta property="og:description" content="Make sure you are not applying a methodology to a scenario that it was never intended for." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ghadjiyiannis.github.io/blog/when_lean_works_against_you/" />
+<meta property="article:published_time" content="2019-06-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-06-06T00:00:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="When Lean works against you"/>
+<meta name="twitter:description" content="Make sure you are not applying a methodology to a scenario that it was never intended for."/>
+
+  
+
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
+  
+    
+      <link rel="stylesheet" href="/css/normalize.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+      <link rel="stylesheet" href="/css/main.min.css">
+      <link rel="stylesheet" href="/css/add-on.css">
+    
+  
+  
+  
+  
+  
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/">
+        
+          
+            Blog
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        <a href="/" class="link"><i class="fas fa-home">&nbsp;</i>Home</a>
+      
+        <a href="/about/" class="link"><i class="far fa-id-card">&nbsp;</i>About</a>
+      
+        <a href="/blog/" class="link"><i class="far fa-newspaper">&nbsp;</i>Blog</a>
+      
+        <a href="/categories/" class="link"><i class="fas fa-sitemap">&nbsp;</i>Categories</a>
+      
+        <a href="/contact/" class="link"><i class="far fa-envelope">&nbsp;</i>Contact</a>
+      
+      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    
+    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fwhen_lean_works_against_you%2f&amp;text=When%20Lean%20works%20against%20you&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fwhen_lean_works_against_you%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fwhen_lean_works_against_you%2f&amp;title=When%20Lean%20works%20against%20you" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fwhen_lean_works_against_you%2f&amp;title=When%20Lean%20works%20against%20you" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fwhen_lean_works_against_you%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro">
+  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="" alt="George Hadjiyiannis" /></a>
+  <header>
+    <h1>George Hadjiyiannis</h1>
+  </header>
+  <main>
+    <p>Software Executive, Entrepreneur, Software Architect</p>
+  </main>
+  
+    <footer>
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+        <h2><a href="/blog/when_lean_works_against_you/">When Lean works against you</a></h2>
+    
+    
+        <p>Make sure you are not applying a methodology to a scenario that it was never intended for.</p>
+    
+</div>
+  <div class="meta">
+    <time class="published" datetime="2019-06-06 00:00:00 &#43;0000 UTC">
+      June 6, 2019
+    </time>
+    <span class="author">George Hadjiyiannis</span>
+    
+        <p>8 minute read</p>
+    
+  </div>
+</header>
+
+  <section id="social-share">
+    
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fwhen_lean_works_against_you%2f&amp;text=When%20Lean%20works%20against%20you&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fwhen_lean_works_against_you%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fwhen_lean_works_against_you%2f&amp;title=When%20Lean%20works%20against%20you" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fwhen_lean_works_against_you%2f&amp;title=When%20Lean%20works%20against%20you" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fwhen_lean_works_against_you%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+<a href="/blog/when_lean_works_against_you/" class="image featured">
+  <img src="/img/2019/06/lean_startup_bg.jpg" alt="Lean Startup">
+</a>
+
+
+  <div class="content">
+    <p>There is an unfortunate pattern in business where, once an idea becomes successful, people try to copy
+it into all sort of other scenarios. I always felt like the following picture summed up nicely how
+everyone feels about this phenomenon, as it relates to the outcome of the Agile Manifesto:</p>
+
+<p><img src="/img/2019/06/not_another_manifesto.jpg" alt="Not Another Manifesto" /></p>
+
+<p>The main problem with this pattern is that, sooner or later, people end up applying said idea to
+scenarios where it is not really applicable. At best, the idea becomes ineffective or a distraction.
+At worst, it can work against you, leading you down a path that destroys value instead of generating it.</p>
+
+<p>The one instance of this pattern I want to focus on, is the pattern of slapping &ldquo;Lean&rdquo; in front of
+everything nowadays (I will probably write additional posts about other instances in the future). Since
+<a href="http://theleanstartup.com/book" title="The Lean Startup, by Eric Ries">Eric Ries&rsquo; classic book</a> (which I can only <em>strongly recommend</em>), the concept has been copied
+and over-applied to a degree that is hard to believe. As I was typing this post, I
+<a href="https://www.amazon.com/s?k=Lean&amp;i=stripbooks-intl-ship&amp;ref=nb_sb_noss_2" title="Lean books on Amazon">searched for &ldquo;Lean&rdquo;</a> in the books department of Amazon, which promptly returned the
+first 16 of a stunning 20,000 results! It is hard to argue that the concept has not been over-applied.</p>
+
+<p>Before I dive into the impact of misapplying the &ldquo;Lean&rdquo; concept, I would like to state on record a couple
+of disclaimers:</p>
+
+<p>First and foremost, I find the concept of &ldquo;Lean Startup&rdquo; as originally described by Ries, as well as the
+associated concept of an MVP (Minimum Viable Product), to be a really powerful idea. My objections lie not
+with the concepts described by Ries, but rather with the misapplication of those concepts. If you are a
+startup that is using Lean to discover as quickly as possible the right product for your target
+segment, then you have my full support.</p>
+
+<p>Second, I draw a very strong distinction between Lean Startup and MVP as concepts, and the concepts
+behind the <a href="https://en.wikipedia.org/wiki/Toyota_Production_System" title="Toyota Production System">Toyota Production System</a>. I personally think the idolatry of the TPS is also an
+instance of this pattern of misapplying ideas to contexts where they are not applicable, but I do not
+intend to address it in the current post (perhaps a future one).</p>
+
+<p>And with the two disclaimers in place, time to dive into some of the dysfunction that ensues when the
+concepts of Lean and MVP get misapplied. The problem with this particular instance, is that
+misapplication of &ldquo;Lean&rdquo; often falls in the damaging category.</p>
+
+<p>Let&rsquo;s start with a case that is
+unfortunately all too common in the world of B2B (and one that many of us in the industry have
+experienced first-hand): that of the brand new version of software. Companies with products that
+are well established in their target segments still need to renew their software every few years, if
+for no other reason, to remain competitive and to adjust to advancing user expectations. And quite a
+few of them come up with the seemingly natural idea of &ldquo;doing a lean MVP&rdquo; and &ldquo;iterating rapidly&rdquo;.
+While there is nothing wrong with iterating rapidly on the UI/UX, conflating that concept with the
+concept of an MVP creates an interesting pressure to go in the wrong direction: that of putting
+in place a minimal architecture that cannot serve the needs of a production customer. After all,
+putting in place infrastructure for scalability, data security and safety (e.g. encryption at rest),
+business continuity and disaster recovery, auditing, traceability and observability, monitoring,
+cost efficiency in operations, and all the other little things that are generally characteristic of
+large-scale Enterprise-Class Software often takes a lot more time and effort than the actual
+functionality. The end result is that, in the spirit of an MVP, the company bypasses all of these
+requirements and instead starts developing with an architecture that is a skeleton architecture at best.
+This is, of course, more than sufficient to support obtaining feedback in the demos at the end of the
+sprint (you are doing demos to your real users at the end of each sprint, right?), but it contains the
+implicit assumption that the MVP will be replaced with a different system at a future day, more suitable
+to the rigors of actual enterprise use. That is generally when the other shoe drops: your business management has
+spent a lot time and money to iterate over the new user experience and now want to monetize it. And they have seen all
+the functionality with their own eyes (in those same sprint demos) so they can&rsquo;t understand why the product is
+not ready. To make matters worse, if you were successful in dramatically improving the user experience,
+your very large B2B customer has been hearing their users raving about the new product, and is unwilling
+to continue with the old one. The end result: your MVP, which still has a skeleton architecture, is pushed
+to production, along with a massive amount of technical debt, and woefully insufficient support for all
+the non-functional requirements. Since the major manifestation of this deficiency appears as poor scalability, performance,
+and stability, both business and customer perceive this as a quality issue, and the fact that the wrong
+strategy got executed is very neatly masked and very hard to diagnose.</p>
+
+<p>So, where did all this go wrong? Or stated differently, why does an MVP make sense for a startup but leads
+to so much trouble in this case? For one thing, an MVP is designed to do something entirely different in a
+startup: <em>it is designed to establish problem-solution fit and product-market fit!</em> In an established B2B
+creating a new version of a product that has clear market traction, neither of those two things need to
+be established. The MVP is clearly being applied to something other than what it was originally intended to do!</p>
+
+<p>Using a similar scenario let&rsquo;s examine a second way in which companies get in trouble. Once again, your company
+is exploring the possibility of a new product extension for some of the large B2B customers. A product
+manager reaches out to one of the target customers and convinces them to engage in a pilot. The company
+invests in an MVP, developed in close cooperation with the pilot customer. After the MVP is completed, the
+sales team tries to convince other customers to sign up to the product extension, only to find out that
+the product is too specific to the first pilot customer (it evolved into a point solution), and the rest
+of the customers are generally not interested. The outcome is that you now have a product that very few customers
+have signed up for, that you have to support and maintain. Unfortunately, business management is not willing
+to lose the small amount of revenue that the product is generating so they commit to keeping the product
+in place. Here the company comes to a fork in the road: down one path, the company can continue to maintain
+and support the product but at the cost of losing money on it. Down the other path, the company continues to
+provide the product to the few customers that have signed up, but minimizes investment, effectively not
+properly maintaining and supporting the product. Understandably, neither of those outcomes generates value.</p>
+
+<p>Once again, there is a key misapplication of the original Lean Startup idea that led to this outcome: remember
+that the original point of the MVP in Lean Startup is to establish whether the product is viable in the market,
+<em>and if not, pivot!</em> In this case, the pivot never happened. I think every entrepreneur instinctively realizes
+that a pivot that is necessary but never happens will spell certain death for a startup. The problem is that
+for an established company, a missed pivot behaves more like a chronic condition than an acute one - it
+will certainly deteriorate the health of the company but, because the effect is not immediate, the danger
+is not as visible.</p>
+
+<p>The third and final dysfunction is a bit more subtle: pivoting in B2B is radically different than pivoting in
+B2C. There are two effects behind this:</p>
+
+<ul>
+<li>In B2C you define a product with the help of the law of averages: even when practically non-existent, a
+B2C company is going to be working with a sample user size of over 1000 unrelated users. The end result
+is that it is much harder to end up with a point solution - there&rsquo;s simply much less opportunity for
+group-think in a sample of 1000 unrelated users, than a sample of 40 users that work for the same organization.</li>
+<li>Pivoting away from 1000 users to what could potentially be of value to hundreds of millions of users is a lot
+easier to do, than pivoting away from the (admittedly partial) requirements of a B2B customer that represents
+12% of your revenue.</li>
+</ul>
+
+<p>At the end of the day, making to leap of faith to pivot is simply a lot harder to do in the context of an
+established B2B company with existing large customers.</p>
+
+<p>Long story short, read the product label carefully before you take the medication!</p>
+
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/lean">Lean</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/methodology">Methodology</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/best-practice">Best Practice</a></li>
+          
+        </ul>
+      </li>
+    
+  
+  
+    <li class="tags">
+      <ul>
+        <li>None</li>
+      </ul>
+    </li>
+  
+</ul>
+
+  </footer>
+</article>
+<article class="post">
+  
+
+</article>
+<div class="pagination">
+  
+    <a href="/blog/developer_vs_engineer/" class="button big previous"><i class="fas fa-angle-left"></i> Developers write code, Software Engineers solve problems</a>
+  
+  
+    <a href="/blog/software_is_hard_scaling/" class="button big next">Software is hard - Part 1: Scaling <i class="fas fa-angle-right"></i></a>
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  <section id="recent-posts">
+    <header>
+      <h1>Recent posts</h1>
+    </header>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/drive_by_coding_antipattern/" class="image featured">
+  <img src="/img/2019/10/drive_by.jpg" alt="Drive-by">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/drive_by_coding_antipattern/">The drive-by coding anti-pattern</a></h1>
+        <time class="published" datetime="">October 30, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/culture_eats_strategy_for_breakfast/" class="image featured">
+  <img src="/img/2019/10/THIS_IS_SPARTA.jpg" alt="This is Sparta">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/culture_eats_strategy_for_breakfast/">Culture eats Strategy for breakfast</a></h1>
+        <time class="published" datetime="">October 23, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/a_different_kind_of_company_growth/" class="image featured">
+  <img src="/img/2019/10/toy_tools.jpg" alt="Toy Tools">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/a_different_kind_of_company_growth/">A different kind of company growth</a></h1>
+        <time class="published" datetime="">October 8, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/how_to_really_build_customer_centric_products/" class="image featured">
+  <img src="/img/2019/10/buttler_sized.jpg" alt="Customer Servant">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/how_to_really_build_customer_centric_products/">How to (really) build customer centric products</a></h1>
+        <time class="published" datetime="">October 2, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/data_trumps_opinion/" class="image featured">
+  <img src="/img/2019/09/data_opinion.jpg" alt="Data versus Opinion">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/data_trumps_opinion/">Data Trumps Opinion (every time)</a></h1>
+        <time class="published" datetime="">September 24, 2019</time>
+      </header>
+    </article>
+    
+    
+      <a href="/blog/" class="button">See more</a>
+    
+  </section>
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/best-practice/">best-practice<span class="count">7</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/methodology/">methodology<span class="count">6</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/culture/">culture<span class="count">5</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/business/">business<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/general/">general<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/software-engineering/">software-engineering<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/testing/">testing<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/ci/cd/">ci/cd<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/devops/">devops<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/architecture/">architecture<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/cost/">cost<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/recruiting/">recruiting<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/agile/">agile<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/anti-patterns/">anti-patterns<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/collaboration/">collaboration<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/data/">data<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/engineers/">engineers<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/innovation/">innovation<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/lean/">lean<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/product-management/">product-management<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/requirements/">requirements<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/strategy/">strategy<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/teamwork/">teamwork<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/technology/">technology<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  <section id="mini-bio">
+    <header>
+      <h1>About</h1>
+    </header>
+    <p>A brief bio</p>
+    <footer>
+      <a href="/about" class="button">Learn More</a>
+    </footer>
+  </section>
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2019
+      
+        George Hadjiyiannis
+      
+    .
+    Powered by <a href="//gohugo.io" target="_blank" rel="noopener">Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/html.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/css.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/js.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/toml.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  <script src=/js/util.js></script>
+  <script src=/js/main.js></script>
+  <script src=/js/add-on.js></script>
+  
+
+
+
+    </div>
+  </body>
+</html>

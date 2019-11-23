@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>General on George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/categories/general/</link>
+    <description>Recent content in General on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 23 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/categories/general/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Culture eats Strategy for breakfast</title>
+      <link>https://ghadjiyiannis.github.io/blog/culture_eats_strategy_for_breakfast/</link>
+      <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/culture_eats_strategy_for_breakfast/</guid>
+      <description>We have all heard the saying, and I am willing to bet that most of us have even said it to others, or inserted it in a presentation. Yet I realized that, while everyone seems to understand this on an academic level, none of us seem to understand it intuitively. In particular, we are very bad at understanding the full effects of culture, or taking it into account when we are making decisions on a day to day basis.</description>
+    </item>
+    
+    <item>
+      <title>A different kind of company growth</title>
+      <link>https://ghadjiyiannis.github.io/blog/a_different_kind_of_company_growth/</link>
+      <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/a_different_kind_of_company_growth/</guid>
+      <description>These days I find myself in regular discussions about company growth, primarily with startups that are getting traction and now need to step up to the next level. The discussions typically cover all the usual scaling topics, but until recently pretty much ended there. About 2 weeks ago, however, I had once more such a discussion, but this one went beyond the scaling challenges, and moved on to a different kind of growth: maturity.</description>
+    </item>
+    
+    <item>
+      <title>Making near-shoring and off-shoring effective.</title>
+      <link>https://ghadjiyiannis.github.io/blog/effective_nearshoring_offshoring/</link>
+      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/effective_nearshoring_offshoring/</guid>
+      <description>It seems that everywhere you look, companies are looking to create near-shore and off-shore partnerships, to increase their software development capacity and reduce costs. Interestingly, this is not limited to large companies; more and more SMEs are joining in. At the same time, we now have over a decade of experience with this topic in the industry, and have learned some hard-earned lessons. It seems not that long ago that companies were pulling back from off-shoring due to a significant number of challenges in making the partnerships effective.</description>
+    </item>
+    
+    <item>
+      <title>It&#39;s a start!</title>
+      <link>https://ghadjiyiannis.github.io/blog/its_a_start/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/its_a_start/</guid>
+      <description>Well, here we go!
+As is normal for a software engineer, I have often had discussions with colleagues about the best way of doing things in the field. Sometimes these were opinionated discussions of little substance, but sometimes we would reach some conclusions interesting enough to warrant capturing somewhere. While I often joked about writing a book on the topic, I have been thinking of putting together a blog for quite a while.</description>
+    </item>
+    
+  </channel>
+</rss>

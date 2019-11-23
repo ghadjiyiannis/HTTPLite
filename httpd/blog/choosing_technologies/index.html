@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+<title>Choosing Technologies - George Hadjiyiannis</title>
+<meta name="description" content="Are we really having the impact we expect, when we choose technologies for software products?">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <meta name="generator" content="Hugo 0.57.2" />
+  <meta itemprop="name" content="Choosing Technologies">
+<meta itemprop="description" content="Are we really having the impact we expect, when we choose technologies for software products?">
+
+
+<meta itemprop="datePublished" content="2019-09-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-09-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2158">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <meta property="og:title" content="Choosing Technologies" />
+<meta property="og:description" content="Are we really having the impact we expect, when we choose technologies for software products?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ghadjiyiannis.github.io/blog/choosing_technologies/" />
+<meta property="article:published_time" content="2019-09-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-11T00:00:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Choosing Technologies"/>
+<meta name="twitter:description" content="Are we really having the impact we expect, when we choose technologies for software products?"/>
+
+  
+
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
+  
+    
+      <link rel="stylesheet" href="/css/normalize.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+      <link rel="stylesheet" href="/css/main.min.css">
+      <link rel="stylesheet" href="/css/add-on.css">
+    
+  
+  
+  
+  
+  
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/">
+        
+          
+            Blog
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        <a href="/" class="link"><i class="fas fa-home">&nbsp;</i>Home</a>
+      
+        <a href="/about/" class="link"><i class="far fa-id-card">&nbsp;</i>About</a>
+      
+        <a href="/blog/" class="link"><i class="far fa-newspaper">&nbsp;</i>Blog</a>
+      
+        <a href="/categories/" class="link"><i class="fas fa-sitemap">&nbsp;</i>Categories</a>
+      
+        <a href="/contact/" class="link"><i class="far fa-envelope">&nbsp;</i>Contact</a>
+      
+      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    
+    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fchoosing_technologies%2f&amp;text=Choosing%20Technologies&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fchoosing_technologies%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fchoosing_technologies%2f&amp;title=Choosing%20Technologies" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fchoosing_technologies%2f&amp;title=Choosing%20Technologies" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fchoosing_technologies%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro">
+  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="" alt="George Hadjiyiannis" /></a>
+  <header>
+    <h1>George Hadjiyiannis</h1>
+  </header>
+  <main>
+    <p>Software Executive, Entrepreneur, Software Architect</p>
+  </main>
+  
+    <footer>
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+        <h2><a href="/blog/choosing_technologies/">Choosing Technologies</a></h2>
+    
+    
+        <p>Are we really having the impact we expect, when we choose technologies for software products?</p>
+    
+</div>
+  <div class="meta">
+    <time class="published" datetime="2019-09-11 00:00:00 &#43;0000 UTC">
+      September 11, 2019
+    </time>
+    <span class="author">George Hadjiyiannis</span>
+    
+        <p>11 minute read</p>
+    
+  </div>
+</header>
+
+  <section id="social-share">
+    
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fchoosing_technologies%2f&amp;text=Choosing%20Technologies&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fchoosing_technologies%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fchoosing_technologies%2f&amp;title=Choosing%20Technologies" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fchoosing_technologies%2f&amp;title=Choosing%20Technologies" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fchoosing_technologies%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+<a href="/blog/choosing_technologies/" class="image featured">
+  <img src="/img/2019/09/choosing_technologies.jpg" alt="Choosing Technologies">
+</a>
+
+
+  <div class="content">
+    
+
+<p>Despite growing up in a country where football (soccer, for my American readers) is the universal passion, I never
+understood the appeal, and I never shared it. However, I suspect it to be similar to the passion that a discussion
+on technology choices evokes among software engineers and architects: despite being otherwise excessively
+rational beings (at least according to everyone in a different profession), we favor technologies by faith
+instead of reason, and we get emotionally attached to them. I think I tend to adopt a more pragmatic approach
+than average, and sometimes find myself wondering to what extent it actually matters. I remember attending a
+Startup Grind event in Barcelona a few years back, where the speaker was the CTO of a very successful
+Spanish startup. Someone in the audience asked a question about the technology used, and his answer (to
+the best of my recollection) was:</p>
+
+<blockquote>
+<p>As engineers we discuss technology choices a lot, but I suspect that if you look very closely, you will find
+that in any startup, the technology of choice happens to be whatever technology the first key technical person
+in the company was comfortable with.</p>
+</blockquote>
+
+<p>I have thought of that answer many times since then, and every time it strikes me as the most accurate (as
+well as the most sincere) statement about how we pick technologies. I think a lot of the discussion about
+specific advantages and disadvantages amounts to what&rsquo;s effectively a posteriori rationalization of the
+decision, rather than an explanation of the causes of the decision. That being said, one has to ask: to what
+what extend do technology choices matter anyway? My belief is that most of the time there are no major differences
+that would compel the use of one technology over another, and the decision is really a matter of second order
+effects, such availability of talent, or the size of the community around the technology. The goal of this article
+is to lay out those second order effects, not only to bring technology choice discussions back on rational footing,
+but also to enable people to judge to what extend a decision makes a meaningful impact in their specific scenario.</p>
+
+<h3 id="choosing-a-programming-language">Choosing A Programming Language</h3>
+
+<p>Counterintuitive as it may sound, I believe that the choice of programming language is, in some respects, the
+least relevant choice of all: all programming
+languages that one is likely to run into nowadays (including practically every form of assembly language)
+are <a href="https://en.wikipedia.org/wiki/Turing_completeness" title="Turing Completeness">Turing complete</a>. In other words, any program you could write in any other language, you could
+also write in the target language (if it is Turing complete). If one&rsquo;s argument against language A and in favor
+of language B, is that there are <em>programs</em> one can write in B but not in A, the argument is most likely wrong.
+That is <em>not to say</em> that there aren&rsquo;t things that are <em>easier</em> in language A vs. language B. For example, if
+performance is so important that one would like to optimize the cache access patterns of the code (this is often
+the case in game engines and middleware), then one probably wants to pick a language with an
+explicit  memory management model (such as C/C++), over a garbage-collected language such as Java. In general,
+however, such requirements are rare, and most languages look pretty similar. The one major exception I would
+make, is the distinction between strongly typed and untyped or weakly typed languages. These have fundamentally different cost
+characteristics over the software life-cycle; I plan to write a later article on specifically this impact.</p>
+
+<p>In reality, the primary impact of language choice is in its second order effects:</p>
+
+<ul>
+<li>Availability of talent: This is by far the most important second order effect. A fellow entrepreneur
+was recently sharing his challenge finding an additional engineer for his team. The application is what I
+would describe as a fairly straightforward web application, but the core is written in Scala (incidentally,
+they picked Scala for the same reason described in the quote above). He can find many Java engineers,
+but the Scala talent pool is much smaller, and he has struggled to find a single engineer to fill the position.</li>
+<li>Reach of the ecosystem: in general, you don&rsquo;t want to write all the code yourself; you want to reuse as
+much as possible in libraries and frameworks, and certainly in tooling (as you are unlikely to write your
+own tools). Some languages are embedded in a much richer ecosystem than others.</li>
+<li>Maturity: This generally becomes important when the non-functional requirements (especially security and
+stability) become important. More mature technologies tend to have more of their bugs shaken out, so they
+tend to be more stable and secure. Note that this primarily applies to the ecosystems, rather than the
+languages themselves, but since the languages are often bound to their ecosystem, the language choice itself
+might be made on the basis of the maturity of its ecosystem.</li>
+<li>Vendor specificity / Open Source: if the language is owned by a single vendor, that often implies vendor
+lock-in. At the same time, single-vendor ecosystems tend to have parts that fit together better than open
+source.</li>
+</ul>
+
+<h3 id="choosing-a-framework-environment">Choosing a Framework Environment</h3>
+
+<p>First of all, let me explain what I mean by <em>Framework Environment</em> in this case, since I am using it in a
+non-standard way. Within some technology ecosystems there are frameworks that make fundamental decisions as
+to how your code should operate within the framework. Different such frameworks often make incompatible
+decisions, meaning you have to pick one or the other. In Java, I would list J2EE/EJB, Equinox, and Spring<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>
+as such frameworks. Since they all three attempt to control the life-cycle of the components of your
+application, they are not really compatible with each other, and you need to pick one. Similarly,
+front-end teams generally end up using either Angular or React for each page or module, although it is possible
+to mix modules using different framework environments.</p>
+
+<p>The primary difference between framework environments is in what the framework has chosen to make easy, versus
+what remains more complicated. Spring, for example, has focused a lot of energy on making dependency
+injection as easy as possible. If that is important to you, it might make sense to pick Spring. On the other
+hand, J2EE manages the interaction between your components and the application server in which they live more effectively.
+With each of these options you get some things for a very low cost, provided by the framework,
+but you have to pay the full price for others. By choosing which cost to defer to the framework, you can
+optimize how much you have to build for yourself, but the actual trade-off will always depend on what you
+are building, and therefore there is no option that is universally better than the others.</p>
+
+<p>Note that there are many other second order factors to be taken into account as well:</p>
+
+<ul>
+<li>Availability of talent (it is a lot easier to find Spring or J2EE developers than it is to find Equinox
+developers, for example).</li>
+<li>Maturity</li>
+<li>Community Size</li>
+<li>Support for specific architecture philosophies (microservices, vs. SOA, vs. Web Services, etc.)</li>
+</ul>
+
+<h3 id="choosing-specific-technologies">Choosing Specific Technologies</h3>
+
+<p>One level below framework environments, one is faced with the decision on choosing specific technologies.
+Consider, for example, messaging technologies: one could choose between ActiveMQ, Kafka, IBM MQ, RabbitMQ,
+and so on. Sometimes, the decision is actually a two-tier decision, with the first tier being a class of
+technologies. The classic example would be database technologies: the first tier is a choice of SQL vs. NoSQL,
+for example, and the second tier would contain specific database technologies such as MariaDB/MySQL,
+MS SQL Server, Oracle, or PostgreSQL for the SQL class, or MongoDB, Apache Ignite, Apache Giraph, and so on
+for the NoSQL class.</p>
+
+<p>In the case of technologies, specific features matter. It is still not the case that something you wish to
+do will be impossible in a particular technology, but the difference in how hard it is if not supported by
+the technology is significantly higher. For example, you <strong>can</strong> implement schemaless functionality in an
+SQL database, but it requires you to do a lot more work in the application than if you simply used a
+schemaless database. That being said, most technologies of a certain reach and maturity tend to
+cover most common functionality, so it would take unusual requirements to make functionality be the major
+determinant in which technology you choose. The second order factors still count for a lot, in particular:</p>
+
+<ul>
+<li>Talent availability</li>
+<li>Compatibility with other technology choices (e.g., in the case of a message broker, is it compatible with JMS
+if you are using J2EE/EJB?)</li>
+<li>Flexibility</li>
+<li>Licensing Cost</li>
+<li>Non-functional requirements (performance, scalability, reliability)</li>
+<li>Maturity</li>
+<li>Active development and maintenance (you certainly do not want to commit yourself to a technology that is
+approaching End-of-Life, or does not have enough critical mass to create a reasonable expectation of support)</li>
+<li>Community size</li>
+<li>Vendor specificity / Open Source</li>
+<li>Resource consumption</li>
+</ul>
+
+<h3 id="getting-it-wrong">Getting it wrong</h3>
+
+<p>Going back to the quote at the beginning of the article for a second, one has to ask: What if you make the wrong
+choice? In fact, given how we tend to make these decisions at a time where we know very little about the requirements
+that eventually will become relevant to the choice, we quite often make the &ldquo;wrong&rdquo; choice. What recourse do we
+have once we finally reach the point where the information becomes available, and we know the &ldquo;right&rdquo; choice? I
+think in a lot of respects, the answer depends on how you choose to think about the question. My particular
+answer is that you obviously have two choices:</p>
+
+<ul>
+<li>Live with the consequences of the choice: in most of the cases, you will realize that some of the things you
+wish to do are now more difficult than if you have made a different choice, but the cost is not high enough
+to warrant a major re-engineering effort to replace the technology in question. In effect, it is a source of
+technical debt just like any other, and you can continue to pay the interest on this debt for as long as you
+find it affordable.</li>
+<li>Change technologies: if the mismatch is great enough, the cost of continuing with the original technology
+choice can become prohibitive, and it may make more sense to re-engineer the system to replace the technology
+in question. How costly it is do do so will depend on the system architecture. Some architecture philosophies,
+such as the microservices style, make it really simple to replace technologies: one could simply re-implement
+an entire microservice in a new technology. In SOA and Web Services, it tends to be a bit more complicated, but
+can still be done without excessive cost if planned and executed properly. Also, if there is a standard interface
+anywhere between the bulk of your application and the technology you are trying to replace, it can be used to
+contain the impact, thus making the re-engineering much simpler. For example, consider the case of replacing the
+underlying data store in an application that uses JPA / Hibernate: most of the time all that has to change is
+the configuration of the data source.</li>
+</ul>
+
+<p>That being said, I&rsquo;d like to revisit one of the questions introduced at the beginning of this article: <em>How much
+does it really matter?</em> Based on the analysis above, I tend to think of getting a technology choice wrong as
+equivalent to a technical debt issue. By analyzing the factors above one could arrive at a decent estimate for
+the size of the corresponding technical debt. I would then treat it like any other decision that generates
+technical debt. If you think that the risk and/or impact of the decision is high enough, you could even
+architect some containment around it to contain the impact. At the end of the day, however, once engineers understand
+that it is merely an issue of technical debt, hopefully they will feel less inclined to make decisions on faith,
+or to fight religious wars over technology choices.</p>
+
+<h3 id="one-last-word">One last word</h3>
+
+<p>While I certainly believe that from the engineering perspective the impact can be easily contained and ameliorated,
+I have learned the hard way that technologies are inherently biased, and strongly condition how we think about
+engineering problems. The question of the impact on the team culture and ethos is much more complicated to
+analyze, and certainly a lot harder to contain or ameliorate. As a result, from the <strong>management and strategy</strong>
+perspective, I think that technology choices matter a lot more, and deserve much more attention. That being said,
+that particular rabbit hole is much deeper, and I do not yet feel I have enough clarity of thought to
+analyze it here.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Note that in the Java ecosystem, these would normally be called containers, but with that term now being in common use to mean something else, I opted to stay away from it.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/technology">Technology</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/architecture">Architecture</a></li>
+          
+        </ul>
+      </li>
+    
+  
+  
+    <li class="tags">
+      <ul>
+        <li>None</li>
+      </ul>
+    </li>
+  
+</ul>
+
+  </footer>
+</article>
+<article class="post">
+  
+
+</article>
+<div class="pagination">
+  
+    <a href="/blog/shortcomings_of_agile/" class="button big previous"><i class="fas fa-angle-left"></i> The shortcomings of Agile</a>
+  
+  
+    <a href="/blog/effective_nearshoring_offshoring/" class="button big next">Making near-shoring and off-shoring effective. <i class="fas fa-angle-right"></i></a>
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  <section id="recent-posts">
+    <header>
+      <h1>Recent posts</h1>
+    </header>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/drive_by_coding_antipattern/" class="image featured">
+  <img src="/img/2019/10/drive_by.jpg" alt="Drive-by">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/drive_by_coding_antipattern/">The drive-by coding anti-pattern</a></h1>
+        <time class="published" datetime="">October 30, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/culture_eats_strategy_for_breakfast/" class="image featured">
+  <img src="/img/2019/10/THIS_IS_SPARTA.jpg" alt="This is Sparta">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/culture_eats_strategy_for_breakfast/">Culture eats Strategy for breakfast</a></h1>
+        <time class="published" datetime="">October 23, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/a_different_kind_of_company_growth/" class="image featured">
+  <img src="/img/2019/10/toy_tools.jpg" alt="Toy Tools">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/a_different_kind_of_company_growth/">A different kind of company growth</a></h1>
+        <time class="published" datetime="">October 8, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/how_to_really_build_customer_centric_products/" class="image featured">
+  <img src="/img/2019/10/buttler_sized.jpg" alt="Customer Servant">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/how_to_really_build_customer_centric_products/">How to (really) build customer centric products</a></h1>
+        <time class="published" datetime="">October 2, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/data_trumps_opinion/" class="image featured">
+  <img src="/img/2019/09/data_opinion.jpg" alt="Data versus Opinion">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/data_trumps_opinion/">Data Trumps Opinion (every time)</a></h1>
+        <time class="published" datetime="">September 24, 2019</time>
+      </header>
+    </article>
+    
+    
+      <a href="/blog/" class="button">See more</a>
+    
+  </section>
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/best-practice/">best-practice<span class="count">7</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/methodology/">methodology<span class="count">6</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/culture/">culture<span class="count">5</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/business/">business<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/general/">general<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/software-engineering/">software-engineering<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/testing/">testing<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/ci/cd/">ci/cd<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/devops/">devops<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/architecture/">architecture<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/cost/">cost<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/recruiting/">recruiting<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/agile/">agile<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/anti-patterns/">anti-patterns<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/collaboration/">collaboration<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/data/">data<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/engineers/">engineers<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/innovation/">innovation<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/lean/">lean<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/product-management/">product-management<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/requirements/">requirements<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/strategy/">strategy<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/teamwork/">teamwork<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/technology/">technology<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  <section id="mini-bio">
+    <header>
+      <h1>About</h1>
+    </header>
+    <p>A brief bio</p>
+    <footer>
+      <a href="/about" class="button">Learn More</a>
+    </footer>
+  </section>
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2019
+      
+        George Hadjiyiannis
+      
+    .
+    Powered by <a href="//gohugo.io" target="_blank" rel="noopener">Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/html.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/css.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/js.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/toml.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  <script src=/js/util.js></script>
+  <script src=/js/main.js></script>
+  <script src=/js/add-on.js></script>
+  
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Product Management on George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/categories/product-management/</link>
+    <description>Recent content in Product Management on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 02 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/categories/product-management/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to (really) build customer centric products</title>
+      <link>https://ghadjiyiannis.github.io/blog/how_to_really_build_customer_centric_products/</link>
+      <pubDate>Wed, 02 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/how_to_really_build_customer_centric_products/</guid>
+      <description>Customer centricity is another one of those points that is constantly talked about but often rarely actually reasoned about. As a result, most of the discussion out there is usually trivial and essentially consists of the equivalent of &amp;ldquo;Go ask what the customer wants, then go build it&amp;rdquo;. I would respectfully offer the opinion that that is not customer centricity, but rather, customer servitude! There are three fundamental mistakes in the idea of &amp;ldquo;Go ask what the customer wants, then go build it&amp;rdquo;, and I want to examine all of them critically to dispel the trivial hype around the topic.</description>
+    </item>
+    
+  </channel>
+</rss>

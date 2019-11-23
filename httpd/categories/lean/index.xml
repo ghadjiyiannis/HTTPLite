@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lean on George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/categories/lean/</link>
+    <description>Recent content in Lean on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 06 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/categories/lean/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>When Lean works against you</title>
+      <link>https://ghadjiyiannis.github.io/blog/when_lean_works_against_you/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/when_lean_works_against_you/</guid>
+      <description>There is an unfortunate pattern in business where, once an idea becomes successful, people try to copy it into all sort of other scenarios. I always felt like the following picture summed up nicely how everyone feels about this phenomenon, as it relates to the outcome of the Agile Manifesto:
+The main problem with this pattern is that, sooner or later, people end up applying said idea to scenarios where it is not really applicable.</description>
+    </item>
+    
+  </channel>
+</rss>

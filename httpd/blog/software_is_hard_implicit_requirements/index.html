@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+<title>Software is hard - Part 2: Implicit Requirements - George Hadjiyiannis</title>
+<meta name="description" content="The requirements you can see at the beginning are only the tip of the iceberg.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <meta name="generator" content="Hugo 0.57.2" />
+  <meta itemprop="name" content="Software is hard - Part 2: Implicit Requirements">
+<meta itemprop="description" content="The requirements you can see at the beginning are only the tip of the iceberg.">
+
+
+<meta itemprop="datePublished" content="2019-07-02T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-07-02T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1631">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <meta property="og:title" content="Software is hard - Part 2: Implicit Requirements" />
+<meta property="og:description" content="The requirements you can see at the beginning are only the tip of the iceberg." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ghadjiyiannis.github.io/blog/software_is_hard_implicit_requirements/" />
+<meta property="article:published_time" content="2019-07-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-02T00:00:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Software is hard - Part 2: Implicit Requirements"/>
+<meta name="twitter:description" content="The requirements you can see at the beginning are only the tip of the iceberg."/>
+
+  
+
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
+  
+    
+      <link rel="stylesheet" href="/css/normalize.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+      <link rel="stylesheet" href="/css/main.min.css">
+      <link rel="stylesheet" href="/css/add-on.css">
+    
+  
+  
+  
+  
+  
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/">
+        
+          
+            Blog
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        <a href="/" class="link"><i class="fas fa-home">&nbsp;</i>Home</a>
+      
+        <a href="/about/" class="link"><i class="far fa-id-card">&nbsp;</i>About</a>
+      
+        <a href="/blog/" class="link"><i class="far fa-newspaper">&nbsp;</i>Blog</a>
+      
+        <a href="/categories/" class="link"><i class="fas fa-sitemap">&nbsp;</i>Categories</a>
+      
+        <a href="/contact/" class="link"><i class="far fa-envelope">&nbsp;</i>Contact</a>
+      
+      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    
+    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fsoftware_is_hard_implicit_requirements%2f&amp;text=Software%20is%20hard%20-%20Part%202%3a%20Implicit%20Requirements&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fsoftware_is_hard_implicit_requirements%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fsoftware_is_hard_implicit_requirements%2f&amp;title=Software%20is%20hard%20-%20Part%202%3a%20Implicit%20Requirements" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fsoftware_is_hard_implicit_requirements%2f&amp;title=Software%20is%20hard%20-%20Part%202%3a%20Implicit%20Requirements" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fsoftware_is_hard_implicit_requirements%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro">
+  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="" alt="George Hadjiyiannis" /></a>
+  <header>
+    <h1>George Hadjiyiannis</h1>
+  </header>
+  <main>
+    <p>Software Executive, Entrepreneur, Software Architect</p>
+  </main>
+  
+    <footer>
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+        <h2><a href="/blog/software_is_hard_implicit_requirements/">Software is hard - Part 2: Implicit Requirements</a></h2>
+    
+    
+        <p>The requirements you can see at the beginning are only the tip of the iceberg.</p>
+    
+</div>
+  <div class="meta">
+    <time class="published" datetime="2019-07-02 00:00:00 &#43;0000 UTC">
+      July 2, 2019
+    </time>
+    <span class="author">George Hadjiyiannis</span>
+    
+        <p>8 minute read</p>
+    
+  </div>
+</header>
+
+  <section id="social-share">
+    
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fsoftware_is_hard_implicit_requirements%2f&amp;text=Software%20is%20hard%20-%20Part%202%3a%20Implicit%20Requirements&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fsoftware_is_hard_implicit_requirements%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fsoftware_is_hard_implicit_requirements%2f&amp;title=Software%20is%20hard%20-%20Part%202%3a%20Implicit%20Requirements" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fsoftware_is_hard_implicit_requirements%2f&amp;title=Software%20is%20hard%20-%20Part%202%3a%20Implicit%20Requirements" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fsoftware_is_hard_implicit_requirements%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+<a href="/blog/software_is_hard_implicit_requirements/" class="image featured">
+  <img src="/img/2019/07/iceberg.jpg" alt="Tip of the Iceberg">
+</a>
+
+
+  <div class="content">
+    <p>Every professional in the software industry knows that building software is a highly unpredictable
+business. This is why we don&rsquo;t like the question of &ldquo;How long is it going to take?&rdquo;. The thing that
+always puzzled me, however, is that that unpredictability always seems to point in the wrong
+direction: software seems to almost always take longer to build than expected. With practically any other
+process, one would expect something similar to a normal (binomial) distribution around the expected estimate.
+Sometimes the project would take more time than the estimate, and sometimes less. But with
+software, it almost <em>always</em> takes longer. I can&rsquo;t help but ask why that is. I believe the answer
+has many different components, but one of the most important (and most insidious) ones is implicit
+requirements.</p>
+
+<p>Every piece of software has at its core a small set of use cases that generate the primary value-add
+for the end user. Most of us tend to naturally focus on these core set of requirements, especially at
+the beginning before any of the software has been built. And when called upon to estimate how long the
+software will take to build, we tend to judge the size and complexity of this set, and then give an
+estimate based on that. Unfortunately, in most typical software, the core use cases represent <em>only a
+small fraction</em> of the total set of use cases that need to be built. There is a much larger set of
+requirements that are required to be in place for the core set to work at all, and these use cases
+are typically not visible until a much deeper analysis.</p>
+
+<p>Let&rsquo;s illustrate by using an example. Imagine you wish to write a simple messenger application.
+To keep things simple we will pretend that this is meant to be a web application rather than a
+mobile application, but the arguments would apply equally well to a mobile application. In this app,
+you can select a person you know and send them a message. They can respond, and this will show up in
+the same thread. You can also add people to a thread (but they will not see any messages that
+were sent before they were added, to keep things simple). This application is not tied to a specific
+company, and people may send messages to people outside the company as well, but it is meant to be
+suitable for a commercial environment. So how many core uses cases are there in such an app?
+Well, there is the actual thread view where I can see the messages in a thread and post messages to
+the thread. And there is the use case of adding a person to the thread. A new thread is created by
+adding the first person. So all in all, there are only two core use cases (we <em>did</em> try hard to keep it
+simple). Almost all of the end-user value is generated by these two core use cases.</p>
+
+<p>These use cases are not viable, however, without a number of additional use cases that we did not
+describe above. To begin with, finding a user means that they have a user profile of some sort that
+we can search on; this is required by the core use case of adding a user to a thread. Implicitly,
+we need a use case for creating a profile, one for editing a profile, and we need a login mechanism.
+If we have a login mechanism that relies on username and password, we also need use cases for
+handling forgotten passwords. And the most typical mechanisms for handling forgotten passwords
+rely on security questions, so now we need a use case for managing those as well. All of a sudden,
+we went from having the two core use cases to having another three for managing profiles,
+forgotten passwords, and security questions. Realistically, our core use case of finding a user
+implies another three use cases we did not foresee until we looked deeper.</p>
+
+<p>Let&rsquo;s take it another step further. If you have ever tried to find someone on Skype you will
+certainly know the frustration of typing a first and last name in the search bar and getting a
+large number of returned results, with no clear way of identifying the individual you want. If you
+are lucky, that user has set a profile photo, but even then there are often people that have
+multiple accounts with the same photo (I have created one account for each company I worked at,
+in order to be able to keep my work account and my personal account separate). In short, that
+profile will need something more than just first and last name in it. On Skype, I often check
+location as a way to narrow the search results. If you plan to include location in the profile,
+then you will most likely end up having a list of countries and probably State or Provinces. It
+would not be a good idea to hardwire these as they do change (what is now the <a href="https://en.wikipedia.org/wiki/North_Macedonia" title="North Macedonia">Republic of North
+Macedonia</a> used to be known as FYROM as recently as January 2019, and did not even exist
+before September 1991). And it is not just countries and provinces. If you have phone numbers in
+the profile you will need a list of country codes. If you display flag icons associated with the
+countries, you will need to manage those as well. So our implicit use case of managing profiles
+now implies a number of other use cases for managing reference data.</p>
+
+<p>Then there use cases implied by legislation. The profile information we talked about is protected
+under <a href="https://eugdpr.org/" title="General Data Protection Regulation">GDPR</a> in Europe. If you allow access by European citizens (even if your company is not based
+in Europe), you are obliged to abide by the rules of GDPR. In general, this will imply (at a minimum)
+obtaining user consent (unless you use some other legal basis for obtaining the data, but that
+unlikely in the application as we described it). You may also want to cover the right to erasure,
+the right to access, the right to rectification, and the right to restrict processing. Sounds like
+we might be adding another five use cases to our total.</p>
+
+<p>And then there are the use cases required by enterprise customers. Generally, companies like having
+control of any of the accounts that are considered company accounts. This means that your
+enterprise customers will expect that, at a minimum, they can disable accounts that are considered
+corporate accounts. This means another use case for administrators to manage such accounts. But
+it also implies having an entity representing the company (to which the corporate accounts can
+belong), so you can add another use case for creating and managing the corresponding entity. Oh, and you will
+need to add a use case for managing the syadmin accounts of a corporate entity. And some of your
+enterprise customers will insist on having SSO capabilities (since all their other applications
+work with SSO), so add another use case for the SSO login, and another for managing the SSO certificates,
+identity providers, etc.</p>
+
+<p>And finally, there are requirements that are implied by simple prudence. The moment you have things
+like permissions and SSO involved, changes to the configuration in your application become a security
+concern for your enterprise customer. Most certifications require that they have audit processes in
+place for changes that impact access control and authentication, so add some infrastructure for
+audit logs, and a use cases for searching and viewing the logs. You probably will also be asked about
+your Disaster Recovery and Business Continuity plans - once again, they need to show they have something
+in place in order to maintain their certification, and by extension they will ask that of you. Then there&rsquo;s
+things like performance monitoring and availability monitoring that you probably want to put in place
+both for yourself and your customers. And so on, and so forth.</p>
+
+<p>Hopefully by now you are beginning to see how our two core use cases exploded into a set much bigger than
+what we originally expected. We admittedly cut a few corners for simplification: not all uses cases are born
+equal, and some of the implied use cases you might be able to postpone for a while, but that does not
+change the conclusion: the bulk of the requirements comes from the implicit use cases that are there to
+support the value-generating core, not the core use cases themselves. The core uses cases really <em>are</em>
+just the tip of the iceberg. Note that there are two tendencies in Agile that tend to make this trend
+significantly worse:</p>
+
+<ul>
+<li>The focus on business value tends to keep the spotlight on core uses cases and increases the probability
+that implicit requirements will be missed.</li>
+<li>The emphasis on relative estimation means that implicit requirements are never included unless the
+estimate is relative to an epic which took into account all implicit requirements. This is rarely the case.</li>
+</ul>
+
+<p>In the end, most teams I know of try to paste on a solution on top of the Agile framework, by trying to
+independently identify all implicit requirements using hard-earned experience, and then entering them
+into the backlog as independent user stories. Typically these are judged as being of lower priority, and
+end up being implemented in the later parts of the life-cycle, meaning that the architecture and implementation
+already in existence (and, often, already deployed to production) does not take them into account. As a
+result, they are often more costly, and much more risky than they need to be. That is simply one of the
+shortcomings of Agile - if anyone told you Agile didn&rsquo;t have any, they lied, but that is the topic for
+yet another, future, post.</p>
+
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/software-engineering">Software Engineering</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/requirements">Requirements</a></li>
+          
+        </ul>
+      </li>
+    
+  
+  
+    <li class="tags">
+      <ul>
+        <li>None</li>
+      </ul>
+    </li>
+  
+</ul>
+
+  </footer>
+</article>
+<article class="post">
+  
+
+</article>
+<div class="pagination">
+  
+    <a href="/blog/execution_in_innovation/" class="button big previous"><i class="fas fa-angle-left"></i> The role of execution in innovation</a>
+  
+  
+    <a href="/blog/designing_a_hiring_strategy/" class="button big next">Designing a Hiring Strategy <i class="fas fa-angle-right"></i></a>
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  <section id="recent-posts">
+    <header>
+      <h1>Recent posts</h1>
+    </header>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/drive_by_coding_antipattern/" class="image featured">
+  <img src="/img/2019/10/drive_by.jpg" alt="Drive-by">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/drive_by_coding_antipattern/">The drive-by coding anti-pattern</a></h1>
+        <time class="published" datetime="">October 30, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/culture_eats_strategy_for_breakfast/" class="image featured">
+  <img src="/img/2019/10/THIS_IS_SPARTA.jpg" alt="This is Sparta">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/culture_eats_strategy_for_breakfast/">Culture eats Strategy for breakfast</a></h1>
+        <time class="published" datetime="">October 23, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/a_different_kind_of_company_growth/" class="image featured">
+  <img src="/img/2019/10/toy_tools.jpg" alt="Toy Tools">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/a_different_kind_of_company_growth/">A different kind of company growth</a></h1>
+        <time class="published" datetime="">October 8, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/how_to_really_build_customer_centric_products/" class="image featured">
+  <img src="/img/2019/10/buttler_sized.jpg" alt="Customer Servant">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/how_to_really_build_customer_centric_products/">How to (really) build customer centric products</a></h1>
+        <time class="published" datetime="">October 2, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/data_trumps_opinion/" class="image featured">
+  <img src="/img/2019/09/data_opinion.jpg" alt="Data versus Opinion">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/data_trumps_opinion/">Data Trumps Opinion (every time)</a></h1>
+        <time class="published" datetime="">September 24, 2019</time>
+      </header>
+    </article>
+    
+    
+      <a href="/blog/" class="button">See more</a>
+    
+  </section>
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/best-practice/">best-practice<span class="count">7</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/methodology/">methodology<span class="count">6</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/culture/">culture<span class="count">5</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/business/">business<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/general/">general<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/software-engineering/">software-engineering<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/testing/">testing<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/ci/cd/">ci/cd<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/devops/">devops<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/architecture/">architecture<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/cost/">cost<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/recruiting/">recruiting<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/agile/">agile<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/anti-patterns/">anti-patterns<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/collaboration/">collaboration<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/data/">data<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/engineers/">engineers<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/innovation/">innovation<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/lean/">lean<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/product-management/">product-management<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/requirements/">requirements<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/strategy/">strategy<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/teamwork/">teamwork<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/technology/">technology<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  <section id="mini-bio">
+    <header>
+      <h1>About</h1>
+    </header>
+    <p>A brief bio</p>
+    <footer>
+      <a href="/about" class="button">Learn More</a>
+    </footer>
+  </section>
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2019
+      
+        George Hadjiyiannis
+      
+    .
+    Powered by <a href="//gohugo.io" target="_blank" rel="noopener">Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/html.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/css.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/js.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/toml.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  <script src=/js/util.js></script>
+  <script src=/js/main.js></script>
+  <script src=/js/add-on.js></script>
+  
+
+
+
+    </div>
+  </body>
+</html>

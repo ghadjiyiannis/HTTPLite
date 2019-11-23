@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software Engineering on George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/categories/software-engineering/</link>
+    <description>Recent content in Software Engineering on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/categories/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The drive-by coding anti-pattern</title>
+      <link>https://ghadjiyiannis.github.io/blog/drive_by_coding_antipattern/</link>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/drive_by_coding_antipattern/</guid>
+      <description>I am not sure why, but out of the set of all anti-patterns, drive-by coding is the one I am personally most disturbed by. Perhaps that&amp;rsquo;s because it&amp;rsquo;s so unnecessary. Perhaps because it&amp;rsquo;s indicative of laziness on behalf of the developer. Perhaps because it is, itself, a smell of much more serious cultural issues. For exactly this last reason, if not for any other, I feel very strongly that this particular anti-pattern should be uprooted mercilessly whenever noticed, before it becomes endemic and destroys both the health of the code-base, as well as the culture of the team.</description>
+    </item>
+    
+    <item>
+      <title>Data Trumps Opinion (every time)</title>
+      <link>https://ghadjiyiannis.github.io/blog/data_trumps_opinion/</link>
+      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/data_trumps_opinion/</guid>
+      <description>Anyone who has worked for a successful B2C knows how much better and more precise decision making gets, once it is empowered by data. However, two of the companies I worked for turned this into an art, and one of the two is, in my eyes, the unquestioned champion. In fact, we had such detailed knowledge of our numbers (despite the many cyclicalities) that we would occasionally find software bugs through our revenue figures: someone would notice a small drop in revenue and track conversion through the user journey to eventually find a broken page.</description>
+    </item>
+    
+    <item>
+      <title>Software is hard - Part 2: Implicit Requirements</title>
+      <link>https://ghadjiyiannis.github.io/blog/software_is_hard_implicit_requirements/</link>
+      <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/software_is_hard_implicit_requirements/</guid>
+      <description>Every professional in the software industry knows that building software is a highly unpredictable business. This is why we don&amp;rsquo;t like the question of &amp;ldquo;How long is it going to take?&amp;rdquo;. The thing that always puzzled me, however, is that that unpredictability always seems to point in the wrong direction: software seems to almost always take longer to build than expected. With practically any other process, one would expect something similar to a normal (binomial) distribution around the expected estimate.</description>
+    </item>
+    
+    <item>
+      <title>Software is hard - Part 1: Scaling</title>
+      <link>https://ghadjiyiannis.github.io/blog/software_is_hard_scaling/</link>
+      <pubDate>Thu, 13 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/software_is_hard_scaling/</guid>
+      <description>A long time ago, when I was still in college, I was fortunate enough to take a Software Engineering class by Prof. John Guttag. I remember him starting one of the lectures with the question:
+&amp;ldquo;Can anyone here write a 10,000 LOC program in a year?&amp;rdquo;
+A large portion of the class raised their hands (this is MIT, after all). He then proceeded to ask:
+&amp;ldquo;Can anyone here write a 100,000 LOC program in ten years?</description>
+    </item>
+    
+  </channel>
+</rss>

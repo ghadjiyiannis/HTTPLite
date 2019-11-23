@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Teamwork on George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/categories/teamwork/</link>
+    <description>Recent content in Teamwork on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 24 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/categories/teamwork/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data Trumps Opinion (every time)</title>
+      <link>https://ghadjiyiannis.github.io/blog/data_trumps_opinion/</link>
+      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/data_trumps_opinion/</guid>
+      <description>Anyone who has worked for a successful B2C knows how much better and more precise decision making gets, once it is empowered by data. However, two of the companies I worked for turned this into an art, and one of the two is, in my eyes, the unquestioned champion. In fact, we had such detailed knowledge of our numbers (despite the many cyclicalities) that we would occasionally find software bugs through our revenue figures: someone would notice a small drop in revenue and track conversion through the user journey to eventually find a broken page.</description>
+    </item>
+    
+  </channel>
+</rss>

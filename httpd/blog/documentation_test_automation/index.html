@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+<title>Test Automation as Documentation - George Hadjiyiannis</title>
+<meta name="description" content="A novel way to document your system, in a way that actually works.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <meta name="generator" content="Hugo 0.57.2" />
+  <meta itemprop="name" content="Test Automation as Documentation">
+<meta itemprop="description" content="A novel way to document your system, in a way that actually works.">
+
+
+<meta itemprop="datePublished" content="2019-08-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-08-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1364">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <meta property="og:title" content="Test Automation as Documentation" />
+<meta property="og:description" content="A novel way to document your system, in a way that actually works." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ghadjiyiannis.github.io/blog/documentation_test_automation/" />
+<meta property="article:published_time" content="2019-08-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-08-13T00:00:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Test Automation as Documentation"/>
+<meta name="twitter:description" content="A novel way to document your system, in a way that actually works."/>
+
+  
+
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
+  
+    
+      <link rel="stylesheet" href="/css/normalize.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+      <link rel="stylesheet" href="/css/main.min.css">
+      <link rel="stylesheet" href="/css/add-on.css">
+    
+  
+  
+  
+  
+  
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/">
+        
+          
+            Blog
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        <a href="/" class="link"><i class="fas fa-home">&nbsp;</i>Home</a>
+      
+        <a href="/about/" class="link"><i class="far fa-id-card">&nbsp;</i>About</a>
+      
+        <a href="/blog/" class="link"><i class="far fa-newspaper">&nbsp;</i>Blog</a>
+      
+        <a href="/categories/" class="link"><i class="fas fa-sitemap">&nbsp;</i>Categories</a>
+      
+        <a href="/contact/" class="link"><i class="far fa-envelope">&nbsp;</i>Contact</a>
+      
+      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    
+    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdocumentation_test_automation%2f&amp;text=Test%20Automation%20as%20Documentation&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdocumentation_test_automation%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdocumentation_test_automation%2f&amp;title=Test%20Automation%20as%20Documentation" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdocumentation_test_automation%2f&amp;title=Test%20Automation%20as%20Documentation" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdocumentation_test_automation%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro">
+  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="" alt="George Hadjiyiannis" /></a>
+  <header>
+    <h1>George Hadjiyiannis</h1>
+  </header>
+  <main>
+    <p>Software Executive, Entrepreneur, Software Architect</p>
+  </main>
+  
+    <footer>
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+        <h2><a href="/blog/documentation_test_automation/">Test Automation as Documentation</a></h2>
+    
+    
+        <p>A novel way to document your system, in a way that actually works.</p>
+    
+</div>
+  <div class="meta">
+    <time class="published" datetime="2019-08-13 00:00:00 &#43;0000 UTC">
+      August 13, 2019
+    </time>
+    <span class="author">George Hadjiyiannis</span>
+    
+        <p>7 minute read</p>
+    
+  </div>
+</header>
+
+  <section id="social-share">
+    
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdocumentation_test_automation%2f&amp;text=Test%20Automation%20as%20Documentation&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdocumentation_test_automation%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdocumentation_test_automation%2f&amp;title=Test%20Automation%20as%20Documentation" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdocumentation_test_automation%2f&amp;title=Test%20Automation%20as%20Documentation" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdocumentation_test_automation%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+<a href="/blog/documentation_test_automation/" class="image featured">
+  <img src="/img/2019/08/status_panel.jpg" alt="Status Panel">
+</a>
+
+
+  <div class="content">
+    <p>How do you document units, modules, libraries, and APIs in your system, so that people know how to use them?
+Note that for the purposes of this discussion we are not referring to code comments, which are mainly directed
+at the team constructing and maintaining the module, but rather to client documentation for those who will use it.</p>
+
+<p>While there is general agreement in the field that modules, APIs, and systems should be documented, there is
+much less agreement on what form the documentation should take, and what level of documentation is enough. And
+even the most well-intended documentation efforts sooner or later end up being a struggle against entropy.
+If you document too lightly the documentation cannot serve its purpose; developers refrain from using the modules
+that are not well documented, resulting in wasted effort, duplicate code, and increased maintenance costs. On the
+other hand, documentation needs maintenance as well, and if it is heavy, it imposes its own costs. There is a
+temptation to think of the documentation as static, and as a result, underestimate the cost associated with it.
+But in reality, documentation cannot be any more static than the code that underlies the module. As a result, teams
+often make the mistake of creating heavy documentation once, then learn from the painful experience of having to
+maintain it, that it does not pay off. In the end, most teams tend to document too lightly, especially since the
+direct cost of doing so is often borne by their clients instead.</p>
+
+<p>Let&rsquo;s for a moment accept the axiom that documentation will not be static, and see what requirements we need to
+satisfy, in order to make both the <strong>clients</strong> and the <strong>maintainers</strong> of a module efficient:</p>
+
+<ol>
+<li>As a client, I want to read the only the parts of the documentation that are relevant to my needs.</li>
+<li>As a client, I want to be notified when something that is relevant to me was updated.</li>
+<li>As a client, I want an example to follow when I am building my system on top of the module.</li>
+<li>As a client, I want a trivial way of learning how to initialize a module (this is mainly the purpose of the
+typical &ldquo;Hello World&rdquo; example).</li>
+<li>As a maintainer, I want to invest as low an amount of extra effort in the documentation as possible.</li>
+<li>As a maintainer, I want to have an easy way of detecting when the documentation is out of sync with the
+functionality.</li>
+<li>As a maintainer, I want to have an easy way of versioning the documentation with the implementation.</li>
+</ol>
+
+<p>A scan of the above list should make one realization stand out: the issue is not so much the effort needed to
+adjust the relevant documentation, but rather then effort needed <em>to identify what has changed</em>. Most of the maintenance
+changes made to modules that have been in production for a while, tend to be bug fixes, changes to non-functional
+requirements (e.g., better performance, or improved logging), or additions to functionality. Of those, only
+added functionality needs to be documented. Changes to the <em>desired</em> behavior of existing functionality can happen,
+<em>but they happen at a significantly reduced rate</em>. The issue then becomes the following:</p>
+
+<ul>
+<li>As a client, do I need to re-read the documentation on every release, to see if something of interest has changed?
+(corresponds to item 2 above).
+Release notes save some of the unnecessary work, but do not make this problem go away: every time there is a
+change in a module of interest, or a module that a module of interest depends on, the behavior could have changed.</li>
+<li>As a maintainer, do I now have to scan the entire documentation to see if something needs to be adjusted? I am
+likely to spend a lot of time, only to verify that nothing needs to be adjusted (corresponds to item 6 above).</li>
+</ul>
+
+<p>In essence, we need a way of automatically detecting when a meaningful behavior change has occurred. And hence the
+unconventional suggestion: <strong>this is exactly what test automation is for!</strong> I would propose that independent
+documentation should be generic enough to give the big picture. This is unlikely to ever change, and if the big
+picture ever does change, the change will be significant enough that it would be practically impossible to miss.
+The detailed documentation on how to use a module in practice, however, should really just be left to the actual
+automated tests. A developer, armed with the big picture, can simply scan the test suite of the module for a use
+case that looks similar to what (s)he has in mind. The test set-up should already contain the right steps to
+initialize the module, and the test case itself provides a detailed example of how to accomplish the task at hand.
+Even the exception conditions should be captured in negative test cases if the test automation is complete. Of
+course, this proposal assumes that there is a certain level of coverage in the test automation, but any behavior that
+is important enough to need documentation, should really be tested for in the automated tests.
+Let&rsquo;s examine how this proposal matches up with the requirements from above:</p>
+
+<ol>
+<li><em>As a client, I want to read the only the parts of the documentation that are relevant to my needs:</em> The client
+accomplishes this by reading the big picture documentation, plus the test cases that are relevant. (S)he may have
+to scan the description of each test case the first time to identify the relevant ones, but this should only be a one-time cost.</li>
+<li><em>As a client, I want to be notified when something that is relevant to me was updated:</em> The client can accomplish
+this by assembling a test suite of test cases that are of interest, and seeing if any have changed on each release.
+If so inclined, (s)he can even run the test cases and make sure they still succeed (they always should, otherwise
+the maintainer has failed in his duties). (S)he can even go a step further: if (s)he depends on behavior that is
+not &ldquo;documented&rdquo; (i.e., there is no automated test for it), (s)he can actually write an automated client test. This
+way, if the maintainer of the module at some point changes that behavior, the client will find out on release.</li>
+<li><em>As a client, I want an example to follow when I am building my system on top of the module:</em> this is trivially
+provided by the test case itself.</li>
+<li><em>As a client, I want a trivial way of learning how to initialize a module (this is mainly the purpose of the
+typical &ldquo;Hello World&rdquo; example):</em> this is also trivially provided in the set-up methods of the test cases. Note
+that cleanup is similarly provided in the tear-down methods.</li>
+<li><em>As a maintainer, I want to invest as low an amount of extra effort in the documentation as possible:</em> The
+extra effort is now limited to the big-picture documentation, which should be quite small.</li>
+<li><em>As a maintainer, I want to have an easy way of detecting when the documentation is out of sync with the
+functionality:</em> trivially provided, since any relevant change in behavior will show up as a test failure.</li>
+<li><em>As a maintainer, I want to have an easy way of versioning the documentation with the implementation:</em>
+only an issue for the big-picture documentation which practically never changes (you <strong>are</strong> versioning your test
+cases along with your code, right?).</li>
+</ol>
+
+<p>Note that there are glimpses of this technique in the REST API specification frameworks (e.g. <a href="https://swagger.io/" title="Swagger API toolkit">swagger</a>), specifically in their
+tendency to use a single specification to generate both the documentation, as well as the tests. The technique,
+however, is much more broadly applicable, and can be used all the way from unit tests to the user interface. In fact,
+APIs are the one area where the technique tends to add less value, since API behavior tends to change infrequently (think
+backwards compatibility with external clients). Even so, these toolkits make little use of the power of the
+proposed technique: in reality you still have to write pretty elaborate descriptions as part of the &ldquo;documentation&rdquo;
+portion of the specification, and the specification cannot serve as an example skeleton.</p>
+
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/best-practice">Best Practice</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/testing">Testing</a></li>
+          
+        </ul>
+      </li>
+    
+  
+  
+    <li class="tags">
+      <ul>
+        <li>None</li>
+      </ul>
+    </li>
+  
+</ul>
+
+  </footer>
+</article>
+<article class="post">
+  
+
+</article>
+<div class="pagination">
+  
+    <a href="/blog/cicd_pipeline_design_putting_it_all_together/" class="button big previous"><i class="fas fa-angle-left"></i> CI/CD Pipeline Design: Putting it all together</a>
+  
+  
+    <a href="/blog/understanding_the_cost_of_software/" class="button big next">Understanding the cost of software <i class="fas fa-angle-right"></i></a>
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  <section id="recent-posts">
+    <header>
+      <h1>Recent posts</h1>
+    </header>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/drive_by_coding_antipattern/" class="image featured">
+  <img src="/img/2019/10/drive_by.jpg" alt="Drive-by">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/drive_by_coding_antipattern/">The drive-by coding anti-pattern</a></h1>
+        <time class="published" datetime="">October 30, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/culture_eats_strategy_for_breakfast/" class="image featured">
+  <img src="/img/2019/10/THIS_IS_SPARTA.jpg" alt="This is Sparta">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/culture_eats_strategy_for_breakfast/">Culture eats Strategy for breakfast</a></h1>
+        <time class="published" datetime="">October 23, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/a_different_kind_of_company_growth/" class="image featured">
+  <img src="/img/2019/10/toy_tools.jpg" alt="Toy Tools">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/a_different_kind_of_company_growth/">A different kind of company growth</a></h1>
+        <time class="published" datetime="">October 8, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/how_to_really_build_customer_centric_products/" class="image featured">
+  <img src="/img/2019/10/buttler_sized.jpg" alt="Customer Servant">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/how_to_really_build_customer_centric_products/">How to (really) build customer centric products</a></h1>
+        <time class="published" datetime="">October 2, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/data_trumps_opinion/" class="image featured">
+  <img src="/img/2019/09/data_opinion.jpg" alt="Data versus Opinion">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/data_trumps_opinion/">Data Trumps Opinion (every time)</a></h1>
+        <time class="published" datetime="">September 24, 2019</time>
+      </header>
+    </article>
+    
+    
+      <a href="/blog/" class="button">See more</a>
+    
+  </section>
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/best-practice/">best-practice<span class="count">7</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/methodology/">methodology<span class="count">6</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/culture/">culture<span class="count">5</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/business/">business<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/general/">general<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/software-engineering/">software-engineering<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/testing/">testing<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/ci/cd/">ci/cd<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/devops/">devops<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/architecture/">architecture<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/cost/">cost<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/recruiting/">recruiting<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/agile/">agile<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/anti-patterns/">anti-patterns<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/collaboration/">collaboration<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/data/">data<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/engineers/">engineers<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/innovation/">innovation<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/lean/">lean<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/product-management/">product-management<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/requirements/">requirements<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/strategy/">strategy<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/teamwork/">teamwork<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/technology/">technology<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  <section id="mini-bio">
+    <header>
+      <h1>About</h1>
+    </header>
+    <p>A brief bio</p>
+    <footer>
+      <a href="/about" class="button">Learn More</a>
+    </footer>
+  </section>
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2019
+      
+        George Hadjiyiannis
+      
+    .
+    Powered by <a href="//gohugo.io" target="_blank" rel="noopener">Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/html.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/css.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/js.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/toml.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  <script src=/js/util.js></script>
+  <script src=/js/main.js></script>
+  <script src=/js/add-on.js></script>
+  
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Engineers on George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/categories/engineers/</link>
+    <description>Recent content in Engineers on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 03 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/categories/engineers/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Developers write code, Software Engineers solve problems</title>
+      <link>https://ghadjiyiannis.github.io/blog/developer_vs_engineer/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/developer_vs_engineer/</guid>
+      <description>A long time ago, I was in Barcelona attending an API workshop with our teams there. On the second day of the workshop, the discussion got a bit sidetracked, but it was one of those sidetracks that leads to insights that are more valuable than the main theme of the workshop. I remember the group CTO at the time declaring &amp;ldquo;Developers write code, Software Engineers solve problems!&amp;rdquo;. For some reason it struck me as such a profound statement, that I still remember it to this day as the main idea of value I got that day.</description>
+    </item>
+    
+  </channel>
+</rss>

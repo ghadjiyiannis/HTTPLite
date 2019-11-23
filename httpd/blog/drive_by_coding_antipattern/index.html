@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+<title>The drive-by coding anti-pattern - George Hadjiyiannis</title>
+<meta name="description" content="Almost every team does it, but it significantly degrades code health, and does even worse for team culture.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <meta name="generator" content="Hugo 0.57.2" />
+  <meta itemprop="name" content="The drive-by coding anti-pattern">
+<meta itemprop="description" content="Almost every team does it, but it significantly degrades code health, and does even worse for team culture.">
+
+
+<meta itemprop="datePublished" content="2019-10-30T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-30T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1993">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <meta property="og:title" content="The drive-by coding anti-pattern" />
+<meta property="og:description" content="Almost every team does it, but it significantly degrades code health, and does even worse for team culture." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ghadjiyiannis.github.io/blog/drive_by_coding_antipattern/" />
+<meta property="article:published_time" content="2019-10-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-30T00:00:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The drive-by coding anti-pattern"/>
+<meta name="twitter:description" content="Almost every team does it, but it significantly degrades code health, and does even worse for team culture."/>
+
+  
+
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
+  
+    
+      <link rel="stylesheet" href="/css/normalize.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+      <link rel="stylesheet" href="/css/main.min.css">
+      <link rel="stylesheet" href="/css/add-on.css">
+    
+  
+  
+  
+  
+  
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/">
+        
+          
+            Blog
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        <a href="/" class="link"><i class="fas fa-home">&nbsp;</i>Home</a>
+      
+        <a href="/about/" class="link"><i class="far fa-id-card">&nbsp;</i>About</a>
+      
+        <a href="/blog/" class="link"><i class="far fa-newspaper">&nbsp;</i>Blog</a>
+      
+        <a href="/categories/" class="link"><i class="fas fa-sitemap">&nbsp;</i>Categories</a>
+      
+        <a href="/contact/" class="link"><i class="far fa-envelope">&nbsp;</i>Contact</a>
+      
+      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    
+    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdrive_by_coding_antipattern%2f&amp;text=The%20drive-by%20coding%20anti-pattern&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdrive_by_coding_antipattern%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdrive_by_coding_antipattern%2f&amp;title=The%20drive-by%20coding%20anti-pattern" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdrive_by_coding_antipattern%2f&amp;title=The%20drive-by%20coding%20anti-pattern" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdrive_by_coding_antipattern%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro">
+  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="" alt="George Hadjiyiannis" /></a>
+  <header>
+    <h1>George Hadjiyiannis</h1>
+  </header>
+  <main>
+    <p>Software Executive, Entrepreneur, Software Architect</p>
+  </main>
+  
+    <footer>
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+        <h2><a href="/blog/drive_by_coding_antipattern/">The drive-by coding anti-pattern</a></h2>
+    
+    
+        <p>Almost every team does it, but it significantly degrades code health, and does even worse for team culture.</p>
+    
+</div>
+  <div class="meta">
+    <time class="published" datetime="2019-10-30 00:00:00 &#43;0000 UTC">
+      October 30, 2019
+    </time>
+    <span class="author">George Hadjiyiannis</span>
+    
+        <p>10 minute read</p>
+    
+  </div>
+</header>
+
+  <section id="social-share">
+    
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdrive_by_coding_antipattern%2f&amp;text=The%20drive-by%20coding%20anti-pattern&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdrive_by_coding_antipattern%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdrive_by_coding_antipattern%2f&amp;title=The%20drive-by%20coding%20anti-pattern" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdrive_by_coding_antipattern%2f&amp;title=The%20drive-by%20coding%20anti-pattern" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fdrive_by_coding_antipattern%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+<a href="/blog/drive_by_coding_antipattern/" class="image featured">
+  <img src="/img/2019/10/drive_by.jpg" alt="Drive-by">
+</a>
+
+
+  <div class="content">
+    
+
+<p>I am not sure why, but out of the set of all anti-patterns, drive-by coding is the one I am personally most disturbed by.
+Perhaps that&rsquo;s because it&rsquo;s so unnecessary. Perhaps because it&rsquo;s indicative of laziness on behalf of the developer.
+Perhaps because it is, itself, a smell of much more serious cultural issues. For exactly this last reason, if not for
+any other, I feel very strongly that this particular anti-pattern should be uprooted mercilessly whenever noticed, before
+it becomes endemic and destroys both the health of the code-base, as well as the culture of the team.</p>
+
+<p>In its essence, the anti-pattern goes as follows: a developer is called upon to make a change to piece of code he is not
+familiar with. Instead of taking the time to understand the relevant code and identify a solution that is reasonably
+compatible with the structure of the existing code, he focuses on making a minimal change to just solve the immediate
+problem at hand. Worried that he may now be violating the integrity of the original code, he
+<em>makes a copy of the code, inserts the modification in the copy, and puts a conditional in place that triggers the copy
+only in the cases where his modification should kick in.</em></p>
+
+<p>While one might think that this does not happen in many teams, and where it does, it is often limited in extend, the
+reality does not seem reflect this thinking. Especially on software maintained by large distributed teams, the practice
+seems fairly widespread, with a meaningful percentage of the code being duplicated.</p>
+
+<h4 id="impact-on-code-health">Impact on code health</h4>
+
+<p>At first, this might seem to be unintelligent but not particularly damaging. There is the obvious code duplication, which
+means that if you need to correct or modify the behavior of any of the duplicated code, you then need to do it at two
+places. Assuming that you know the code has been duplicated, then that is annoying but not too dangerous. Unfortunately,
+that is the lightest of the issues that this pattern causes (and that&rsquo;s assuming that you know and can clearly identify
+the duplicated code).</p>
+
+<p>The first complication is that it is not obvious how one would know that there&rsquo;s a duplicate copy. Simply tracing the code and seeing which
+paths through the code get executed can easily miss the duplicate, since the conditional that triggers it is supposed
+to trigger only in the very limited circumstances to which the developer wanted to apply this modification. If you find
+it through a trace of the code, it will be only through sheer luck. At the same time, the only two ways to find the
+duplicate by reading the code is to either stumble upon the duplicate and notice that it is not the same as the original,
+or to find the conditional that switches between the two versions. Note that this last option might not be as likely as
+you think since the conditional may actually be quite far from the duplicate. In an attempt to minimize the damage, a
+developer might modify the code from</p>
+
+<pre><code class="language-java">	instance.do_X();
+</code></pre>
+
+<p>to</p>
+
+<pre><code class="language-java">	if (exceptional_condition)
+		instance.do_modifiedX();
+	else
+		instance.do_X();
+</code></pre>
+
+<p>with the methods <code>do_X()</code> and <code>do_modifiedX()</code> being quite far from the conditional, possibly in an entirely different
+file. At any rate, the risk that the duplicate may not be updated is substantial. Typically the anti-pattern occurs
+when a developer who does not know the code well makes the modification, because the developer that does is temporarily
+unavailable for some reason. Future updates will most likely be made by the person that does know the code. This
+engineer will not know of the duplicate, and he understands the original code well enough to be able to modify it
+without having to read the surrounding code. Unless either the duplicate or the conditional end up in the same page
+as the original, he is unlikely to notice the changes and will therefore miss the need to update the duplicate.</p>
+
+<p>In addition, it is rarely the case in drive-by coding that automated tests are generated to test the new path. After
+all, if there was no time or inclination to properly understand the code one is modifying, it is unlikely that there
+was time or desire to write the necessary automated tests. As a result, this already fairly brittle modification can
+now fail silently, especially in the scenario where the original was updated but the engineer did not know the
+duplicate existed, and therefore failed to update the duplicate.</p>
+
+<p>A different, and even more serious challenge is the fact that the duplicate may impact the operation of the original.
+This may sound counterintuitive; after all, the whole point of creating a duplicate was to avoid having to modify
+the original, and thus ensure that what used to work before, still works after the modification. Unfortunately,
+duplicating the code is not enough to ensure that the original will still work, as it is possible that the duplicate
+will violate data invariants that the original relies on. Imagine, for example, that the original code writes records
+to a file handle in batches, along with some metadata for each batch. If the duplicate code writes to the same
+file handle, then it is easy to see how the batches end up interleaved, and the metadata get out of sync with the file
+records. One could try to solve this by making sure that the duplicate updates the metadata of the original, but that can
+make it even more likely that an error could corrupt the metadata and break the original.</p>
+
+<p>Additional challenges crop up with code comprehension. Remember that typically the duplicate is created by someone
+other than the person or persons that know the original code well. The problem is that now, that person or persons
+(perhaps the author of the original), does not know the <em>duplicate</em> well. This means that, even though the two pieces
+of code together form a unit of functionality, there is no single person that understands it completely. In other
+words, the existence of the duplicate has the effect of <em>reducing the extend to which the engineers understand the
+code that has <strong>not</strong> been modified!</em> This is exemplified by the fact that in cases where the original gets replaced
+by a new implementation (and as a result, removed), the duplicate sometimes remains, for the same reason that the
+code was duplicated in the first place: that the developer does not understand the impact of removing it and tries
+to minimize the risk. This leads to a pattern where a lot of code duplicated in this fashion becomes dead code, but
+cannot be removed without spending a lot of time analyzing the logic behind everything. Needless to say, having so
+much dead code lying around further complicates the problem of code comprehension.</p>
+
+<h4 id="impact-on-culture">Impact on culture</h4>
+
+<p>As serious as the effects on code health are, in my eyes they take a back seat to the damage done to team culture.
+This anti-pattern tends to not only normalize, but eventually even validate incorrect behavior, making it that much
+harder to resist, let alone reverse, the decay in best practices that inevitably follows. A lot of it has to do with
+how this anti-pattern occurs in the first place. Imagine the following scenario: a modification needs to be made,
+either to accommodate an extension of functionality or to fix a bug. Unfortunately the person that knows the code to
+be modified is on vacation. The change is not time critical, and could easily be deferred for when that person returns.
+Except, that is, for the fact that the sales team is visiting the customer that asked for the modification in the hope
+of cross-selling further products, and they are certain the customer will ask about the change. They apply significant
+business pressure and eventually some unwitting developer agrees to make a minimal change in the fashion described above.
+The change is made and pushed to production without the sky falling, and the sales team convinces the client to sign
+a fairly significant addition to the contract. Eventually the change will cause significant challenges, but these
+will come so far into the future, that the fact that a risky business decision was taken whose result this was, is long
+forgotten.</p>
+
+<p>In general, this anti-pattern tends to occur as a result of business pressure forcing a risky decision. The benefit to
+the company is obvious and immediate, but the consequences are temporally very far removed. This tends to validate
+the risky business decision and reinforce this behavior. And just to make it absolutely clear, my finger is not pointing just
+at the business people that applied the pressure. The engineers themselves are often just as much to blame, and their
+behavior just as strongly reinforced. Think about it: drive-by coding is certainly bad behavior in the realm of
+engineering best-practices, but some engineer whose standards of code hygiene are perhaps too low, decided to go for it.
+The fact that the business value was extracted immediately, but the cost is nowhere to be seen yet, is validating his
+behavior as well. When an engineer with a healthier attitude towards code health reproaches said developer, he will
+simply answer that it was worth it, because the company got the contract and nothing broke. This will certainly erode
+the engineering culture as well.</p>
+
+<p>There is actually even second-order effects that cause this erosion in culture to snowball. First of all, the sales
+team in the scenario above is likely to heap all sorts of public praise on the renegade developer that went along
+with the risky decision, while at the same time castigating those engineers that showed enough wisdom to resist. This
+will inevitably cause any engineers that do not consider this a matter of principle to wonder if aligning with such
+risky decisions is the best way to be rewarded. In other words, this will transform the culture of the company to one
+that rewards short-term risk, and negatively views as excessive almost all risk-management, however prudent. The
+second effect, is that it will create a bias towards unholy alliances: in the example above, sales people with a horizon
+that extends no further than the next contract signature, will team up with developers with more desire to please
+than wisdom, forming a silo that will be hard to break up, and is extremely prone to unreasonably risky
+behavior. This silo will reduce the ability of anyone on the outside to correct what is happening, and even enable
+a sub-culture to form, which will align against the culture of more risk-aware people in the company. If you have read
+my previous article on &ldquo;<a href="/blog/seeding_team_culture/" title="Evolving Team Culture">Evolving Team Culture</a>&rdquo; you already know how dangerous such antagonistic
+sub-cultures are.</p>
+
+<h4 id="going-forward">Going Forward</h4>
+
+<p>I&rsquo;d like to leave you with just two points:</p>
+
+<ol>
+<li>Most people find it hard to believe that this could happen to them. They are fairly certain that they do not have
+this anti-pattern. This, unfortunately, includes every team where I found the anti-pattern in practice. Don&rsquo;t rely
+on faith in your organization, but instead go have a look at your code. The tell-tale sign of drive-by coding is code
+duplication. Most modern code analysis tools (such as <a href="https://www.sonarqube.org/" title="SonarQube">SonarQube</a>) can measure and locate code duplication. Not all
+duplication is the result if this particular anti-pattern, but unless you have almost no duplication I
+would look at what&rsquo;s behind the scenes and make sure.</li>
+<li>If you do see drive-by coding, <strong>show it no mercy!</strong> You need to engage in an effort to change culture, and sustain
+this effort for the long-term. Make sure that your engineers consider practicing drive-by coding with the same
+apprehension as cheating on their spouse, or stealing from their parents. And teach the entire organization that
+the company is guaranteed to pay for the consequences, even if this happens long after the contract is signed. If
+you don&rsquo;t, you risk paying a price much higher than having a buggy software product.</li>
+</ol>
+
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/best-practice">Best Practice</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/anti-patterns">Anti-patterns</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/software-engineering">Software Engineering</a></li>
+          
+        </ul>
+      </li>
+    
+  
+  
+    <li class="tags">
+      <ul>
+        <li>None</li>
+      </ul>
+    </li>
+  
+</ul>
+
+  </footer>
+</article>
+<article class="post">
+  
+
+</article>
+<div class="pagination">
+  
+    <a href="/blog/culture_eats_strategy_for_breakfast/" class="button big previous"><i class="fas fa-angle-left"></i> Culture eats Strategy for breakfast</a>
+  
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  <section id="recent-posts">
+    <header>
+      <h1>Recent posts</h1>
+    </header>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/drive_by_coding_antipattern/" class="image featured">
+  <img src="/img/2019/10/drive_by.jpg" alt="Drive-by">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/drive_by_coding_antipattern/">The drive-by coding anti-pattern</a></h1>
+        <time class="published" datetime="">October 30, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/culture_eats_strategy_for_breakfast/" class="image featured">
+  <img src="/img/2019/10/THIS_IS_SPARTA.jpg" alt="This is Sparta">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/culture_eats_strategy_for_breakfast/">Culture eats Strategy for breakfast</a></h1>
+        <time class="published" datetime="">October 23, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/a_different_kind_of_company_growth/" class="image featured">
+  <img src="/img/2019/10/toy_tools.jpg" alt="Toy Tools">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/a_different_kind_of_company_growth/">A different kind of company growth</a></h1>
+        <time class="published" datetime="">October 8, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/how_to_really_build_customer_centric_products/" class="image featured">
+  <img src="/img/2019/10/buttler_sized.jpg" alt="Customer Servant">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/how_to_really_build_customer_centric_products/">How to (really) build customer centric products</a></h1>
+        <time class="published" datetime="">October 2, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/data_trumps_opinion/" class="image featured">
+  <img src="/img/2019/09/data_opinion.jpg" alt="Data versus Opinion">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/data_trumps_opinion/">Data Trumps Opinion (every time)</a></h1>
+        <time class="published" datetime="">September 24, 2019</time>
+      </header>
+    </article>
+    
+    
+      <a href="/blog/" class="button">See more</a>
+    
+  </section>
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/best-practice/">best-practice<span class="count">7</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/methodology/">methodology<span class="count">6</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/culture/">culture<span class="count">5</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/business/">business<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/general/">general<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/software-engineering/">software-engineering<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/testing/">testing<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/ci/cd/">ci/cd<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/devops/">devops<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/architecture/">architecture<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/cost/">cost<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/recruiting/">recruiting<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/agile/">agile<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/anti-patterns/">anti-patterns<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/collaboration/">collaboration<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/data/">data<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/engineers/">engineers<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/innovation/">innovation<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/lean/">lean<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/product-management/">product-management<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/requirements/">requirements<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/strategy/">strategy<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/teamwork/">teamwork<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/technology/">technology<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  <section id="mini-bio">
+    <header>
+      <h1>About</h1>
+    </header>
+    <p>A brief bio</p>
+    <footer>
+      <a href="/about" class="button">Learn More</a>
+    </footer>
+  </section>
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2019
+      
+        George Hadjiyiannis
+      
+    .
+    Powered by <a href="//gohugo.io" target="_blank" rel="noopener">Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/html.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/css.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/js.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/toml.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  <script src=/js/util.js></script>
+  <script src=/js/main.js></script>
+  <script src=/js/add-on.js></script>
+  
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+<title>The shortcomings of Agile - George Hadjiyiannis</title>
+<meta name="description" content="It&#39;s about time we have had an honest discussion about what Agile does not do well.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <meta name="generator" content="Hugo 0.57.2" />
+  <meta itemprop="name" content="The shortcomings of Agile">
+<meta itemprop="description" content="It&#39;s about time we have had an honest discussion about what Agile does not do well.">
+
+
+<meta itemprop="datePublished" content="2019-09-06T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-09-06T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2614">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <meta property="og:title" content="The shortcomings of Agile" />
+<meta property="og:description" content="It&#39;s about time we have had an honest discussion about what Agile does not do well." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ghadjiyiannis.github.io/blog/shortcomings_of_agile/" />
+<meta property="article:published_time" content="2019-09-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-06T00:00:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The shortcomings of Agile"/>
+<meta name="twitter:description" content="It&#39;s about time we have had an honest discussion about what Agile does not do well."/>
+
+  
+
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
+  
+    
+      <link rel="stylesheet" href="/css/normalize.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+      <link rel="stylesheet" href="/css/main.min.css">
+      <link rel="stylesheet" href="/css/add-on.css">
+    
+  
+  
+  
+  
+  
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/">
+        
+          
+            Blog
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        <a href="/" class="link"><i class="fas fa-home">&nbsp;</i>Home</a>
+      
+        <a href="/about/" class="link"><i class="far fa-id-card">&nbsp;</i>About</a>
+      
+        <a href="/blog/" class="link"><i class="far fa-newspaper">&nbsp;</i>Blog</a>
+      
+        <a href="/categories/" class="link"><i class="fas fa-sitemap">&nbsp;</i>Categories</a>
+      
+        <a href="/contact/" class="link"><i class="far fa-envelope">&nbsp;</i>Contact</a>
+      
+      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    
+    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fshortcomings_of_agile%2f&amp;text=The%20shortcomings%20of%20Agile&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fshortcomings_of_agile%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fshortcomings_of_agile%2f&amp;title=The%20shortcomings%20of%20Agile" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fshortcomings_of_agile%2f&amp;title=The%20shortcomings%20of%20Agile" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fshortcomings_of_agile%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro">
+  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="" alt="George Hadjiyiannis" /></a>
+  <header>
+    <h1>George Hadjiyiannis</h1>
+  </header>
+  <main>
+    <p>Software Executive, Entrepreneur, Software Architect</p>
+  </main>
+  
+    <footer>
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+        <h2><a href="/blog/shortcomings_of_agile/">The shortcomings of Agile</a></h2>
+    
+    
+        <p>It&#39;s about time we have had an honest discussion about what Agile does not do well.</p>
+    
+</div>
+  <div class="meta">
+    <time class="published" datetime="2019-09-06 00:00:00 &#43;0000 UTC">
+      September 6, 2019
+    </time>
+    <span class="author">George Hadjiyiannis</span>
+    
+        <p>13 minute read</p>
+    
+  </div>
+</header>
+
+  <section id="social-share">
+    
+
+
+
+  
+    <a href="//twitter.com/share?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fshortcomings_of_agile%2f&amp;text=The%20shortcomings%20of%20Agile&amp" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fshortcomings_of_agile%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//reddit.com/submit?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fshortcomings_of_agile%2f&amp;title=The%20shortcomings%20of%20Agile" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fshortcomings_of_agile%2f&amp;title=The%20shortcomings%20of%20Agile" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fghadjiyiannis.github.io%2fblog%2fshortcomings_of_agile%2f" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+<a href="/blog/shortcomings_of_agile/" class="image featured">
+  <img src="/img/2019/09/agile_board2.jpg" alt="SCRUM board">
+</a>
+
+
+  <div class="content">
+    
+
+<p>In a previous post I promised to write an article about the shortcomings of Agile. I recently had an exchange
+with a former colleague that convinced me the time has come to have an honest discussion about what Agile does
+not do well. Through the years, Agile seems to have acquired a cult status, where people seem to think that it
+can, not only, do everything, but do it superlatively well. Anyone who has actually used Agile methodologies
+knows that neither of those points are true, yet Agile continues to be presented as the solution to everything.
+Even in the cases where Agile has clearly failed, people think that it would have succeeded, if only the organization
+was &ldquo;more Agile&rdquo;, whatever that means. Although strictly speaking a meta-point, I would like to make that the
+first shortcoming: <strong>Agile is really bad at talking about what it&rsquo;s not good at!</strong></p>
+
+<h5 id="agile-is-applied-to-scenarios-where-it-is-entirely-unsuitable">Agile is applied to scenarios where it is entirely unsuitable</h5>
+
+<p>Perhaps as a direct outcome of the fact that Agile is really bad at discussing what it is not good at, it ends
+up being applied in situations where it is entirely unsuitable. It seems to have escaped the notice of most
+people that Agile was meant to be used in the context of software applications where the main value is the
+interaction of a user with the application itself, such as most common Web apps or mobile apps. But those two
+sectors do not, by any count, represent even the majority of software out there. There&rsquo;s countless lines of code
+in embedded systems, firmware for peripherals, software for industrial process control, software for autonomous
+processes, and many others, where the assumptions of Agile break down fairly quickly: what would a user story
+look like, for example, for the portion of the ECU (Engine Control Unit) software in your car, which adjusts
+ignition timing? In the software field alone, I can think of the following examples where the Agile concepts
+would not fit:</p>
+
+<ol>
+<li>Embedded systems, where there is no user (such as the ECU example above, or industrial process controllers).</li>
+<li>Software in any device that requires certification, including medical devices, devices that have CE
+certification, etc. Such devices must be re-certified when the software changes, so the idea of shipping in
+small increments is simply impractical.</li>
+<li>Any device where field updates of the software are not possible (practically most of the devices out there
+right now). Shipping an increment is simply nonsensical in that scenario - you cannot alter the software
+once the device leaves the factory floor.</li>
+<li>Any software which implements a published, standard, specification (the networking stack in any computer,
+for example). The fundamental raison d’être for Agile, the ability to change your mind about what to build, no
+longer makes sense in that scenario.</li>
+<li>Related but worth a special mention: slow-changing APIs that need to remain backwards compatible. The reason
+why it is worth a special mention: this covers quite a few of the back-end microservices that power web apps
+and mobile apps!</li>
+</ol>
+
+<p>Rather than add more and more, I will summarize with the one misapplication that I find as scary, as it is
+incomprehensible:</p>
+
+<figure>
+    <img src="/img/2019/09/agile_airbus.jpg" width="100%"/> <figcaption>
+            <h4>Agile in the aircraft industry</h4>
+        </figcaption>
+</figure>
+
+
+<p>Given that an aircraft has to go through a very long and very costly certification procedure, I am not even
+sure what shipping in small increments would mean in such a scenario. I can only hope that someone misunderstood
+what Agile means, and that they are not really invalidating the results of decades of NTSB accident investigations
+on a 2-week cycle.</p>
+
+<h5 id="easy-to-follow-the-rules-but-still-be-doing-it-wrong">Easy to follow the rules, but still be doing it wrong</h5>
+
+<p>My guess is that practically everyone who has first-hand experience with Scrum, has experienced this. If you are
+one of the lucky few that haven&rsquo;t, just <a href="https://lmgtfy.com/?q=Zombie+Scrum" title="Let me Google that for you: Zombie Scrum">search for Zombie Scrum</a>.</p>
+
+<p>As far as I can tell, there are two reasons behind this:</p>
+
+<ul>
+<li>When people are trained in Agile, they tend to spend a lot more time with the rules, rather than with the objective.
+And I have only <em>once</em> seen an Agile training course that provided a direct link between the rules, and the objectives
+that they satisfy. As a result, people walk away with a good understanding of the rules, and little understanding of what
+these rules are trying to achieve. Think about how often in dailies, people talk about their three points but still miss
+the fact that for the task they are about to do next, they have a dependency that is not satisfied.</li>
+<li>The rules enable the objectives, but do not ensure them. In mathematics you would typically call this an
+under-constrained system. In logic, it would be expressed as <a href="https://en.wikipedia.org/wiki/Necessity_and_sufficiency" title="Necessity and Sufficiency">&ldquo;The rules are necessary, but not sufficient&rdquo;</a>.
+It is one of the common fallacies to <a href="https://www.txstate.edu/philosophy/resources/fallacy-definitions/Confusion-of-Necessary.html" title="Confusion of Necessary with a Sufficient Condition">confuse necessity with sufficiency</a>.</li>
+</ul>
+
+<p>My advice would be:</p>
+
+<ol>
+<li>Give formal training to everyone on the team - don&rsquo;t rely on them picking Agile up anecdotally from previous
+jobs or slide-shows on the Internet.</li>
+<li>In that training make sure that you dedicate at least twice as much time to the objectives, as you do to the rules.
+The objectives should be the primary learning that people are left with.</li>
+</ol>
+
+<h5 id="it-confuses-business-value-with-user-satisfaction">It confuses Business Value with User Satisfaction</h5>
+
+<p>While I would describe Agile as going as far as being dogmatic about Business Value, I feel it does a very poor
+job of following through on this dogma. Yes, user stories should be prioritized according to business value. Yet,
+when you received your training you probably covered to great length the process of estimating story points, but
+how much time did you spend on estimating value? You know which factors go into the cost estimate (effort,
+complexity, risk) but do you know which factors go into business value?</p>
+
+<p>And while the reduced (albeit highly opinionated) focus on business value is bad enough, I believe Agile contains
+a fundamental conflict between Business Value and User Satisfaction, stemming from the naive assumption that all
+business value comes from user satisfaction<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>. The bulk of the Scrum rituals, for example, are focused on user
+satisfaction, rather than business value. The entire process of writing user stories (shouldn&rsquo;t they really be
+<em>business</em> stories?), as well as the demos, are directly focused on increasing user satisfaction. While that is
+certainly not a bad thing, it does mean that any functionality that has business value but does not map nicely
+to user satisfaction, appears not to fit in the framework, and thus becomes a second class citizen. Practically
+the entire class of operational concerns would fall in this category. Imagine the issue of adding observability,
+or monitoring capabilities to the application, for example. While clearly of significant value to the business,
+I am fairly certain there would be a certain lack of enthusiasm from both the PO as well as the users when these
+come up in planning, or are being demonstrated at the end of the Sprint. Realistically, they are thought of as
+necessary evils, taking away development capacity for the &ldquo;real&rdquo; user stories.</p>
+
+<h5 id="business-value-in-essence-ignores-business-cost">Business Value in essence ignores Business Cost</h5>
+
+<p>In theory, work that reduces the cost of either developing the software, or (even more importantly) operating it,
+should be reflected in Business Value. But in practice, the concepts and language used by Agile create a strong
+counter-current that makes it really hard to think in such terms. We speak, for example, of &ldquo;extracting business
+value&rdquo;. When it comes to adding user stories that give the user a new capability, that mental model has an elegant
+fit: one&rsquo;s mind almost automatically wanders to the mental picture of a miner with a pickax chipping away at a
+rich vein. But try to make the mental leap to the concept of &ldquo;extracting a reduction in business cost&rdquo; and you
+will invariably end up with the mental equivalent of a face-plant. Also, how does one write a &ldquo;user&rdquo; story about
+adjusting the application to be able to use a cheaper form of disc storage?</p>
+
+<p>In a lot of respects this is just an analog of the same point as the previous one. However, I feel it deserves
+special mention because of one particular type of cost: technical debt. The most common complaint of developers
+(and one of the most common interview questions for managers) is: &ldquo;How do you convince your PO to prioritize
+technical debt?&rdquo; My answer is usually some variant of: &ldquo;You have to find a way to express the business value
+to her&rdquo;, but while that may be technically correct, it hides the fact that in reality that is extremely hard.
+The result is a strong bias to extract business value by adding functionality, and against removing costs, even
+though in theory the two should be equivalent.</p>
+
+<h5 id="agile-makes-overly-simplistic-and-unrealistic-assumptions">Agile makes overly simplistic and unrealistic assumptions</h5>
+
+<p>The most troublesome example is the idea that any team member can do any task. Agile needs this to be true in order to maintain
+the ability to schedule any user story at any time, irrespective of whether &ldquo;the people that know how to do it&rdquo; are
+on vacation, or in training, etc. If everyone knows how to do everything, then there is no problem - if a team
+member is on vacation you simply reduce the capacity of the team, and someone else will take care of the task. To me,
+however, this feels a bit like a bad physics joke: <a href="https://en.wikipedia.org/wiki/Spherical_cow" title="Spherical Cow">Assume a spherical cow in vacuum&hellip;</a> While this may
+have been a plausible stretch of the imagination back in the days where everything was done through server-side
+rendering using ASP or JSP, and one needed to know 3 technologies at most, nowadays the proposition sounds
+ludicrous. On the front end alone, one needs expertise in one or more frameworks (Angular, React, etc.), HTML5, Javscript, CSS
+and Sass, Typescript, and probably some front-end testing frame-work (e.g. Protractor). Speaking of testing, one should
+really know Selenium, and of course, the Page Object Model, plus probably some basic automation to keep everything
+running smoothly. On the back end (and assuming only a Java stack), one should know about microservices and REST,
+API design, documentation and test tools, either TestNG or Junit, probably Spring and the associated 20+ modules for doing anything from
+data persistence to authorization, most likely Spring boot and the various starters, Maven, probably an observability
+framework, SQL, database migration tools (e.g. Flyway), a large number of design patterns, plus CI/CD, containerization,
+and orchestration. The expectation that <em>every</em> person on the <em>entire</em> team will know all of this is simply
+unrealistic. Teams try to make do with <a href="https://en.wikipedia.org/wiki/T-shaped_skills" title="T-shaped Skills">T-shaped skills</a> but in reality this is already too much to even
+develop a superficial understanding of all the technologies. In reality, most teams simply deal with the fact
+that if some people are not present, some tasks cannot be performed, and the assumed spherical cow explodes
+in the vacuum, in a dramatic fashion.</p>
+
+<p>Note that that is by no means the only simplistic or unrealistic assumption that Agile makes:</p>
+
+<ul>
+<li>Bugs are supposed to be solved in the sprint in which they are found, but this assumes a predictable arrival rate.</li>
+<li>The rules assume that nothing intervenes in the running sprint, but we all know that critical bugs are not imaginary,
+and that you can&rsquo;t really predict how many you will have, so the idea that the average velocity will account for them is simplistic.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/INVEST_(mnemonic)" title="INVEST Criteria">INVEST</a> criteria for user stories aren&rsquo;t always well-defined.</li>
+<li>The assumption that all user stories can be sliced into thin vertical slices is shaky at best.</li>
+<li>The idea that you can ship small increments without building infrastructure is simplistic (imagine shipping
+anything before you build your authentication and authorization infrastructure).</li>
+</ul>
+
+<h5 id="agile-scales-very-poorly">Agile scales very poorly</h5>
+
+<p>Agile at its core effectively ignores the scenario where building something takes more than one team. Needless to say,
+this proved very quickly to be a roadblock, and people tried to bolt on frameworks such as <a href="https://www.scaledagileframework.com/" title="Scaled Agile Framework">SAFe</a> and
+<a href="https://www.scruminc.com/scrum-of-scrums/" title="Scrum of Scrums">Scrum-of-Scrums</a> to at least contain the symptoms. However, as much as we like to pretend otherwise, these frameworks are neither
+agile, nor do they deal with the core problem of dependencies between teams. In reality, they assume that dependencies
+will be scheduled in a fashion such that they are satisfied; somehow. Well, guess what: that&rsquo;s exactly how
+Waterfall does it, and it is much more efficient at it! Just have a look at a good, old-fashioned <a href="https://en.wikipedia.org/wiki/Gantt_chart" title="Gantt Chart">Gantt chart</a>.</p>
+
+<p>Either way, even the most ardent proponents of SAFe would admit that the system would collapse completely above a dozen teams
+or so. Yet there are many organizations and products that require many more people than that. Agile simply has no answer
+to the question of building software that needs thousands of people. Yet such software is not as uncommon as you would think
+(see my previous post on <a href="/blog/software_is_hard_scaling/" title="Software is Hard - Part 1: Scaling">Software Scaling</a>).</p>
+
+<h5 id="agile-is-too-dependent-on-the-quality-of-the-product-owner">Agile is too dependent on the quality of the Product Owner</h5>
+
+<p>In my experience, the success or the failure of an Agile team is almost completely dictated by how good the Product
+Owner is at her job. A good PO will manage to make even a mediocre team, with a mediocre Scrum-master, effective.
+A mediocre PO will have poor results even with a stellar team and a stellar Scrum-master. On deeper thought this is
+not surprising: almost all the critical activities have the PO as, by far, the main contributor. In particular:</p>
+
+<ul>
+<li>Determining the epics and road-map is exclusively the job of the PO.</li>
+<li>The estimation of business value (and, by extension, prioritization) is almost exclusively the domain of the PO.</li>
+<li>Writing the user stories (in a way that they meet the INVEST criteria) is primarily performed by the PO (with feedback
+from the team)</li>
+<li>Inbound interruptions (critical fixes, that one user story that is not that important but your biggest customer
+absolutely must have this sprint, etc.) land on the POs desk.</li>
+<li>The very function of Agility - changing what is built, or the priorities, to match changes in the market - is the function
+of the PO.</li>
+<li>Even the issue of technical debt eventually becomes a trade-off that the PO will get called to decide on.</li>
+</ul>
+
+<p>In the end, all of the decisions that have a large impact on success or failure are left to the PO, whereas the rest of
+the cast gets to operate in a relatively sanitized and organized environment.</p>
+
+<p>The problem with this dependence on a PO is, that such POs are hard to find and in great competition. In reality, POs become
+the weak link in the job of building a great engineering team. You may be able to attract great engineers and a great
+Scrum master at your new location, but if you can&rsquo;t match them with a solid PO, the investment will not pay off.</p>
+
+<h5 id="summing-up">Summing up</h5>
+
+<p>All in all, Agile has its place in Software Engineering, and it is a place well earned. That being said, it does have significant
+shortcomings as well, and if these are not managed, they can destroy the ability of a team to deliver great results. Acknowledging,
+understanding, and systematically tackling these shortcomings can make sure a team can deliver on the promise of Agile.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">I believe this assumption, that business value is correlated to user satisfaction, to be misguided  at best. I usually try to illustrate this, by using the example of security: there is clear business value in security, but extra security generally has an inverse correlation with user satisfaction. Another good example is the use of captchas: while certainly a necessity in some cases, they are universally hated by users (and do not even have the redeeming qualities that security has, since they are generally of neither direct nor indirect value to the user).
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/agile">Agile</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/methodology">methodology</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://ghadjiyiannis.github.io/categories/best-practice">Best Practice</a></li>
+          
+        </ul>
+      </li>
+    
+  
+  
+    <li class="tags">
+      <ul>
+        <li>None</li>
+      </ul>
+    </li>
+  
+</ul>
+
+  </footer>
+</article>
+<article class="post">
+  
+
+</article>
+<div class="pagination">
+  
+    <a href="/blog/explicit_data_schemas/" class="button big previous"><i class="fas fa-angle-left"></i> The case for explicit data schemas</a>
+  
+  
+    <a href="/blog/choosing_technologies/" class="button big next">Choosing Technologies <i class="fas fa-angle-right"></i></a>
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  <section id="recent-posts">
+    <header>
+      <h1>Recent posts</h1>
+    </header>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/drive_by_coding_antipattern/" class="image featured">
+  <img src="/img/2019/10/drive_by.jpg" alt="Drive-by">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/drive_by_coding_antipattern/">The drive-by coding anti-pattern</a></h1>
+        <time class="published" datetime="">October 30, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/culture_eats_strategy_for_breakfast/" class="image featured">
+  <img src="/img/2019/10/THIS_IS_SPARTA.jpg" alt="This is Sparta">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/culture_eats_strategy_for_breakfast/">Culture eats Strategy for breakfast</a></h1>
+        <time class="published" datetime="">October 23, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/a_different_kind_of_company_growth/" class="image featured">
+  <img src="/img/2019/10/toy_tools.jpg" alt="Toy Tools">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/a_different_kind_of_company_growth/">A different kind of company growth</a></h1>
+        <time class="published" datetime="">October 8, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/how_to_really_build_customer_centric_products/" class="image featured">
+  <img src="/img/2019/10/buttler_sized.jpg" alt="Customer Servant">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/how_to_really_build_customer_centric_products/">How to (really) build customer centric products</a></h1>
+        <time class="published" datetime="">October 2, 2019</time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+<a href="/blog/data_trumps_opinion/" class="image featured">
+  <img src="/img/2019/09/data_opinion.jpg" alt="Data versus Opinion">
+</a>
+
+
+      </section>
+      <header>
+        <h1><a href="/blog/data_trumps_opinion/">Data Trumps Opinion (every time)</a></h1>
+        <time class="published" datetime="">September 24, 2019</time>
+      </header>
+    </article>
+    
+    
+      <a href="/blog/" class="button">See more</a>
+    
+  </section>
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/best-practice/">best-practice<span class="count">7</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/methodology/">methodology<span class="count">6</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/culture/">culture<span class="count">5</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/business/">business<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/general/">general<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/software-engineering/">software-engineering<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/testing/">testing<span class="count">4</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/ci/cd/">ci/cd<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/devops/">devops<span class="count">3</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/architecture/">architecture<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/cost/">cost<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/recruiting/">recruiting<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/agile/">agile<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/anti-patterns/">anti-patterns<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/collaboration/">collaboration<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/data/">data<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/engineers/">engineers<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/innovation/">innovation<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/lean/">lean<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/product-management/">product-management<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/requirements/">requirements<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/strategy/">strategy<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/teamwork/">teamwork<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/technology/">technology<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  <section id="mini-bio">
+    <header>
+      <h1>About</h1>
+    </header>
+    <p>A brief bio</p>
+    <footer>
+      <a href="/about" class="button">Learn More</a>
+    </footer>
+  </section>
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/ghadjiyiannis" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/ghadjiyiannis" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+<li><a href="//xing.com/profile/George_Hadjiyiannis" target="_blank" rel="noopener" title="Xing" class="fab fa-xing"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:ghadjiyiannis@yahoo.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2019
+      
+        George Hadjiyiannis
+      
+    .
+    Powered by <a href="//gohugo.io" target="_blank" rel="noopener">Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/html.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/css.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/js.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/toml.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  <script src=/js/util.js></script>
+  <script src=/js/main.js></script>
+  <script src=/js/add-on.js></script>
+  
+
+
+
+    </div>
+  </body>
+</html>

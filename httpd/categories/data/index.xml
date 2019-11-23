@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data on George Hadjiyiannis</title>
+    <link>https://ghadjiyiannis.github.io/categories/data/</link>
+    <description>Recent content in Data on George Hadjiyiannis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 28 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ghadjiyiannis.github.io/categories/data/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The case for explicit data schemas</title>
+      <link>https://ghadjiyiannis.github.io/blog/explicit_data_schemas/</link>
+      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghadjiyiannis.github.io/blog/explicit_data_schemas/</guid>
+      <description>The software development Zeitgeist seems to be pointing away from the necessity of having explicit data schemas. Nowadays, designing a database schema, or even just an ER diagram, seems to be downright old-fashioned, and an activity that is viewed more as a burden or a restriction, rather than something of value. At the risk of being labeled a contrarian, I would like to make the case in favor of explicitly designing data schemas.</description>
+    </item>
+    
+  </channel>
+</rss>
