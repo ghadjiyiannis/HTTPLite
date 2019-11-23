@@ -61,7 +61,7 @@ public class ServerListener implements Runnable {
 			logger.info("Listening on port " + port);
 
 			// create a socket to listen on
-			listenSocket = new ServerSocket(8080);
+			listenSocket = new ServerSocket(port);
 			
 			// create a Thread pool to use for the workers
 			threadPool = Executors.newFixedThreadPool(poolSize);

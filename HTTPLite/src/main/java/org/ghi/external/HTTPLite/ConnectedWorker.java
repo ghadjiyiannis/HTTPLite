@@ -231,7 +231,7 @@ public class ConnectedWorker implements Runnable {
 	// respond with 403 Forbidden
 	private void respondForbidden(RawHttp http) throws ApplicationException {
 		// get the content type from the file itself
-		String contentType = "plain/text";
+		String contentType = "text/plain";
 		long contentLength = 0; 
 
 		// get the date and time of the response
@@ -258,7 +258,7 @@ public class ConnectedWorker implements Runnable {
 	// respond with 404 Not Found
 	private void respondNotFound(RawHttp http) throws ApplicationException {
 		// get the content type from the file itself
-		String contentType = "plain/text";
+		String contentType = "text/plain";
 		long contentLength = 0; 
 
 		// get the date and time of the response
@@ -285,7 +285,7 @@ public class ConnectedWorker implements Runnable {
 	// respond with 405 Method Not Allowed
 	private void respondMethodNotAllowed(RawHttp http) throws ApplicationException {
 		// get the content type from the file itself
-		String contentType = "plain/text";
+		String contentType = "text/plain";
 		long contentLength = 0; 
 
 		// get the date and time of the response
@@ -314,7 +314,7 @@ public class ConnectedWorker implements Runnable {
 		// the message can be null - fix it
 		msg = (null == msg) ? "" : msg;
 		// get the content type from the file itself
-		String contentType = "plain/text";
+		String contentType = "text/plain";
 		long contentLength = msg.length(); 
 
 		// get the date and time of the response
