@@ -16,6 +16,7 @@ An implementation of a simple web server to serve files from the local filesyste
 10. Architecturally, the code implements Inversion of Control (IoC) through a custom written injector.
 11. The tests demonstrate the use of mocking to increase coverage (especially of error conditions)
 12. There is an application log containing error, warning, info, and debug messages
+13. The server is not currently locaization intenationalization ready. This can be done at a later time. 
 
 ## Known Issues
 
@@ -44,4 +45,6 @@ Also, I chose to hand-craft the mock objects for simplicity and clarity, but on 
 1. Clone this repository.
 2. The project is maven based - you should be able to build it using maven.
 3. Adjust the config.properties file (in HTTPLite/src/main/resources) to point to the sample document root. The sample document root is the directory named httpd in the repository.
-4. Run the AllTests Junit test suite (either through maven or by invoking a different runner)
+4. Make the file "httpd/not_readable.html" not readable. How to do this will depend on your system. If this file is readable then the correspnding FileUtilTest will fail, as well as the test for a 403 Forbdden response.
+5. Run the AllTests Junit test suite (either through maven or by invoking a different runner)
+6. Bring up the root page in a browser and navigate around.
