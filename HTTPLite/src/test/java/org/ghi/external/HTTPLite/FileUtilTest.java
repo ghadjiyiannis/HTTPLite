@@ -11,7 +11,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /*
- * This implements a full unit test of FileUtil with 100% coverage
+ * This implements a full unit test of FileUtil with high coverage coverage
  */
 public class FileUtilTest {
 	// for speed, create one and use it for as many tests as possible
