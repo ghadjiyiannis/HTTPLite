@@ -36,7 +36,7 @@ public class FileUtilTest {
 	public void test_GetOK_HTMLFileFromPath() {
 		File file = fileUtil.getFileFromPath("/index.html");
 		// check that we got the right file
-		assertEquals(20611, fileUtil.getContentLength(file));
+		assertEquals(19919, fileUtil.getContentLength(file));
 	}
 	
 	@Test
@@ -81,7 +81,7 @@ public class FileUtilTest {
 	public void test_ContentLength() {
 		File file = fileUtil.getFileFromPath("/index.html");
 		// check that we got the right length
-		assertEquals(20611, fileUtil.getContentLength(file));
+		assertEquals(19919, fileUtil.getContentLength(file));
 	}
 
 	@Test
