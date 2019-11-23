@@ -17,12 +17,13 @@ An implementation of a simple web server to serve files from the local filesyste
 11. The tests demonstrate the use of mocking to increase coverage (especially of error conditions)
 12. There is an application log containing error, warning, info, and debug messages
 13. The server is not currently locaization intenationalization ready. This can be done at a later time. 
+14. The current implementation does not implement an access lof. This can be implmented later.
 
 ## Known Issues
 
 1. There seems to be some weirdness on Firefox with the favicon.ico request. As far as I can tell this is due to Firefox closing the connection before the response is sent.
 2. When the browser closes a (kept alive) connection, the RawHTTP library tries to read a request and throws an exception. This is logged but safely ignored.
-3 There seems to be no content type detector for javascript on my system so the corresponding test is ignored
+3. There seems to be no content type detector for javascript on my system so the corresponding test is ignored
 
 ## Design notes
 
