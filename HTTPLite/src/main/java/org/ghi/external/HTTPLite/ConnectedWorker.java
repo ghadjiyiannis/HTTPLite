@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.Optional;
 import static java.time.format.DateTimeFormatter.RFC_1123_DATE_TIME;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import rawhttp.core.RawHttp;
@@ -35,7 +36,7 @@ public class ConnectedWorker implements Runnable {
 	private boolean keepalive;
 	private IFileUtil fileUtil;
 
-	public ConnectedWorker(IApplicationInjector injector, Logger logger, Socket clientSocket)
+	public ConnectedWorker(IApplicationInjector injector, Socket clientSocket)
 			throws ApplicationException {
 
 		// sanity check the inputs
@@ -43,14 +44,12 @@ public class ConnectedWorker implements Runnable {
 			throw new ApplicationException("Injector cannot be null!");
 		this.injector = injector;
 
-		if (null == logger)
-			throw new ApplicationException("Logger cannot be null!");
-		this.logger = logger;
-
 		if (null == clientSocket)
 			throw new ApplicationException("Client socket is null!");
 		this.clientSocket = clientSocket;
 
+		logger = LogManager.getLogger(ConnectedWorker.class);
+		
 		// create an IFileUtil we can use locally
 		fileUtil = this.injector.getFileUtil();
 	}

@@ -7,6 +7,7 @@ import java.net.SocketException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
@@ -34,16 +35,12 @@ public class ServerListener implements Runnable {
 	private ServerSocket listenSocket;
 	private ExecutorService threadPool;
 
-	public ServerListener(IApplicationInjector injector, Logger logger, int port, int poolSize) throws ApplicationException {
+	public ServerListener(IApplicationInjector injector, int port, int poolSize) throws ApplicationException {
 		
 		// sanity check the inputs
 		if (null == injector)
 			throw new ApplicationException("Injector cannot be null!");
 		this.injector = injector;
-		
-		if (null == logger)
-			throw new ApplicationException("Logger cannot be null!");
-		this.logger = logger;
 
 		if (port < 0)
 			throw new ApplicationException("Invalid port " + port);
@@ -52,6 +49,8 @@ public class ServerListener implements Runnable {
 		if (poolSize < 1)
 			throw new ApplicationException("Invalid pool size " + poolSize);
 		this.poolSize = poolSize;
+		
+		logger = LogManager.getLogger(ServerListener.class);
 	}
 
 	public void run() {
@@ -75,7 +74,7 @@ public class ServerListener implements Runnable {
 				/*
 				 * NOTE: the worker is responsible for closing the clientSocket
 				 */
-				Runnable worker = injector.getWorker(logger, clientSocket);
+				Runnable worker = injector.getWorker(clientSocket);
 				// and execute in our thread pool
 				threadPool.execute(worker);
 			}

@@ -1,6 +1,8 @@
 package org.ghi.external.HTTPLite;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,8 +12,6 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.Properties;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -24,15 +24,12 @@ import rawhttp.core.RawHttpResponse;
 public class IntegrationTest {
 	// instances we will be using for all the tests 
 	private static IApplicationInjector injector;
-	private static Logger logger;
 	private static ServerListener server;
 	private static RawHttp http;
 	private static IFileUtil fileUtil;
 
 	@BeforeClass
 	public static void beforeClass() throws ApplicationException {
-		// the server will need a valid logger
-		logger = LogManager.getLogger(IntegrationTest.class);
 		// lets use the same config as the application
 		Properties properties = HTTPLite.getConfigPropertiesFromClasspath();
 		// extract Document Root
@@ -40,7 +37,7 @@ public class IntegrationTest {
 		
 		// create an injector
 		injector = new ApplicationInjector(documentRoot);
-		server = (ServerListener)injector.getServerListener(logger, 8080, 10);
+		server = (ServerListener)injector.getServerListener(8080, 10);
 		
 		// start the server on a different thread (we need this one to go on)
 		Thread t = new Thread(server);
@@ -60,22 +57,17 @@ public class IntegrationTest {
 
 	@Test(expected=ApplicationException.class)
 	public void test_ThrowsWhen_InjectorNull() throws ApplicationException {
-		new ServerListener(null, logger, 8081, 10);
-	}
-
-	@Test(expected=ApplicationException.class)
-	public void test_ThrowsWhen_LoggerNull() throws ApplicationException {
-		new ServerListener(injector, null, 8081, 10);
+		new ServerListener(null, 8081, 10);
 	}
 
 	@Test(expected=ApplicationException.class)
 	public void test_ThrowsWhen_PortInvalid() throws ApplicationException {
-		new ServerListener(injector, logger, -1, 10);
+		new ServerListener(injector, -1, 10);
 	}
 
 	@Test(expected=ApplicationException.class)
 	public void test_ThrowsWhen_PoolSizeInvalid() throws ApplicationException {
-		new ServerListener(null, logger, 8081, 0);
+		new ServerListener(null, 8081, 0);
 	}
 
 	@Test
@@ -302,7 +294,7 @@ public class IntegrationTest {
 	public void test_InternalServerError_WithMock() throws ApplicationException, IOException {
 		// first let's get a new Server on a new port
 		injector = new MockInjector();
-		ServerListener s = (ServerListener)injector.getServerListener(logger, 8085, 10);
+		ServerListener s = (ServerListener)injector.getServerListener(8085, 10);
 		
 		// start the server on a different thread (we need this one to go on)
 		Thread t = new Thread(s);
@@ -351,12 +343,12 @@ public class IntegrationTest {
 	 */
 	public class MockInjector implements IApplicationInjector {
 
-		public Runnable getServerListener(Logger logger, int port, int poolSize) throws ApplicationException {
-			return new ServerListener(this, logger, port, poolSize);
+		public Runnable getServerListener(int port, int poolSize) throws ApplicationException {
+			return new ServerListener(this, port, poolSize);
 		}
 
-		public Runnable getWorker(Logger logger, Socket socket) throws ApplicationException {
-			return new ConnectedWorker(this, logger, socket);
+		public Runnable getWorker(Socket socket) throws ApplicationException {
+			return new ConnectedWorker(this, socket);
 		}
 
 		public IFileUtil getFileUtil() throws ApplicationException {

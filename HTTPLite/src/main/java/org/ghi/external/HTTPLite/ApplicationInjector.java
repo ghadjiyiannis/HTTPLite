@@ -2,8 +2,6 @@ package org.ghi.external.HTTPLite;
 
 import java.net.Socket;
 
-import org.apache.logging.log4j.Logger;
-
 /**
  * An implementation of an injector to implement Inversion of Control (IoC)
  * 
@@ -21,12 +19,12 @@ public class ApplicationInjector implements IApplicationInjector {
 		this.documentRoot = documentRoot;
 	}
 
-	public Runnable getServerListener(Logger logger, int port, int poolSize) throws ApplicationException {
-		return new ServerListener(this, logger, port, poolSize);
+	public Runnable getServerListener(int port, int poolSize) throws ApplicationException {
+		return new ServerListener(this, port, poolSize);
 	}
 
-	public Runnable getWorker(Logger logger, Socket clientSocket) throws ApplicationException {
-		return new ConnectedWorker(this, logger, clientSocket);
+	public Runnable getWorker(Socket clientSocket) throws ApplicationException {
+		return new ConnectedWorker(this, clientSocket);
 	}
 
 	public IFileUtil getFileUtil() throws ApplicationException {

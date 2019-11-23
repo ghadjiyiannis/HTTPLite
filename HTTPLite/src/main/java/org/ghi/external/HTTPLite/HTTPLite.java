@@ -51,7 +51,7 @@ public class HTTPLite
 			IApplicationInjector injector = new ApplicationInjector(documentRoot);
 			
 			// get a ServerListener from the injector, and start it up
-			Runnable serverListener = injector.getServerListener(logger, port, poolSize);
+			Runnable serverListener = injector.getServerListener(port, poolSize);
 			serverListener.run();
 			
 			// note that currently this has no real way of shutting down other than error
