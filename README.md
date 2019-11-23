@@ -37,7 +37,7 @@ Although implemented exclusively in Junit 4, the testing is a mixture of unit te
 1. It provides good coverage without large amounts of effort invested in mocking.
 2. It demonstrates both types of testing well. 
 
-When it comes to mocking, I have illustreated the concept by mocking only the FileUtil class and injecting it in some tests to show how one can use mocking to test conditions that are otherwise difficult to test (especially error conditions). In reality, I would use mocking more extensively to increase coverage, and to make sure the tests remain robust in the face of changes to the code. 
+When it comes to mocking, I have illustrated the concept by mocking only the FileUtil class and injecting it in some tests to show how one can use mocking to test conditions that are otherwise difficult to test (especially error conditions). In reality, I would use mocking more extensively to increase coverage, and to make sure the tests remain robust in the face of changes to the code. 
 
 Also, I chose to hand-craft the mock objects for simplicity and clarity, but on a bigger project I would once again use a mocking framework (perhaps mockito).
 
