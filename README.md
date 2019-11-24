@@ -49,3 +49,5 @@ Also, I chose to hand-craft the mock objects for simplicity and clarity, but on 
 4. Make the file "httpd/not_readable.html" not readable. How to do this will depend on your system. If this file is readable then the corresopnding FileUtilTest will fail, as well as the test for a 403 Forbdden response.
 5. Run the AllTests Junit test suite (either through maven or by invoking a different runner)
 6. Bring up the root page in a browser and navigate around.
+
+NOTE: Some of the tests check the length of file. This can vary depending on how you have git configured (CRLF convention). If the tests fail only where they check file lengths, you may want to switch your CRLF settings
