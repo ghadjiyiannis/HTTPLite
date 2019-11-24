@@ -36,21 +36,21 @@ public class FileUtilTest {
 	public void test_GetOK_HTMLFileFromPath() {
 		File file = fileUtil.getFileFromPath("/index.html");
 		// check that we got the right file
-		assertEquals(19919, fileUtil.getContentLength(file));
+		assertEquals(20636, fileUtil.getContentLength(file));
 	}
 	
 	@Test
 	public void test_GetOK_DeepHTMLFileFromPath() {
 		File file = fileUtil.getFileFromPath("/blog/its_a_start/index.html");
 		// check that we got the right file
-		assertEquals(18358, fileUtil.getContentLength(file));
+		assertEquals(18396, fileUtil.getContentLength(file));
 	}
 	
 	@Test
 	public void test_GetOK_ImplicitHTMLFileFromPath() {
 		File file = fileUtil.getFileFromPath("/blog/its_a_start");
 		// check that we got the right file
-		assertEquals(18358, fileUtil.getContentLength(file));
+		assertEquals(18396, fileUtil.getContentLength(file));
 	}
 
 	@Test
@@ -81,7 +81,7 @@ public class FileUtilTest {
 	public void test_ContentLength() {
 		File file = fileUtil.getFileFromPath("/index.html");
 		// check that we got the right length
-		assertEquals(19919, fileUtil.getContentLength(file));
+		assertEquals(20636, fileUtil.getContentLength(file));
 	}
 
 	@Test

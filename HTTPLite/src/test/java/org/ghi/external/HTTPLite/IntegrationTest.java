@@ -78,7 +78,7 @@ public class IntegrationTest {
 		// check content length
 		Optional<String> contentLength = response.getHeaders().getFirst("Content-Length");
 		assertTrue(contentLength.isPresent());
-		assertEquals("19919", contentLength.get());
+		assertEquals("20636", contentLength.get());
 		// check content type
 		Optional<String> contentType = response.getHeaders().getFirst("Content-Type");
 		assertTrue(contentType.isPresent());
@@ -93,7 +93,7 @@ public class IntegrationTest {
 		// check content length
 		Optional<String> contentLength = response.getHeaders().getFirst("Content-Length");
 		assertTrue(contentLength.isPresent());
-		assertEquals("18358", contentLength.get());
+		assertEquals("18396", contentLength.get());
 		// check content type
 		Optional<String> contentType = response.getHeaders().getFirst("Content-Type");
 		assertTrue(contentType.isPresent());
@@ -108,7 +108,7 @@ public class IntegrationTest {
 		// check content length
 		Optional<String> contentLength = response.getHeaders().getFirst("Content-Length");
 		assertTrue(contentLength.isPresent());
-		assertEquals("19919", contentLength.get());
+		assertEquals("20636", contentLength.get());
 		// check content type
 		Optional<String> contentType = response.getHeaders().getFirst("Content-Type");
 		assertTrue(contentType.isPresent());
